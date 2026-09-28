@@ -59,3 +59,33 @@ __CF$cv$params token. hub-lst (LST vs Korea) still shows 700/1000 Krao, 1400/160
 Method note: web_extract and web_search both return HTTP 402 (Firecrawl balance); use curl for
 source fetches, and `curl https://r.jina.ai/<url-encoded-url>` with `X-Return-Format: markdown`
 to render the PlayNC notice list (one retry cleared the Cloudflare challenge).
+
+---
+
+## 28 Sep 2026 global-watch check — patched and pushed
+
+Source churn this run, normalized: the five Codex articles are byte-identical to the 27 Sep check; the
+Failure Guild doc moved 51 bytes again (embedded image re-encode, text unchanged); both Questlog hashes
+moved with identical byte counts (Cloudflare token churn, same as previous runs); the PlayNC notice list
+moved only its server `now` timestamp, and its rendered newest post is still 19 Sep.
+
+Real change: the Questlog character build `character-builder/TokenOfTheSpirit` is gone — the rendered page
+answers "The character you're looking for doesn't exist. It might have been deleted or the link you followed
+is invalid." That link was on the Sources page as "Questlog board", and the Skills page leaned on it as the
+stand-in for the empty character-builder Skills tab. Both rows now point at the Skill Builder builds
+(`?build-id=2233` PvE, `?build-id=1650` PvP), which are live and tagged Global. Note Questlog now exposes
+`en-nc` / `ko-nc` / `zh-nc` locales labelled [KR/TW]: stay on `/en/` for global data.
+
+Added two prep rows from NC's own global notice ("Launch Scale Test Comes to a Close: What's Next?", 19 Sep 2026):
+- Install: Steam testers must uninstall the Playtest app and download AION 2 again for Advanced Access on
+  Sep 30; the test entry was a separate Steam app (hub: app 4972320) and does not update into the retail
+  client. PURPLE players need no steps. No pre-download window is posted for EA or launch.
+- Queue: members in good standing join the priority queue at capacity; NC calls it a privilege, not a
+  guarantee, and can revoke it for disciplinary action.
+
+Nothing KR/TW-only was added. Open items 1-5 above still stand, including the item-level gate question
+(Krao 700 global vs 1000 KR/TW) and the need to read PlayNC through a renderer.
+
+Method: `web_extract` worked this run (Firecrawl was 402 on 27 Sep). PlayNC list/article render fine through
+`https://r.jina.ai/<url>`; the board's own API host (`api-global-community.plaync.com`) needs the site's
+createBoard signing, so use the renderer.
