@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aion 2 · Cleric 1–45 Route</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0b0c0a;
+    --bg-2: #12130f;
+    --panel: #171811;
+    --ink: #efe9d4;
+    --muted: #9b947c;
+    --line: #2a2b22;
+    --gold: #d4a017;
+    --gold-2: #f0c14b;
+    --msq: #e6c04a;
+    --side: #6aaa62;
+    --seal: #d4783a;
+    --kisk: #b8b3a4;
+    --done: #6aaa62;
+    --danger: #c45c3a;
+    --focus: #efe9d4;
+    --type: "Barlow", sans-serif;
+    --cond: "Barlow Condensed", sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, monospace;
+    --pad: 18px;
+    --rail: 220px;
+    --right: 248px;
+  }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; margin: 0; background: var(--bg); color: var(--ink); font-family: var(--type); }
+  body { display: grid; grid-template-rows: auto 1fr; min-height: 100dvh; }
+  button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+  a { color: var(--gold-2); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .top {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 16px;
+    align-items: end;
+    padding: 14px 20px 12px;
+    border-bottom: 1px solid var(--line);
+    background: var(--bg-2);
+  }
+  .kicker {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin: 0 0 4px;
+  }
+  .next-label { font-size: 12px; color: var(--muted); letter-spacing: .08em; text-transform: uppercase; margin: 0 0 2px; }
+  .next {
+    font-family: var(--cond);
+    font-weight: 700;
+    font-size: clamp(28px, 3.4vw, 44px);
+    line-height: .95;
+    letter-spacing: .01em;
+    margin: 0;
+    text-wrap: pretty;
+    max-width: 58ch;
+  }
+  .top-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+    min-width: 280px;
+  }
+  .progress-wrap { width: 280px; }
+  .progress-row { display: flex; justify-content: space-between; font-family: var(--mono); font-size: 11px; color: var(--muted); margin-bottom: 6px; }
+  .bar { height: 4px; background: #2c2d24; }
+  .bar > i { display: block; height: 100%; width: 0; background: var(--gold); }
+  .tools { display: flex; gap: 8px; }
+  .tools button, .kbd-hint {
+    border: 1px solid var(--line);
+    padding: 7px 10px;
+    font-size: 12px;
+    color: var(--muted);
+    min-height: 36px;
+  }
+  .tools button:hover, .tools button:focus-visible { border-color: var(--gold); color: var(--ink); outline: none; }
+
+  .shell {
+    display: grid;
+    grid-template-columns: var(--rail) 1fr var(--right);
+    min-height: 0;
+  }
+  .phases {
+    border-right: 1px solid var(--line);
+    padding: 10px 8px;
+    overflow: auto;
+    background: var(--bg-2);
+  }
+  .phase-btn {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 28px 1fr auto;
+    gap: 8px;
+    align-items: center;
+    text-align: left;
+    padding: 10px 10px;
+    min-height: 52px;
+    border: 1px solid transparent;
+    color: var(--muted);
+  }
+  .phase-btn .n {
+    font-family: var(--cond);
+    font-size: 22px;
+    font-weight: 700;
+    color: inherit;
+  }
+  .phase-btn .t { font-size: 13px; font-weight: 600; color: var(--ink); }
+  .phase-btn .s { font-family: var(--mono); font-size: 11px; }
+  .phase-btn.active { border-color: var(--gold); background: #1c1d14; color: var(--gold); }
+  .phase-btn.complete .t { color: var(--done); }
+  .nav-extra { margin-top: 14px; padding-top: 4px; border-top: 1px solid var(--line); }
+  .nav-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    padding: 12px 10px 2px;
+  }
+  .nav-extra button {
+    width: 100%;
+    text-align: left;
+    padding: 10px;
+    min-height: 44px;
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .nav-extra button.active, .nav-extra button:hover { color: var(--ink); }
+
+  .main { overflow: auto; padding: 18px 22px 40px; }
+  .part {
+    margin: 0 0 22px;
+  }
+  .part h2 {
+    font-family: var(--cond);
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    margin: 0 0 4px;
+  }
+  .part p.note { margin: 0 0 10px; color: var(--muted); font-size: 14px; max-width: 62ch; }
+  .item {
+    display: grid;
+    grid-template-columns: 28px 1fr;
+    gap: 10px;
+    align-items: start;
+    padding: 9px 6px;
+    border-bottom: 1px solid #22231b;
+    cursor: pointer;
+    min-height: 44px;
+  }
+  .item:hover { background: #15160f; }
+  .item.current { background: #1e1d12; outline: 1px solid #3a3418; }
+  .item.done .txt { color: var(--muted); text-decoration: line-through; text-decoration-thickness: 1px; }
+  .box {
+    width: 18px; height: 18px; margin-top: 3px;
+    border: 1.5px solid var(--gold);
+    background: transparent;
+  }
+  .item.done .box { background: var(--gold); }
+  .tag {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    padding: 1px 6px;
+    margin-right: 6px;
+    border: 1px solid currentColor;
+    vertical-align: 1px;
+  }
+  .tag.msq { color: var(--msq); }
+  .tag.side { color: var(--side); }
+  .tag.seal { color: var(--seal); }
+  .tag.kisk { color: var(--kisk); }
+  .tag.gear { color: var(--gold-2); }
+  .tag.skill { color: #8eb4d4; }
+  .txt { font-size: 16px; line-height: 1.35; }
+  .sub { display: block; color: var(--muted); font-size: 13px; margin-top: 3px; font-weight: 400; text-decoration: none; }
+
+  .right {
+    border-left: 1px solid var(--line);
+    background: var(--bg-2);
+    padding: 14px 14px 24px;
+    overflow: auto;
+  }
+  .right h3 {
+    font-family: var(--cond);
+    font-size: 16px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    margin: 0 0 10px;
+    color: var(--gold);
+  }
+  ol.down {
+    margin: 0 0 22px;
+    padding: 0;
+    list-style: none;
+    counter-reset: d;
+  }
+  ol.down li {
+    counter-increment: d;
+    display: grid;
+    grid-template-columns: 22px 1fr;
+    gap: 8px;
+    padding: 7px 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 14px;
+  }
+  ol.down li::before {
+    content: counter(d);
+    font-family: var(--cond);
+    font-weight: 700;
+    color: var(--gold);
+  }
+  .legend { font-size: 13px; color: var(--muted); display: grid; gap: 6px; margin-bottom: 22px; }
+  .legend b { color: var(--ink); font-weight: 600; }
+  .links { display: grid; gap: 8px; font-size: 13px; }
+  .hint { margin-top: 22px; color: var(--muted); font-size: 12px; line-height: 1.45; }
+  kbd {
+    font-family: var(--mono);
+    font-size: 10px;
+    border: 1px solid var(--line);
+    padding: 1px 5px;
+    color: var(--ink);
+  }
+
+  .hidden { display: none !important; }
+  .cleric-block h2 {
+    font-family: var(--cond);
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    margin: 22px 0 2px;
+  }
+  .cleric-block ul { margin: 0 0 8px; padding-left: 18px; color: var(--ink); }
+  .cleric-block li { margin: 4px 0; font-size: 15px; }
+  .cleric-block p { color: var(--muted); font-size: 14px; max-width: 68ch; margin: 6px 0; }
+  .cleric-block b { color: var(--ink); font-weight: 600; }
+  .row {
+    display: grid;
+    grid-template-columns: 7.4rem 1fr;
+    gap: 2px 14px;
+    padding: 8px 0;
+    border-bottom: 1px solid #22231b;
+    align-items: start;
+  }
+  .row .k {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: var(--gold);
+    padding-top: 4px;
+  }
+  .row .do { font-size: 16px; line-height: 1.3; }
+  .why { display: block; color: var(--muted); font-size: 13px; font-weight: 400; margin-top: 2px; }
+  .steps { list-style: none; margin: 0; padding: 0; counter-reset: step; }
+  .steps > li {
+    display: grid;
+    grid-template-columns: 2rem 1fr;
+    gap: 8px;
+    padding: 10px 0;
+    border-bottom: 1px solid #22231b;
+    font-size: 17px;
+    line-height: 1.3;
+  }
+  .steps > li::before {
+    counter-increment: step;
+    content: counter(step);
+    font-family: var(--cond);
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .steps > li > .why { grid-column: 2; max-width: 62ch; }
+  .macro { list-style: none; margin: 0 0 8px; padding: 0; counter-reset: mac; }
+  .macro li {
+    display: flex;
+    gap: 12px;
+    align-items: baseline;
+    font-family: var(--cond);
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1.1;
+    padding: 5px 0;
+    border-bottom: 1px solid #22231b;
+  }
+  .macro li::before {
+    counter-increment: mac;
+    content: counter(mac);
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--gold);
+    width: 1.1rem;
+  }
+  details.more { margin: 14px 0; color: var(--muted); }
+  details.more summary { cursor: pointer; color: var(--gold-2); font-size: 13px; }
+  .map {
+    display: block;
+    width: 100%;
+    max-width: 1100px;
+    height: auto;
+    margin: 8px 0 4px;
+    border: 1px solid var(--line);
+    cursor: zoom-in;
+    background: #0a0a08;
+  }
+  .map-cap { font-size: 12px; color: var(--muted); margin: 0 0 12px; }
+  .map.zoom {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    max-width: none;
+    object-fit: contain;
+    z-index: 80;
+    margin: 0;
+    border: 0;
+    cursor: zoom-out;
+    background: #050504;
+  }
+
+  @media (max-width: 1100px) {
+    .shell { grid-template-columns: 1fr; }
+    .phases { display: flex; overflow-x: auto; border-right: 0; border-bottom: 1px solid var(--line); }
+    .phase-btn { min-width: 160px; }
+    .right { border-left: 0; border-top: 1px solid var(--line); display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+  }
+</style>
+</head>
+<body>
+  <header class="top">
+    <div>
+      <p class="kicker" id="kicker">Phase 1 · Levels 1–9</p>
+      <p class="next-label">Now</p>
+      <h1 class="next" id="now">Follow the yellow main story</h1>
+    </div>
+    <div class="top-meta">
+      <div class="progress-wrap">
+        <div class="progress-row"><span id="pct">0%</span><span id="count">0 / 0</span></div>
+        <div class="bar"><i id="bar"></i></div>
+      </div>
+      <div class="tools">
+        <button type="button" id="btn-prev" title="Previous phase">← Phase</button>
+        <button type="button" id="btn-next" title="Next phase">Phase →</button>
+        <button type="button" id="btn-reset">Reset checks</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="shell">
+    <nav class="phases" id="phase-nav" aria-label="Phases"></nav>
+
+    <main class="main" id="main"></main>
+
+    <aside class="right">
+      <h3>Downtime</h3>
+      <ol class="down">
+        <li>Weapon to +5</li>
+        <li>Accessories to +5</li>
+        <li>Daevanion nodes</li>
+        <li>Primary damage skills</li>
+        <li>Stigmas (from 22)</li>
+        <li>Titles</li>
+        <li>Claim achievements</li>
+      </ol>
+      <h3>Legend</h3>
+      <div class="legend">
+        <div><span class="tag msq">MSQ</span> <b>Yellow</b> main story</div>
+        <div><span class="tag side">Side</span> <b>Green</b> quests</div>
+        <div><span class="tag seal">Seal</span> sealed dungeons</div>
+        <div><span class="tag kisk">Kisk</span> teleport unlocks</div>
+      </div>
+      <h3>VOD</h3>
+      <div class="links" id="vod-links"></div>
+      <p class="hint">
+        Keys: <kbd>1</kbd>–<kbd>5</kbd> route · <kbd>P</kbd> start · <kbd>C</kbd> skills · <kbd>D</kbd> Daevanion · <kbd>A</kbd> at 45<br>
+        <kbd>J</kbd>/<kbd>K</kbd> items · <kbd>Space</kbd> check · <kbd>[</kbd>/<kbd>]</kbd> phase. Checks save in this browser.
+      </p>
+    </aside>
+  </div>
+
+<script src="pages.js"></script>
+<script>
+const VOD = "https://youtu.be/Oz5mIrtiWz8";
+const DOC = "https://docs.google.com/document/d/1zfmmmebLIZ9BxHTQbhBIT7VKMMqncVzADf1K8NEtamA/edit";
+const KEY = "aion2-cleric-45-v1";
+
+const PHASES = [
+  {
+    id: "p1",
+    n: "1",
+    title: "Levels 1–9",
+    vod: "0:00",
+    vodSec: 0,
+    parts: [
+      {
+        h: "Tutorial → first zone",
+        note: "No detours. Yellow only.",
+        items: [
+          { tag: "msq", t: "Follow the core MSQ until you leave the tutorial and hit ~10." }
+        ]
+      }
+    ]
+  },
+  {
+    id: "p2",
+    n: "2",
+    title: "Levels 10–16",
+    vod: "0:15:00",
+    vodSec: 15 * 60,
+    parts: [
+      {
+        h: "Part 1 — MSQ + first seals",
+        note: "Push yellow, peel for nearby sealed dungeons.",
+        map: "maps/p2-1.webp",
+        items: [
+          { tag: "msq", t: "MSQ push through the first overworld stretch." },
+          { tag: "seal", t: "Clear seal-dungeon detours on the route (do not backtrack later)." }
+        ]
+      },
+      {
+        h: "Part 2 — first skill 8s",
+        note: "You get your first level-8 skills here.",
+        map: "maps/p2-2.webp",
+        items: [
+          { tag: "msq", t: "Keep MSQ moving." },
+          { tag: "seal", t: "Hit the remaining seals on this map slice." },
+          { tag: "skill", t: "Cleric: dump points into Earth’s Retribution and Judgment Thunder. First specialties land at character 19 — stay capped until then." }
+        ]
+      }
+    ]
+  },
+  {
+    id: "p3",
+    n: "3",
+    title: "Levels 17–21",
+    vod: "0:15:00",
+    vodSec: 15 * 60,
+    parts: [
+      {
+        h: "Part 1 — Safe Haven",
+        map: "maps/p3-1.webp",
+        items: [
+          { tag: "side", t: "Take all Safe Haven green quests and follow the pathing." }
+        ]
+      },
+      {
+        h: "Part 2 — Silent Hill",
+        map: "maps/p3-2.webp",
+        items: [
+          { tag: "msq", t: "Focus MSQ through Silent Hill." },
+          { tag: "seal", t: "Do the 4 seal dungeons on the way." }
+        ]
+      },
+      {
+        h: "Part 3 — turn-in + gear",
+        map: "maps/p3-3.webp",
+        items: [
+          { tag: "side", t: "Safe Haven pickup: finish remaining greens." },
+          { tag: "gear", t: "Equip new accessories and enhance all of them to +5." },
+          { tag: "msq", t: "Recall / teleport back and turn in pending quests." },
+          { tag: "gear", t: "Equip the smite title from monolith feathers." }
+        ]
+      }
+    ]
+  },
+  {
+    id: "p4",
+    n: "4",
+    title: "Levels 22–32",
+    vod: "1:15:00",
+    vodSec: 75 * 60,
+    parts: [
+      {
+        h: "Part 1 — zone entry",
+        note: "MSQ + seals only. After arrow 15 you get the Ascension quest for Stigmas.",
+        map: "maps/p4-1.webp",
+        items: [
+          { tag: "msq", t: "MSQ + seals on the way into the new zone." },
+          { tag: "skill", t: "After arrow 15: do Ascension, unlock Stigmas. Equip and start leveling them — one shard every level from here." },
+          { tag: "skill", t: "Cleric: Earth’s Grace to 10 the moment you learn it at 21. Both clicks can hit 10 at 25." }
+        ]
+      },
+      {
+        h: "Part 2 — last seals before 45",
+        map: "maps/p4-2.webp",
+        items: [
+          { tag: "msq", t: "Follow MSQ." },
+          { tag: "seal", t: "Do the last 3 seal dungeons. You will not do more until 45." }
+        ]
+      },
+      {
+        h: "Part 3 — kisks",
+        map: "maps/p4-3.webp",
+        items: [
+          { tag: "kisk", t: "Follow MSQ and take every kisk. This saves a lot of time later." }
+        ]
+      },
+      {
+        h: "Part 4 — first rune (after Urugugu wings)",
+        note: "VOD ~1:44. Do this immediately after the wings.",
+        items: [
+          { tag: "msq", t: "Finish Urugugu and get the wings." },
+          { tag: "side", t: "Teleport to Nornir Assembly → left side → Hugo Mercs pt.2 chain." },
+          { tag: "side", t: "Teleport to Abandoned Site → local side quest → Rune 1." },
+          { tag: "gear", t: "Inventory → socket Rune 1 → upgrade to +1." }
+        ]
+      }
+    ]
+  },
+  {
+    id: "p5",
+    n: "5",
+    title: "Levels 33–45",
+    vod: "2:27:00",
+    vodSec: 147 * 60,
+    parts: [
+      {
+        h: "Pure MSQ + 2nd rune",
+        note: "Only greens that sit on the MSQ path. Fire Temple ~2:27, final push ~3:01.",
+        items: [
+          { tag: "msq", t: "From 33 on: 100% MSQ except the rune detour below." },
+          { tag: "side", t: "After 3rd Ascension (The One Who Dreams): Hugo Mercs pt.3 in Briskwind Shelter → 2nd rune." },
+          { tag: "msq", t: "Then full MSQ to 45." }
+        ]
+      },
+      {
+        h: "Kisk notes (easy to miss)",
+        items: [
+          { tag: "kisk", t: "Powder of Death: after 5 Insectoids + 2 lost bags → kisk Amunta’s Hideout." },
+          { tag: "kisk", t: "Lake of Confrontation: after Blades Supply Storage, leave the door, fly EAST into the fog → kisk Idun’s Lake." },
+          { tag: "kisk", t: "An Ill Fate’s Resolution: before diving into the lake, fly over → kisk Steel Hammer Temp. Trading Post." },
+          { tag: "kisk", t: "Daybreak Society Rescue: after talking to Nemon to distract Black Claw → kisk Kumrica’s Cellar." },
+          { tag: "kisk", t: "After the instance atop the tree, when you must talk to Nemon → kisk SOUTH, Impetusium Lower Path." }
+        ]
+      }
+    ]
+  }
+];
+
+function vodUrl(sec) {
+  return "https://www.youtube.com/watch?v=Oz5mIrtiWz8&t=" + sec + "s";
+}
+
+const state = {
+  view: "p1",
+  checks: {},
+  cursor: 0
+};
+
+function load() {
+  try {
+    const raw = localStorage.getItem(KEY);
+    if (raw) Object.assign(state.checks, JSON.parse(raw).checks || {});
+  } catch (e) {}
+}
+function save() {
+  localStorage.setItem(KEY, JSON.stringify({ checks: state.checks }));
+}
+
+function allItems() {
+  const out = [];
+  PHASES.forEach(p => p.parts.forEach((part, pi) => part.items.forEach((_, ii) => out.push(p.id + ":" + pi + ":" + ii))));
+  return out;
+}
+function itemId(phaseId, pi, ii) { return phaseId + ":" + pi + ":" + ii; }
+
+function phaseProgress(p) {
+  let total = 0, done = 0;
+  p.parts.forEach((part, pi) => part.items.forEach((_, ii) => {
+    total++;
+    if (state.checks[itemId(p.id, pi, ii)]) done++;
+  }));
+  return { total, done };
+}
+
+function renderNav() {
+  const nav = document.getElementById("phase-nav");
+  nav.innerHTML = PHASES.map(p => {
+    const { total, done } = phaseProgress(p);
+    const complete = done === total && total > 0;
+    const active = state.view === p.id ? " active" : "";
+    return `<button class="phase-btn${active}${complete ? " complete" : ""}" data-view="${p.id}">
+      <span class="n">${p.n}</span>
+      <span><span class="t">${p.title}</span><br><span class="s">${done}/${total} · VOD ${p.vod}</span></span>
+    </button>`;
+  }).join("") + `<div class="nav-extra">
+    ${[
+      ["While you level", [["prep","Start"],["cleric","Skills"],["systems","Daevanion"]]],
+      ["At cap", [["stats","Stats"],["after","At 45"]]],
+      ["Reference", [["shop","Cash shop"],["watch","KR traps"],["links","Sources"]]]
+    ].map(([label, items]) =>
+      `<div class="nav-label">${label}</div>` +
+      items.map(([id, name]) =>
+        `<button data-view="${id}" class="${state.view === id ? "active" : ""}">${name}</button>`
+      ).join("")
+    ).join("")}
+  </div>`;
+  nav.querySelectorAll("[data-view]").forEach(btn => {
+    btn.addEventListener("click", () => { state.view = btn.dataset.view; state.cursor = 0; render(); });
+  });
+}
+
+function currentNext() {
+  for (const p of PHASES) {
+    for (let pi = 0; pi < p.parts.length; pi++) {
+      for (let ii = 0; ii < p.parts[pi].items.length; ii++) {
+        const id = itemId(p.id, pi, ii);
+        if (!state.checks[id]) {
+          return { phase: p, text: p.parts[pi].items[ii].t };
+        }
+      }
+    }
+  }
+  return { phase: PHASES[PHASES.length - 1], text: "45. You are done with the route." };
+}
+
+function renderMain() {
+  const main = document.getElementById("main");
+  if (PAGES[state.view]) {
+    const pg = PAGES[state.view];
+    main.innerHTML = pg.html;
+    document.getElementById("kicker").textContent = pg.kicker;
+    document.getElementById("now").textContent = pg.now;
+    document.querySelectorAll(".map").forEach(img => {
+      img.addEventListener("click", () => img.classList.toggle("zoom"));
+    });
+    return;
+  }
+  const p = PHASES.find(x => x.id === state.view) || PHASES[0];
+  const ids = [];
+  p.parts.forEach((part, pi) => part.items.forEach((_, ii) => ids.push(itemId(p.id, pi, ii))));
+  if (state.cursor >= ids.length) state.cursor = 0;
+
+  main.innerHTML = p.parts.map((part, pi) => {
+    const rows = part.items.map((it, ii) => {
+      const id = itemId(p.id, pi, ii);
+      const done = !!state.checks[id];
+      const cur = ids[state.cursor] === id ? " current" : "";
+      return `<div class="item${done ? " done" : ""}${cur}" data-id="${id}">
+        <span class="box" aria-hidden="true"></span>
+        <span class="txt"><span class="tag ${it.tag}">${it.tag}</span>${it.t}</span>
+      </div>`;
+    }).join("");
+    const map = part.map ? `<img class="map" src="${part.map}" alt="${part.h} route map" width="1280" height="960"><p class="map-cap">Failure Guild route map · click to enlarge</p>` : "";
+    return `<section class="part">
+      <h2>${part.h}</h2>
+      ${part.note ? `<p class="note">${part.note}</p>` : ""}
+      ${map}
+      ${rows}
+    </section>`;
+  }).join("");
+
+  main.querySelectorAll(".item").forEach(el => {
+    el.addEventListener("click", () => toggle(el.dataset.id));
+  });
+  main.querySelectorAll(".map").forEach(img => {
+    img.addEventListener("click", () => img.classList.toggle("zoom"));
+  });
+
+  document.getElementById("kicker").textContent = `Phase ${p.n} · ${p.title} · VOD ${p.vod}`;
+  const nxt = currentNext();
+  document.getElementById("now").textContent = nxt.text;
+}
+
+function renderVod() {
+  const box = document.getElementById("vod-links");
+  box.innerHTML = PHASES.map(p =>
+    `<a href="${vodUrl(p.vodSec)}" target="_blank" rel="noopener">${p.title} @ ${p.vod}</a>`
+  ).join("") + `<a href="${DOC}" target="_blank" rel="noopener">Google Doc maps</a>
+    <a href="https://github.com/AnkuAion2/Aion2-MSQ-Overlay" target="_blank" rel="noopener">Anqua overlay</a>
+    <a href="https://aion2hub.com/" target="_blank" rel="noopener">AION2 Hub</a>`;
+}
+
+function renderProgress() {
+  const ids = allItems();
+  const done = ids.filter(id => state.checks[id]).length;
+  const pct = ids.length ? Math.round(done / ids.length * 100) : 0;
+  document.getElementById("pct").textContent = pct + "%";
+  document.getElementById("count").textContent = done + " / " + ids.length;
+  document.getElementById("bar").style.width = pct + "%";
+}
+
+function toggle(id) {
+  state.checks[id] = !state.checks[id];
+  save();
+  render();
+}
+
+function render() {
+  renderNav();
+  renderMain();
+  renderProgress();
+}
+
+function phaseIndex() {
+  return PHASES.findIndex(p => p.id === state.view);
+}
+function gotoPhase(i) {
+  const p = PHASES[Math.max(0, Math.min(PHASES.length - 1, i))];
+  state.view = p.id;
+  state.cursor = 0;
+  render();
+}
+
+document.getElementById("btn-prev").onclick = () => gotoPhase(phaseIndex() - 1);
+document.getElementById("btn-next").onclick = () => gotoPhase(phaseIndex() + 1);
+document.getElementById("btn-reset").onclick = () => {
+  if (confirm("Clear all checks?")) {
+    state.checks = {};
+    save();
+    render();
+  }
+};
+
+document.addEventListener("keydown", (e) => {
+  if (e.target.matches("input, textarea")) return;
+  if (e.key >= "1" && e.key <= "5") { gotoPhase(Number(e.key) - 1); e.preventDefault(); }
+  if (e.key === "Escape") {
+    document.querySelectorAll(".map.zoom").forEach(img => img.classList.remove("zoom"));
+  }
+  if (e.key === "c" || e.key === "C") { state.view = "cleric"; render(); }
+  if (e.key === "p" || e.key === "P") { state.view = "prep"; render(); }
+  if (e.key === "d" || e.key === "D") { state.view = "systems"; render(); }
+  if (e.key === "a" || e.key === "A") { state.view = "after"; render(); }
+  if (e.key === "[") { gotoPhase(phaseIndex() - 1); }
+  if (e.key === "]") { gotoPhase(phaseIndex() + 1); }
+  if (PHASES.some(p => p.id === state.view)) {
+    const p = PHASES.find(x => x.id === state.view);
+    const ids = [];
+    p.parts.forEach((part, pi) => part.items.forEach((_, ii) => ids.push(itemId(p.id, pi, ii))));
+    if (e.key === "j" || e.key === "J") { state.cursor = Math.min(ids.length - 1, state.cursor + 1); render(); e.preventDefault(); }
+    if (e.key === "k" || e.key === "K") { state.cursor = Math.max(0, state.cursor - 1); render(); e.preventDefault(); }
+    if (e.key === " ") { toggle(ids[state.cursor]); e.preventDefault(); }
+  }
+});
+
+load();
+renderVod();
+render();
+</script>
+</body>
+</html>
