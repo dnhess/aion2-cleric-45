@@ -394,7 +394,7 @@
       <h3>VOD</h3>
       <div class="links" id="vod-links"></div>
       <p class="hint">
-        Keys: <kbd>1</kbd>–<kbd>5</kbd> route · <kbd>P</kbd> start · <kbd>C</kbd> skills · <kbd>D</kbd> Daevanion · <kbd>A</kbd> at 45<br>
+        Keys: <kbd>1</kbd>–<kbd>5</kbd> route · <kbd>P</kbd> start · <kbd>V</kbd> vs Chanter · <kbd>C</kbd> skills · <kbd>D</kbd> Daevanion · <kbd>A</kbd> at 45<br>
         <kbd>J</kbd>/<kbd>K</kbd> items · <kbd>Space</kbd> check · <kbd>[</kbd>/<kbd>]</kbd> phase. Checks save in this browser.
       </p>
     </aside>
@@ -607,7 +607,7 @@ function renderNav() {
     </button>`;
   }).join("") + `<div class="nav-extra">
     ${[
-      ["While you level", [["prep","Start"],["cleric","Skills"],["systems","Daevanion"]]],
+      ["While you level", [["prep","Start"],["versus","vs Chanter"],["cleric","Skills"],["systems","Daevanion"]]],
       ["At cap", [["stats","Stats"],["after","At 45"]]],
       ["Reference", [["shop","Cash shop"],["watch","KR traps"],["links","Sources"]]]
     ].map(([label, items]) =>
@@ -744,6 +744,7 @@ document.addEventListener("keydown", (e) => {
   if (e.key === "p" || e.key === "P") { state.view = "prep"; render(); }
   if (e.key === "d" || e.key === "D") { state.view = "systems"; render(); }
   if (e.key === "a" || e.key === "A") { state.view = "after"; render(); }
+  if (e.key === "v" || e.key === "V") { state.view = "versus"; render(); }
   if (e.key === "[") { gotoPhase(phaseIndex() - 1); }
   if (e.key === "]") { gotoPhase(phaseIndex() + 1); }
   if (PHASES.some(p => p.id === state.view)) {
