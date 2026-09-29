@@ -48,6 +48,41 @@ Worth confirming in-game before trusting any of the above.
 
 ---
 
+## 29 Sep 2026 — Madsin's launch plan, and a Shugo correction
+
+Fallen Clocks shared Madsin's 55-minute global progression plan ([AION2] My progression plans for Global, uploaded 28 Sep) without having watched it. Transcript fetched and read in full — 15,400 words. Madsin is a **new source**: 11 months on Taiwan/Korea, 1M+ combat power, playing from 200 ping. Not Grobs, not either dropped channel.
+
+It is now a class-agnostic **Launch plan** tab (hotkey `L`), presented as one player's plan rather than a guide — he says twice that it is what *he* is doing and that the game does not require any of it ("do not minmax the fun out of it").
+
+### The correction it forced
+
+**Shugo key rates on the Start tab were wrong.** The page said 2 keys/day to a cap of 14 (from Grobs episode 10). Madsin says 3/day. Fextralife's Shugo Festival page states both tiers explicitly: **1 key/day to a cap of 7 on a free account, 4/day to a cap of 28 with a subscription.** So both earlier figures were wrong, and the page now carries Fextralife's. Also corrected: games run at **:15 and :45 past the hour**, not on the hour, and keys should not be spent after a bad placement because card picks scale with your finish.
+
+**Where Madsin was right and the page was thin:** the daily/weekly scheduling (run daily dungeon, Nightmare and Ascension Trial late in the week because rewards scale with performance) — he agrees with the page independently. Nightmare tickets at 2/day, server-bound Shugo keys spent on the main, and no cross-server market at launch all match.
+
+### What is genuinely new
+
+**Item level is the real gate, not combat power.** It comes from equipped gear, enhancement, manastones, **Daevanion board levels** and Arcana cards. Every board level adds item level, which is why even the PvP-only board matters. The ladder: 1,400 Vakron → ~1,500 after exploration → 1,900 Transcendence stage 2 (guaranteed green cards, ~40 item level each) → 2,100 Ferris → Gnevakum Gulag for armor and a guard → Transcendence stage 4 for gold cards → Sanctuary. Two sources now agree the MSQ dungeon boxes are a waste of Odyle.
+
+**Crafting, and this moves his class decision.** Staves come from **Handicraft**, and Handicraft is also where accessories come from — so a **Chanter levels one profession for both weapon and jewellery**. A Cleric's mace is **Blacksmithing**, so a Cleric levels Handicraft for accessories *plus* Blacksmithing for the weapon. Verified independently of Madsin on Fextralife's crafting tables (Blacksmithing: maces/longswords/daggers/guards; Handicrafting: bows/staves/rings/earrings/necklaces/bracelets) and ExpCarry's profession list. Real time saved, and it points the same way as the rest of the Compare tab.
+
+**Soul binds are the biggest early pitfall** — they give no item level. If you reroll anything, reroll for game feel only: movement speed on boots and earrings, combat speed on gloves/weapon/guard/necklace.
+
+**PvP is a deliberate skip for the first fortnight** (rankless opponents, ~300 AP a kill) and **do not buy PvP gear for item level** — Canis is only ilvl 62 on global and costs more AP. All AP goes to stigma shards at 10,000 each. Nightmare tokens: stigma shards but hold 14,000 for the Zikel statue. Festival shop: Daevanion crystal first.
+
+**Practical, not strategic:** make all four characters on day one, because a locked or full server blocks character creation for accounts with nobody on it but lets you add alts once you have one. The Ascension bar gates the MSQ and is filled with sealed dungeons and on-path greens — distinct from Ascension Trial, which the page already covered. The mirrored opposite-faction seal dungeons look skippable on global since the Daevanion crystals and skill points were stripped from them on the test client.
+
+### Conflicts kept rather than resolved
+
+- **Skills at Lv.20: four or two?** The 1M+ CP build runs four and his hotbar shows it. Madsin expects most classes to reach two on global because rings get contested for other stats, though he got three when rings were free to roll. Flagged on the Chanter build tab: plan for two, treat more as a bonus.
+- **Ping.** The page's "high ping favours the Cleric" is now marked contested. Madsin plays at 200 ping, clears all content on day one, and says a network patch a few weeks ago made ping "significantly less of a deal" — mainly a dodging concern, with DPS checks not tight enough to plan around. The class-mechanics argument still stands, so both are on the row and he picks.
+- **Shugo keys per day, as above** — resolved in Fextralife's favour, with the reasoning on the page.
+
+### Deliberately not adopted
+
+Madsin's gathering, Kinah-to-token arbitrage and auction-house flipping are recorded as his money-making route, not as a recommendation. He says outright he will not touch gathering himself, and the page does not need an economy guide.
+
+
 ## 29 Sep 2026 — main + alt planning: Getting picked and Alts sections
 
 Fallen Clocks laid out his intended day 1/day 2: main to 45, then two alts, one being the opposite priest, then day 2 content. He is leaning **Chanter main**, reasoning that people will not always need healing and that the Chanter's off-healing will do. Asked directly whether the plan changes any recommendations and whether a Chanter gets into dungeons and raids more easily, early and later.
