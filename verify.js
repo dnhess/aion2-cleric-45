@@ -132,6 +132,23 @@ function get(url) {
   ck(/skill-level gear|skill-level gear and Arcana/.test(CLASSES.chanter.build.html), "build tab notes his investment gap");
   ck(/macro window/i.test(PAGES.links.html) && /skycoach\.gg/.test(PAGES.links.html), "sources updated with macro + level sources");
 
+  console.log("=== getting picked + alts ===");
+  const vs = PAGES.versus.html;
+  ck(/<h2>Getting picked<\/h2>/.test(vs), "Compare has a Getting picked section");
+  ck(/Gear score and combat power, not class/.test(vs), "acceptance filter order stated");
+  ck(/Structural demand, because of the rez/.test(vs), "Cleric demand grounded in the rez, not healing volume");
+  ck(/as the second support rather than the first/.test(vs), "Chanter acceptance framed honestly");
+  ck(/highest at launch, not lowest/.test(vs), "launch healing-demand inversion stated");
+  ck(/It is never a dead pick/.test(vs), "Chanter upside acknowledged");
+  ck(/<h2>Alts<\/h2>/.test(vs), "Compare has an Alts section");
+  ck(/banking is class-independent/.test(vs), "alt banking is class-independent");
+  ck(/Do not run your Cleric and Chanter in the same group/.test(vs), "main+alt collision warning present");
+  ck(/No grounded recommendation available/.test(vs), "third-class row refuses to invent a pick");
+  const af = PAGES.after.html;
+  ck(/22 is the cheap win\. 45 is the expensive one/.test(af), "alt depth fork on At 45");
+  ck(/Alt roles<\/span><span class="do">Only matters if you will group/.test(af), "alt role caveat on At 45");
+  ck(/Full reasoning on Compare/.test(af), "At 45 cross-references Compare");
+
   console.log("=== live vs local ===");
   try {
     const lp = await get("https://dnhess.github.io/aion2-cleric-45/pages.js?cb=" + Date.now());
