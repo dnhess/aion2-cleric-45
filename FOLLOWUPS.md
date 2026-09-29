@@ -48,6 +48,42 @@ Worth confirming in-game before trusting any of the above.
 
 ---
 
+## 29 Sep 2026 — Cleric macro updated, skill-level ceiling corrected again
+
+The same player sent updated macro screenshots for his **Cleric** (he had previously sent his Chanter build). Both images are direct evidence, so they outrank any prose about them.
+
+### The Cleric macro
+
+His in-game Macro window: slot 1 **Earth Punishment (Lv.25)**, slot 2 **Condemnation (Lv.20)**, both 10 ms, hold LMB alongside. This **replaces the Earth Punishment → Judgment Thunder pairing** that was on the Skills tab — Condemnation is a different skill and is on Hub's global Cleric list, so it is a real swap, not a typo for the old row.
+
+He frames it as the setup to run *until you have good uptime on Punishment*. That makes it an **interim** macro, not the endpoint, and the page says so. It also gives a second in-game screenshot putting Earth Punishment in slot 1, which is mild evidence against Grobs's "highest priority at the bottom" rule; both are kept and the conflict is flagged as a two-click change.
+
+### Skill levels were still wrong, and this exposed it
+
+Last round I wrote "Lv.12, 16 and 20 are bonuses", which implied 20 was the ceiling. His Earth Punishment is **Lv.25**, so that was wrong too. The grounded version, now on both Skills tabs:
+
+- Skill points stop at **10** (13 points to 8, 21 points to 10).
+- The Daevanion board adds up to **+4**, so 14.
+- **Gear and Arcana cards carry the rest.** Players report +6, which reaches 20; +skill level rolls on gear of any rarity.
+- **No fixed ceiling at 20.** Observed at 25.
+
+Also recovered: the **8/12/16 effect thresholds are documented for Korea/Taiwan** (Skycoach, citing the KR/TW version). Last round I removed them for lack of a source; they are back, flagged as unconfirmed for global rather than dropped.
+
+### Provenance worth keeping
+
+His Cleric runs Lv.25 skills while his **Chanter tops out at Lv.20**. Same player, so the gap is investment, not a rule — which means his Chanter allocation is a well-invested second character's, not his most-invested character's. Noted on the PvE build tab so the Chanter numbers are not read as equally final as the Cleric's.
+
+### Process fix
+
+`verify.js` is now in the repo. This host has no browser, so it checks the deployed bytes: per-class tab resolution, nav visibility matching resolvability, the switcher wiring, the load-bearing content claims, and byte-identity between live and local. **One bug it had, now fixed:** it concatenated response chunks as strings, so a multi-byte UTF-8 character straddling a chunk boundary was corrupted and an identical live file looked modified. The file got more multi-byte characters (—, →, ·) this round, which is what finally triggered it. Fetch chunks as Buffers and concat.
+
+### Still open
+
+- What "good uptime on Punishment" means numerically, and what the macro becomes at that point.
+- Whether global's effect thresholds match KR/TW's 8/12/16.
+- The specialty tier numbering in the Chanter build still does not map onto a documented unlock scale.
+
+
 ## 29 Sep 2026 — Chanter PvE build tab, and corrections it forced
 
 The same 1M+ CP player who wrote the Cleric build already leading the Cleric Skills tab sent his Chanter build, as text plus two in-game screenshots (skill hotbar, in-game Macro window). It is on a new class-scoped `PvE build` tab (hotkey `B`), labelled a second opinion throughout: the screenshots are direct evidence of what he runs, the numbers are his, and nothing in it is independently corroborated.
