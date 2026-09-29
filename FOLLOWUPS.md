@@ -46,6 +46,31 @@ Still unverified, marked as such on the page or removed:
 
 Worth confirming in-game before trusting any of the above.
 
+---
+
+## 29 Sep 2026 — Chanter added, site is now multi-class
+
+The companion became a class-switching site: `CLASSES` holds class-specific tabs (skills / stats / daevanion), `PAGES` holds the class-agnostic ones (start, compare, at 45, cash shop, KR traps, sources). Header switcher selects the class; `pageFor(view, classKey)` resolves. Adding a third class means adding one entry to `CLASSES` plus a button — no other changes. The route (phases 1–5) was already class-agnostic and is shared.
+
+### What the Chanter verification found
+
+**Confirmed independently.** Hub's global client list (26 active, 10 passive) and Game8's skill tooltips agree with Codex's mechanics. Game8 also supplied the manastone priorities and three cross-class conflicts:
+
+- Undefeated Mantra cancels the Cleric's Light of Protection. Equal level → Undefeated applies.
+- Power of the Storm is blocked while the Cleric's Earth's Blessing is active.
+- Earth's Promise's tolerance reduction is cancelled by the Cleric's Chain of Torment.
+
+Those three settle how the two classes interlock and are now on the Compare tab. The first one also independently confirms the Cleric page's existing advice to drop LoP when a Chanter is present.
+
+**Not global.** Hub's global client does not include Resonance Crush, Crushing Blow, Bursting Blow, Storm Chain, Surging Strike, Piercing Strike, Bolt Crush or Crushing Strike. Those are Korea/Taiwan only (client v110). Codex discusses specialty options for Bursting Blow and builds Dark Crush's 12 option around the Piercing Strike chain, so parts of its Chanter advice describe a later version. Flagged on the Chanter Skills tab.
+
+**Single-creator, cannot corroborate.** Codex attributes the Chanter level-45 point allocation, the leveling specialty picks, the starter stigma set and the DPS macro to aLuckyRO — the channel dropped in the previous pass. Hagoo and Logon (Korean) cover endgame targets; Game8 and Hub cover mechanics and skills. So the Chanter's *mechanics* are well verified but its specific *numbers* are one creator's. Recorded on Sources and on the Skills tab.
+
+**Rejected.** aion2classes.wiki claims a level-37 equalized DPS test where Chanter posted the highest of eight classes (564K). Excluded: that site reads AI-generated throughout and no other source repeats the figure. If it turns out to be real it would materially change the Cleric-vs-Chanter read, so it is worth watching for a second source.
+
+**Still open for Chanter.** Exact skill point totals at 45 (230–250 is a reported range, not a confirmation). Which four stigmas a fresh 45 should carry. Whether Undefeated Mantra's 100 Accuracy at stigma 10 is worth rushing ahead of the Cleric's own track.
+
+
 
 ---
 27 Sep 2026 global-watch check: no companion changes (no post). All nine monitored sources are
