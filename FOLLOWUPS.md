@@ -89,3 +89,35 @@ Nothing KR/TW-only was added. Open items 1-5 above still stand, including the it
 Method: `web_extract` worked this run (Firecrawl was 402 on 27 Sep). PlayNC list/article render fine through
 `https://r.jina.ai/<url>`; the board's own API host (`api-global-community.plaync.com`) needs the site's
 createBoard signing, so use the renderer.
+
+---
+
+## 29 Sep 2026 global-watch check — patched and pushed
+
+Source churn, normalized: the five Codex articles are byte-identical to the 28 Sep check; the Failure Guild
+doc moved 138 bytes again (embedded image re-encode, text unchanged); both Questlog hashes moved with
+identical byte counts (Cloudflare token churn, same as every prior run — the Skill Builder links still
+resolve and still read Global); the PlayNC notice list moved because three real posts landed.
+
+Real change: NC posted three global notices on 28 Sep (all rendered fine through web_extract — no Firecrawl
+402, no need for the jina renderer this run).
+
+- "Advanced Access Servers" (28 Sep 21:00) posts the schedule with hours: 30 Sep 6AM PDT - 4 Oct 10PM PDT
+  (13:00 UTC - 5 Oct 05:00 UTC), maintenance 4 Oct 10PM - 5 Oct 6AM PDT, global launch 5 Oct 6AM PDT
+  (13:00 UTC). Page had EA at 10:00 AM PDT from a stream — dead. Free launch hour is now NC's own, not just
+  Steam's. Also lists the servers: EU 4 pairs, NA West 1, NA East 2, LATAM 2, ASIA 1; every server houses
+  one faction; launch order is region -> faction -> server.
+- "Advanced Access Server Matchmaking" (28 Sep 21:05) explains Elyos/Asmodian server pairing for the Abyss
+  and Spacetime Rifts, and says pairings get reshuffled later.
+- "Pre-download Available Now" (28 Sep 09:00) kills the page's "no pre-download window is posted" line:
+  files download now, encrypted, and the client decrypts them on 30 Sep; not a reinstall.
+- Founder's Pack notice "Updated 9/28" adds the Special Quai Membership to all three tiers; the Quai notice
+  "Updated 9/28" cuts the price $15 -> $14.99, strikes World Exchange from the benefits, raises the Shugo
+  Festa key cap, and dates sales from 30 Sep 6AM PDT.
+
+Patched pages.js (prep Clock: early access, free launch, install, faction, server, + new Rivals row; shop:
+member row and $25 row; watch: checked date; links: three new notice URLs). Nothing KR/TW-only was added —
+the server, schedule and pre-download facts are all global notices.
+
+Open items 1-5 above still stand (item 5's "newest post" line is superseded: newest is now 28 Sep). Item 6
+stands: Pages only updates on commit+push.
