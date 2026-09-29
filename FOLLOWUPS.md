@@ -48,6 +48,41 @@ Worth confirming in-game before trusting any of the above.
 
 ---
 
+## 29 Sep 2026 — main + alt planning: Getting picked and Alts sections
+
+Fallen Clocks laid out his intended day 1/day 2: main to 45, then two alts, one being the opposite priest, then day 2 content. He is leaning **Chanter main**, reasoning that people will not always need healing and that the Chanter's off-healing will do. Asked directly whether the plan changes any recommendations and whether a Chanter gets into dungeons and raids more easily, early and later.
+
+**The schedule itself is unchanged.** Nothing about day 1/day 2 needed revising. Two gaps were worth closing, and both are now on the page.
+
+### Getting picked (new Compare section)
+
+The head-on answer to the acceptance-rate question, in the order it actually applies:
+
+- **Gear score and combat power filter you into groups before class does.** The dungeon lobby shows both before the pull, so that is what a leader reads. Class only decides a tiebreak between similarly geared players.
+- **Cleric:** structural demand from the rez, not from healing volume. KR/TW: 2× Cleric "borderline mandatory until you are overgeared or speedrunning."
+- **Chanter:** durable but second-support demand — invited because the mantras make everyone else's logs look good. Loses only on the one-support-slot call.
+
+**One correction to his reasoning.** "People may not necessarily need healing all the time" has it backwards for the first weeks: healing demand is *highest* at launch, when everyone is under-geared and learning, and falls off later. That is the same Cleric-early / Chanter-later split already in the Caveat row, so the section cross-references it rather than restating it. Also worth stating plainly: the Cleric's edge was never healing throughput, it is the only rez in the game — so trading the Cleric away on "they won't need heals" is trading on the wrong axis.
+
+### Alts (new Compare section)
+
+Alt *roles* were undocumented entirely — the page only had alt counts and levels.
+
+- **The resource value is class-independent.** Odyle (unlocks 22) and Nightmare tickets (unlocks 45) are per character, so any class banks the same and **the number of alts is what matters, not what they are**. This is the load-bearing fact for his question, and it means his instinct to pick the opposite priest for an alt is optional rather than required.
+- **Roles only matter if he will group on the alt.** If so, Cleric, for the same reason as Getting picked. If the alt is a login-and-logout resource farm, pick whatever is fun to level.
+- **Never run the Cleric and Chanter in one party.** Their buffs collide (Undefeated Mantra vs Light of Protection; Power of the Storm blocked by Earth's Blessing). As two characters in two groups it is fine; this only bites if both go to one party. That is a concrete trap in his plan that was not written down anywhere.
+- **A priest alt is cheap to learn** because Phases 1–5 are class-agnostic — only the class tabs change.
+- **No recommendation on the third class.** There is no grounded data on which non-priest class is in demand on global, and launch populations will not be known until servers are up. The row says so explicitly rather than inventing a tier list.
+
+### At 45 (extended)
+
+Added the alt-depth fork: **22 is the cheap win** (Odyle only, per character, 120/day to an 840 cap), **45 is the expensive one** (also Nightmare tickets, 2/day to cap 14, plus the five duties). Previously the page said "level alts to 22" and separately mentioned 45 banking without presenting it as a decision.
+
+### Note on his ordering
+
+He described main-to-45 first, then alts. The page's day-1 plan is the reverse: every character to 22, then the main to 45, so all the Odyle tanks start filling on day 1. Both are defensible and the difference is small — Odyle caps at 840 and cannot be spent before 45 anyway — but his order does start the alts' clocks later. Flagged to him rather than edited, since it is a preference with a visible cost, not an error.
+
+
 ## 29 Sep 2026 — Cleric macro updated, skill-level ceiling corrected again
 
 The same player sent updated macro screenshots for his **Cleric** (he had previously sent his Chanter build). Both images are direct evidence, so they outrank any prose about them.
