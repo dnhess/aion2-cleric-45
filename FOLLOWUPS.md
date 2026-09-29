@@ -48,7 +48,40 @@ Worth confirming in-game before trusting any of the above.
 
 ---
 
-## 29 Sep 2026 — Chanter added, site is now multi-class
+## 29 Sep 2026 — Chanter PvE build tab, and corrections it forced
+
+The same 1M+ CP player who wrote the Cleric build already leading the Cleric Skills tab sent his Chanter build, as text plus two in-game screenshots (skill hotbar, in-game Macro window). It is on a new class-scoped `PvE build` tab (hotkey `B`), labelled a second opinion throughout: the screenshots are direct evidence of what he runs, the numbers are his, and nothing in it is independently corroborated.
+
+**Tabs are now per-class.** `CLASSES.<class>.tabs` lists which views a class owns, so the Chanter carries `build` and the Cleric does not. The nav filter hides a view exactly when the selected class cannot resolve it, and `render()` falls back to Skills if a class switch strands the view. Adding a class is still one entry.
+
+### Corrections this source forced
+
+**Skill levels were described wrongly on both Skills tabs.** "A skill maxes at 10" was misleading. Skill points take a skill to 10; Lv.12, 16 and 20 are bonuses — Daevanion board +4, rings +2, weapon and guard +1 each, then Arcana for the rest. Fixed on both tabs and cited to the r/Aion2 "how to get +20 skills" thread, where players confirm the breakdown and that 20 is reachable. His own hotbar shows Lv.20 skills, which is what exposed it.
+
+**Specialty unlock thresholds were unverified.** I had "options unlock at skill levels 8, 12 and 16" on the Chanter tab; Game8's page does not state thresholds at all and I could not find one that does. Replaced with the rule his eleven rows actually demonstrate — three specialties at Lv.20, two at Lv.12–16 — and flagged the unlock levels as unconfirmed. Do not restate 8/12/16 as fact without a source.
+
+**Marchutan's Wrath is contested, not settled.** He calls it mandatory (it triggers Dark Crush on the target for 7s). A Korean creator says it now does little damage. Both describe the same effect and disagree on the slot. Kept as contested rather than overwritten.
+
+**Power of the Storm beats the Cleric's Earth's Blessing on global.** Korean players rate the Cleric's buff higher and Game8 confirms the two conflict; he says on global PotS is the stronger of the two. His Fracturing Blow swap for PotS is explicitly *not* valid on global.
+
+**The macro has two credible versions.** His actual macro is two steps — Wave Blow → Dark Crush at 10 ms. Codex's is Onslaught → Dark Crush → Spinning Strike. Both kept and flagged; it is a latency preference, not a right answer.
+
+**Dark Crush only lands on a target already Stunned, Knocked Down or Airborne** (Game8 tooltip). The Skills tab implied it was a straight ranged hit.
+
+### Closed
+
+- **Which four stigmas a fresh 45 should carry:** Undefeated Mantra / Sprint Mantra / Guardian Blessing / Power of the Storm, identical for solo and group PvE, swapping Guardian Blessing for Focused Defense on Nightmare. He writes "Focused Block" — almost certainly Focused Defense, noted on the page rather than silently corrected.
+
+### Still open for Chanter
+
+- Exact point totals at 45 (230–250 remains a reported range).
+- Whether Marchutan's Wrath earns a slot — unresolved between two credible sources.
+- The specialty tier numbering he uses (1–5) does not map cleanly onto any unlock-level description I have. Worth asking him what the numbers mean.
+
+
+---
+
+## 29 Sep 2026 — Chanter added, site becomes multi-class
 
 The companion became a class-switching site: `CLASSES` holds class-specific tabs (skills / stats / daevanion), `PAGES` holds the class-agnostic ones (start, compare, at 45, cash shop, KR traps, sources). Header switcher selects the class; `pageFor(view, classKey)` resolves. Adding a third class means adding one entry to `CLASSES` plus a button — no other changes. The route (phases 1–5) was already class-agnostic and is shared.
 
