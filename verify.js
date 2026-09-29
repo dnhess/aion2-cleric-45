@@ -149,6 +149,40 @@ function get(url) {
   ck(/Alt roles<\/span><span class="do">Only matters if you will group/.test(af), "alt role caveat on At 45");
   ck(/Full reasoning on Compare/.test(af), "At 45 cross-references Compare");
 
+  console.log("=== launch plan tab + Madsin integration ===");
+  ck(!!PAGES.plan && !!PAGES.plan.kicker && !!PAGES.plan.now && PAGES.plan.html.length > 2000, "plan tab is complete");
+  ck(!!pageFor("plan", "cleric") && !!pageFor("plan", "chanter"), "plan resolves for both classes (class-agnostic)");
+  ck(/<h2>Item level is the gate<\/h2>/.test(PAGES.plan.html), "plan has the item-level ladder");
+  ck(/1,400|1,900|2,100/.test(PAGES.plan.html), "ilvl breakpoints present");
+  ck(/<h2>Crafting<\/h2>/.test(PAGES.plan.html) && /<h2>Soul binds<\/h2>/.test(PAGES.plan.html), "plan has crafting and soul bind sections");
+  ck(/Do not minmax the fun out of it/.test(PAGES.plan.html), "his own framing recorded");
+  ck(/read as a second opinion/i.test(PAGES.plan.html), "labelled as a second opinion");
+  // Shugo correction
+  const pp = PAGES.prep.html;
+  ck(!/Two keys a day, stores to 14/.test(pp), "stale 'two keys a day' removed");
+  ck(/cap of 7 on a free account/.test(pp) && /cap of 28 with a subscription/.test(pp), "Shugo rates corrected to Fextralife figures");
+  ck(/:15 and :45 past the hour/.test(pp), "Shugo cadence corrected");
+  ck(!/Three keys per day/.test(pp), "did not adopt Madsin's wrong key count");
+  // new Prep rows
+  ck(/Make all four on day one/.test(pp), "server-lock / four characters row added");
+  ck(/A bar that gates the story, not the Trial/.test(pp), "ascension bar row added");
+  ck(/Probably do not cross to the other faction/.test(pp), "rift row added to Do not");
+  // Compare
+  const vv = PAGES.versus.html;
+  ck(/Chanter levels one craft, Cleric levels two/.test(vv), "crafting split row on Compare");
+  ck(/independently of Madsin/.test(vv), "crafting split attributed to independent sources");
+  ck(/Contested, and probably a non-issue now/.test(vv), "ping row revised");
+  ck(/200 ping/.test(vv), "ping revision cites the 200-ping player");
+  // Chanter build contested count
+  ck(/Contested: four here, two or three on global/.test(CLASSES.chanter.build.html), "skills-to-20 dispute flagged on the build tab");
+  // sources
+  ck(/9r4nDbBxRxk/.test(PAGES.links.html), "Madsin video cited on Sources");
+  ck(/aion2\.wiki\.fextralife\.com/.test(PAGES.links.html), "Fextralife cited on Sources");
+  ck(/cap of 7 free, 4 a day to a cap of 28 subscribed/.test(PAGES.links.html), "Sources states the corrected Shugo rates");
+  // nav wiring
+  ck(/\["plan","Launch plan"\]|\["plan", "Launch plan"\]/.test(localHtmlStr), "nav includes the plan tab");
+  ck(/e\.key === "l"[^}]*"plan"/.test(localHtmlStr), "hotkey L -> plan");
+
   console.log("=== live vs local ===");
   try {
     const lp = await get("https://dnhess.github.io/aion2-cleric-45/pages.js?cb=" + Date.now());
