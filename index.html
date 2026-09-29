@@ -74,6 +74,24 @@
     min-width: 280px;
   }
   .progress-wrap { width: 280px; }
+  .class-switch { display: flex; gap: 6px; }
+  .class-switch button {
+    border: 1px solid var(--line);
+    padding: 6px 16px;
+    min-height: 34px;
+    font-family: var(--cond);
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .class-switch button:hover { border-color: var(--gold); color: var(--ink); }
+  .class-switch button.active {
+    border-color: var(--gold);
+    color: var(--gold);
+    background: #1c1d14;
+  }
   .progress-row { display: flex; justify-content: space-between; font-family: var(--mono); font-size: 11px; color: var(--muted); margin-bottom: 6px; }
   .bar { height: 4px; background: #2c2d24; }
   .bar > i { display: block; height: 100%; width: 0; background: var(--gold); }
@@ -356,6 +374,7 @@
       <h1 class="next" id="now">Follow the yellow main story</h1>
     </div>
     <div class="top-meta">
+      <div class="class-switch" id="class-switch"></div>
       <div class="progress-wrap">
         <div class="progress-row"><span id="pct">0%</span><span id="count">0 / 0</span></div>
         <div class="bar"><i id="bar"></i></div>
@@ -394,8 +413,8 @@
       <h3>VOD</h3>
       <div class="links" id="vod-links"></div>
       <p class="hint">
-        Keys: <kbd>1</kbd>–<kbd>5</kbd> route · <kbd>P</kbd> start · <kbd>V</kbd> vs Chanter · <kbd>C</kbd> skills · <kbd>D</kbd> Daevanion · <kbd>A</kbd> at 45<br>
-        <kbd>J</kbd>/<kbd>K</kbd> items · <kbd>Space</kbd> check · <kbd>[</kbd>/<kbd>]</kbd> phase. Checks save in this browser.
+        Keys: <kbd>1</kbd>–<kbd>5</kbd> route · <kbd>P</kbd> start · <kbd>V</kbd> compare · <kbd>C</kbd> skills · <kbd>D</kbd> Daevanion · <kbd>S</kbd> stats · <kbd>A</kbd> at 45<br>
+        <kbd>J</kbd>/<kbd>K</kbd> items · <kbd>Space</kbd> check · <kbd>[</kbd>/<kbd>]</kbd> phase. Skills, Stats and Daevanion follow the class you pick up top.
       </p>
     </aside>
   </div>
@@ -566,17 +585,27 @@ function vodUrl(sec) {
 const state = {
   view: "p1",
   checks: {},
-  cursor: 0
+  cursor: 0,
+  classKey: "cleric"
 };
 
 function load() {
   try {
     const raw = localStorage.getItem(KEY);
-    if (raw) Object.assign(state.checks, JSON.parse(raw).checks || {});
+    if (raw) {
+      const d = JSON.parse(raw);
+      Object.assign(state.checks, d.checks || {});
+      if (d.classKey && CLASSES[d.classKey]) state.classKey = d.classKey;
+      if (d.view) state.view = d.view;
+    }
   } catch (e) {}
 }
 function save() {
-  localStorage.setItem(KEY, JSON.stringify({ checks: state.checks }));
+  localStorage.setItem(KEY, JSON.stringify({
+    checks: state.checks,
+    classKey: state.classKey,
+    view: state.view
+  }));
 }
 
 function allItems() {
@@ -595,6 +624,20 @@ function phaseProgress(p) {
   return { total, done };
 }
 
+function renderClassSwitch() {
+  const box = document.getElementById("class-switch");
+  box.innerHTML = Object.keys(CLASSES).map(k =>
+    `<button type="button" data-class="${k}" class="${state.classKey === k ? "active" : ""}">${CLASSES[k].label}</button>`
+  ).join("");
+  box.querySelectorAll("[data-class]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      state.classKey = btn.dataset.class;
+      save();
+      render();
+    });
+  });
+}
+
 function renderNav() {
   const nav = document.getElementById("phase-nav");
   nav.innerHTML = PHASES.map(p => {
@@ -607,7 +650,7 @@ function renderNav() {
     </button>`;
   }).join("") + `<div class="nav-extra">
     ${[
-      ["While you level", [["prep","Start"],["versus","vs Chanter"],["cleric","Skills"],["systems","Daevanion"]]],
+      ["While you level", [["prep","Start"],["versus","Compare"],["skills","Skills"],["daevanion","Daevanion"]]],
       ["At cap", [["stats","Stats"],["after","At 45"]]],
       ["Reference", [["shop","Cash shop"],["watch","KR traps"],["links","Sources"]]]
     ].map(([label, items]) =>
@@ -638,10 +681,11 @@ function currentNext() {
 
 function renderMain() {
   const main = document.getElementById("main");
-  if (PAGES[state.view]) {
-    const pg = PAGES[state.view];
+  const pg = pageFor(state.view, state.classKey);
+  if (pg) {
     main.innerHTML = pg.html;
-    document.getElementById("kicker").textContent = pg.kicker;
+    document.getElementById("kicker").textContent =
+      (CLASS_TABS.indexOf(state.view) !== -1 ? CLASSES[state.classKey].label + " · " : "") + pg.kicker;
     document.getElementById("now").textContent = pg.now;
     document.querySelectorAll(".map").forEach(img => {
       img.addEventListener("click", () => img.classList.toggle("zoom"));
@@ -709,9 +753,11 @@ function toggle(id) {
 }
 
 function render() {
+  renderClassSwitch();
   renderNav();
   renderMain();
   renderProgress();
+  save();
 }
 
 function phaseIndex() {
@@ -740,9 +786,10 @@ document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") {
     document.querySelectorAll(".map.zoom").forEach(img => img.classList.remove("zoom"));
   }
-  if (e.key === "c" || e.key === "C") { state.view = "cleric"; render(); }
+  if (e.key === "c" || e.key === "C") { state.view = "skills"; render(); }
+  if (e.key === "d" || e.key === "D") { state.view = "daevanion"; render(); }
+  if (e.key === "s" || e.key === "S") { state.view = "stats"; render(); }
   if (e.key === "p" || e.key === "P") { state.view = "prep"; render(); }
-  if (e.key === "d" || e.key === "D") { state.view = "systems"; render(); }
   if (e.key === "a" || e.key === "A") { state.view = "after"; render(); }
   if (e.key === "v" || e.key === "V") { state.view = "versus"; render(); }
   if (e.key === "[") { gotoPhase(phaseIndex() - 1); }

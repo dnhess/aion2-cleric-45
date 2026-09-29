@@ -1,3 +1,221 @@
+// Multi-class companion. Class-specific tabs live under CLASSES;
+// everything class-agnostic lives under PAGES.
+const CLASSES = {
+  cleric: {
+    label: "Cleric",
+    weapon: "Mace and shield",
+    skills: {
+    kicker: "Skills · open when you get a point",
+    now: "Community build leads. Two-slot macro: Earth Punishment then Judgment Thunder.",
+    html: `
+<article class="cleric-block">
+  <h2>Rules</h2>
+  <div class="row"><span class="k">Two builds</span><span class="do">Community build leads. RosaPony is the alternate.<span class="why">They are aimed at different jobs. The community one is a group/raid healer build — it talks about Sanctuary progression, being the only support in the group, and rez in raids. RosaPony is a damage-leaning PvE Cleric: he puts the buffs and the two damage skills in his macro and takes Judgment Thunder first. Its author is reportedly at 1M+ combat power; RosaPony’s progression is unknown.</span></span></div>
+  <div class="row"><span class="k">Why they clash</span><span class="do">Different roles, not just different numbers.<span class="why">Most of the conflicts below are that split. Healing for a group: follow the community build. Mostly solo and want to contribute damage: several RosaPony picks have a real reason behind them.</span></span></div>
+  <div class="row"><span class="k">Points</span><span class="do">A skill maxes at 10.<span class="why">13 points to reach 8. 21 points to reach 10. Resets are free, so a bad spend is not permanent.</span></span></div>
+  <div class="row"><span class="k">Gate</span><span class="do">+1 skill level every 3 character levels.<span class="why">Earth’s Retribution hits 8 at 19 and 10 at 25. Earth’s Grace, Survival Willpower, and Radiant Benediction skip that gate.</span></span></div>
+  <div class="row"><span class="k">8 / 12 / 20</span><span class="do">Three specialty slots. Not five.<span class="why">Each skill has five specialty options. They unlock at skill levels 8, 12, and 16. You can only equip three. The slots open at 8, 12, and 20. Level 16 is the strong option, not a third slot. Skill level 20 still needs Arcana and gear.</span></span></div>
+  <div class="row"><span class="k">Budget</span><span class="do">~234 points at 45.<span class="why">~258 after you turn in feathers. About twelve skills at 10 out of 22. Damage first. Heals stay lean.</span></span></div>
+  <div class="row"><span class="k">Above 20</span><span class="do">20 is not the ceiling.<span class="why">A community screenshot shows skills sitting at 25, and one at 23. Sources: mastery points to 10, Daevanion board up to +4, Arcana cards, two rings, weapon, and guard.</span></span></div>
+
+  <h2>Spend</h2>
+  <div class="row"><span class="k">1–18</span><span class="do">Both clicks, always capped.<span class="why">Left: Earth’s Retribution (also gives MP). Right: Judgment Thunder. Then Empyrean Lord’s Grace. Bolt is your stagger. Scattershot only for story and seal bosses.</span></span></div>
+  <div class="row"><span class="k">19</span><span class="do">First specialty on both clicks.<span class="why">Earth’s Retribution: +20% MP. Judgment Thunder: +12% damage, fewer targets.</span></span></div>
+  <div class="row"><span class="k">21</span><span class="do">Earth’s Grace to 10 the moment you learn it.</span></div>
+  <div class="row"><span class="k">22</span><span class="do">1 point in Summon Resurrection.<span class="why">Parties expect the rez. Then Earth Punishment and Noble Aura toward 5.</span></span></div>
+  <div class="row"><span class="k">25</span><span class="do">Both clicks can hit 10.<span class="why">Survival Willpower and Radiant Benediction can go straight to 10.</span></span></div>
+  <div class="row"><span class="k">26–38</span><span class="do">New damage skills as they unlock.<span class="why">Bolt 8 at 32, 10 at 38. Chain of Torment is worth its points too.</span></span></div>
+  <div class="row"><span class="k">Heals</span><span class="do">Max Healing Light. Raise Healing Enhancement.<span class="why">Heals cannot crit, so Enhancement is how heals get bigger.</span></span></div>
+  <div class="row"><span class="k">Radiant Recovery</span><span class="do">Take it to 20, per the community build.<span class="why">Older advice to park it at 1 came from a leveling-phase build tuned to the first weeks of Krao and Draupnir farming, where you do not need an aggressive healer. That reason stops holding once you are healing real content.</span></span></div>
+  <div class="row"><span class="k">39–45</span><span class="do">Leftover points into passives.<span class="why">Earth’s Grace is about twice Empyrean Lord’s Grace per level for your damage.</span></span></div>
+  <div class="row"><span class="k">Skip</span><span class="do">0 points in Lightning Strike Scattershot.<span class="why">Community build agrees: N/A, no points. Weak in the boss loop until 16.</span></span></div>
+  <div class="row"><span class="k">Level 20 order</span><span class="do">Condemnation → Radiant Recovery → Healing Light → Divine Aura → Judgment Thunder → Bolt.<span class="why">Community build, and now the page default. RosaPony’s order was Judgment Thunder → Divine Aura → Condemnation → Earth’s Retribution → Chain of Torment → Healing Light. Kept only as the alternate.</span></span></div>
+  <div class="row"><span class="k">Bolt</span><span class="do">Fire it on cooldown, fully charged.<span class="why">Community note. Do not clip the charge.</span></span></div>
+
+  <h2>Specialty picks</h2>
+  <div class="row"><span class="k">Retribution</span><span class="do">+20% MP restored</span></div>
+  <div class="row"><span class="k">Thunder</span><span class="do">+12% damage, fewer targets</span></div>
+  <div class="row"><span class="k">Aura</span><span class="do">+50% attack speed on bosses<span class="why">Take the AoE version if you are farming trash.</span></span></div>
+  <div class="row"><span class="k">Chain</span><span class="do">+3 seconds on the DoT</span></div>
+  <div class="row"><span class="k">Condemn</span><span class="do">+12% damage, fewer targets</span></div>
+  <div class="row"><span class="k">Bolt</span><span class="do">+30% skill speed</span></div>
+  <div class="row"><span class="k">Light</span><span class="do">+2 consecutive heals</span></div>
+  <div class="row"><span class="k">Defiance</span><span class="do">Restore 10% HP</span></div>
+
+  <h2>Stigmas · 4 slots</h2>
+  <div class="row"><span class="k">Solo</span><span class="do">Light of Protection / Earth Punishment / Amplification / Noble Aura.<span class="why">Two separate sources land on these four. Earth Punishment is the strongest PvE stigma. ~34% cooldown reduction lines its 30s timer up with the buff.</span></span></div>
+  <div class="row"><span class="k">Group</span><span class="do">Drop Light of Protection when a Chanter is with you.<span class="why">Community build puts Voice of Doom in that slot. It also calls Benevolence mandatory, and Salvation a panic button for early Sanctuary.</span></span></div>
+  <div class="row"><span class="k">Rebuild</span><span class="do">5 → Earth Punishment. 10 → Amplification. 15 → Benevolence. 20 → Light of Protection, then Amplification, then Benevolence, then Noble Aura.<span class="why">Community upgrade tiers, roughly cheapest-first. Summon Resurrection can go toward 25 while you are learning Sanctuary.</span></span></div>
+  <div class="row"><span class="k">Rez</span><span class="do">1 point in Summon Resurrection from 22.<span class="why">Mandatory in raids. One source argues you can skip it in dungeons because most players carry their own resurrection stones there — but parties still expect the Cleric to have it.</span></span></div>
+  <div class="row"><span class="k">Contested</span><span class="do">Power Burst, Root, Assault Mark.<span class="why">The community build calls all three useless. RosaPony and RedCloud both run Power Burst in regular PvE for its stagger damage, so “useless” is that build’s opinion, not a consensus. Root is RosaPony-only. Assault Mark has no defender. Treat Power Burst as an optional stagger slot rather than a dead one.</span></span></div>
+  <div class="row"><span class="k">Korea</span><span class="do">Ignore 5th and 6th slot builds.<span class="why">Global starts at four.</span></span></div>
+
+  <h2>How the macro works</h2>
+  <div class="row"><span class="k">Stack</span><span class="do">Put the skills you spam on one key.<span class="why">That key cycles them when you press it. Holding that key does nothing. The macro is what lets you hold.</span></span></div>
+  <div class="row"><span class="k">Set it</span><span class="do">Escape → Key settings → General → Gameplay → Macro.<span class="why">Nothing is bound by default. Then the Macro button at the top right → Add. You select the hotkey line, not a skill icon.</span></span></div>
+  <div class="row"><span class="k">Hold</span><span class="do">Hold left click and the macro key together.<span class="why">Left click is Earth’s Retribution. It also cancels other skills. A black shadow means the cancel worked. Do not put left click inside the macro. That cancels less.</span></span></div>
+  <div class="row"><span class="k">Leave out</span><span class="do">Dodge, movement, and timed buffs.<span class="why">Season 1 has less cooldown reduction. A buff spent on trash is gone for the boss. Add a skill only after you already spam it without thinking. The community build is looser here: it says you may add Amplification and Divine Aura if you accept losing the say on when they fire. Never macro the heals or support buttons.</span></span></div>
+  <div class="row"><span class="k">Order</span><span class="do">Highest priority skill at the bottom of the stack.<span class="why">That one fires first.</span></span></div>
+  <div class="row"><span class="k">Bind</span><span class="do">Side button, or right click.<span class="why">If the macro key is right click, Judgment Thunder moves onto the stack. Left click never moves. Do not use mouse software to hold the buttons for you. That is outside the game. This page only uses the in-game macro.</span></span></div>
+  <div class="row"><span class="k">Primary</span><span class="do">Two slots: Earth Punishment, then Judgment Thunder. 10 ms each.<span class="why">Community build, and it agrees with the rule above — the buffs stay manual. The screenshot lists Earth Punishment in slot 1. Grobs puts the top-priority skill last, so try both; it is a two-click change. Only go to 40–50 ms if your ping is 80+.</span></span></div>
+  <p>Leveling: stack the two clicks’ spam skills and hold left click plus the macro key.</p>
+  <ol class="macro">
+    <li>Earth Punishment</li>
+    <li>Judgment Thunder</li>
+  </ol>
+  <div class="row"><span class="k">Alternate</span><span class="do">RosaPony chains five: Noble Aura → Prayer of Amplification → Earth Punishment → Chain of Torment → Judgment Thunder.<span class="why">Fuller dungeon loop, but it macros two buffs, which both Grobs and the community build say not to do. Kept as an option, not the default.</span></span></div>
+  <div class="row"><span class="k">Weave</span><span class="do">Retribution → Mark → Retribution → Divine Aura → hold macro.<span class="why">Heals, Mark, Aura, Bolt, dodge, and long cooldowns stay off the macro. Target mode on.</span></span></div>
+  <div class="row"><span class="k">Planner</span><span class="do"><a href="https://questlog.gg/aion-2/en/skill-builder/FQXZUw3OF054?build-id=2233" target="_blank" rel="noopener">PvE</a> · <a href="https://questlog.gg/aion-2/en/skill-builder/FQXZUw3OF054?build-id=1650" target="_blank" rel="noopener">PvP</a><span class="why">The community character build we used is deleted now, so these two stand in. Both are tagged Global, not KR/TW.</span></span></div>
+
+  <h2>After 45</h2>
+  <div class="row"><span class="k">To 20</span><span class="do">Condemnation, Radiant Recovery, Healing Light, Divine Aura, Judgment Thunder, Bolt.<span class="why">Community build. RosaPony’s list — Judgment Thunder, Divine Aura, Condemnation, Earth’s Retribution, Chain of Torment, Healing Light — is the alternate. Extra levels come from the board (up to +4), two rings, weapon, guard, and Arcana. Defiance stops at 16.</span></span></div>
+  <div class="row"><span class="k">Passives</span><span class="do">Lord’s Grace → Earth’s Grace → Healing Enhancement → Immortal Veil → Warm Benediction → Radiant Benediction → Prayer of Concentration → Survival Willpower → Lords’ Benediction → Heal Block.</span></div>
+</article>`
+    },
+    stats: {
+    kicker: "What to stack",
+    now: "Attack makes heals bigger. CDR around 34%. Crit cap is 50%.",
+    html: `
+<article class="cleric-block">
+  <h2>Chase</h2>
+  <div class="row"><span class="k">Attack</span><span class="do">Biggest heals and your damage.<span class="why">Damage multipliers do not apply to heals. Heal Boost times Incoming Heal does (20% + 20% is ×1.2 twice).</span></span></div>
+  <div class="row"><span class="k">Speed</span><span class="do">Combat Speed. Strongest feel stat.<span class="why">Shortens every cast. On a mace, extra % that misses the next frame does nothing. Useful steps: 3.5 / 7.1 / 11.1 / 15.4 / 20 / 25 / 30.4.</span></span></div>
+  <div class="row"><span class="k">CDR</span><span class="do">Stop around 34%.<span class="why">That lines Earth Punishment’s 30s cooldown up with the buff. The cap is 60%. You do not want the cap.</span></span></div>
+  <div class="row"><span class="k">Alive</span><span class="do">HP, Defense, Block.<span class="why">Default manastone lines. You are a shield class: you can block and then parry, so the combined chance can pass 50%. A hit from behind skips both.</span></span></div>
+  <div class="row"><span class="k">Heals</span><span class="do">Healing Enhancement.<span class="why">Heals cannot crit. Crit cap on global is 50% (Korea is 80%). Crit does not help your heals.</span></span></div>
+  <div class="row"><span class="k">Skip</span><span class="do">Accuracy, Evasion, Crit Damage, Multi-hit, Max MP, Crit Resist.<span class="why">Not the early chase.</span></span></div>
+
+  <h2>Slots</h2>
+  <div class="row"><span class="k">Necklace</span><span class="do">Combat Speed.<span class="why">Global soulbind also rolls Might + Precision on every accessory. Korea’s old “passive skill” accessories are not the launch chase.</span></span></div>
+  <div class="row"><span class="k">Earrings</span><span class="do">Move Speed.</span></div>
+  <div class="row"><span class="k">Rings</span><span class="do">Keep them to push two skills toward 20.<span class="why">+1 skill level each.</span></span></div>
+  <div class="row"><span class="k">Leveling</span><span class="do">Weapon, then accessories and guard, to +5 only.<span class="why">Extract the old piece. Cap gear order is on At 45.</span></span></div>
+
+  <h2>If a tooltip lies</h2>
+  <div class="row"><span class="k">Boost</span><span class="do">Your boost minus their tolerance.<span class="why">30% damage boost vs 20% tolerance = 10%.</span></span></div>
+  <div class="row"><span class="k">Defense</span><span class="do">A flat cut, not a percent.<span class="why">Good vs small hits. Weak vs big ones.</span></span></div>
+  <div class="row"><span class="k">Block</span><span class="do">PvE bosses: about 50% less damage.<span class="why">PvP: parry ~30% less, block ~40% less. You need about 500 more of the defensive stat than their accuracy to approach the 50% cap.</span></span></div>
+  <div class="row"><span class="k">God stats</span><span class="do">Outer ring: value ÷ 5 = %.<span class="why">Might and Dex (inner): value ÷ 10. A “conditional” line like PvE Attack is not multiplied by those percents. Raw attack is.</span></span></div>
+  <div class="row"><span class="k">Adds</span><span class="do">Damage Boost + PvE + boss + species add, then multiply once.<span class="why">Back, front, and element boosts are separate multipliers. Usually better per point.</span></span></div>
+</article>`
+    },
+    daevanion: {
+    kicker: "Daevanion · the board",
+    now: "Orange damage nodes first. Ariel before Azphel, if Ariel is there.",
+    html: `
+<article class="cleric-block">
+  <div class="row"><span class="k">Titles</span><span class="do">Show one name. Equip three effects.<span class="why">Achievements become stats. Most people only change the name. Smite comes from early feathers — equip it around 17–21. Prefer damage or move speed.</span></span></div>
+  <div class="row"><span class="k">Fill</span><span class="do">Orange damage corners first.<span class="why">Then skill nodes: Judgment Thunder → Earth’s Retribution → Condemnation → Divine Aura → Chain of Torment. Only heal to rush: Healing Light to 16. Passives only if they sit on that path.</span></span></div>
+  <div class="row"><span class="k">Unlock</span><span class="do">About 12 / 20 / 30 / 40 / two at 45.<span class="why">Six Season 1 boards. Fill Ariel (PvE) before Azphel (PvP) if Ariel is on the live client. A test at level 37 did not show Ariel. That does not mean it is gone at 45.</span></span></div>
+  <div class="row"><span class="k">Ignore</span><span class="do">Korea’s 8-board healer route.<span class="why">Yustiel then Marchutan is a later season there. Do not copy those crystal counts.</span></span></div>
+  <img class="map" src="maps/daev-boards.webp" alt="Daevanion boards Nezekan Zikel Vaizel Triniel" width="1920" height="1080">
+  <p class="map-cap">Boards while leveling. Click to enlarge.</p>
+  <div class="row"><span class="k">Feathers</span><span class="do">Pick up traces. Turn them in at the Monolith.<span class="why">Skill points, amulet scrolls, titles. Minimap icons. Global moved some alt skill points into seal dungeons. Still turn feathers in.</span></span></div>
+  <div class="row"><span class="k">Pets</span><span class="do">Every pet to 3. Then stop.<span class="why">Global cap is 3. Korea goes to 5. Killing mobs on the route already feeds Genus. Do not grind pets on day one.</span></span></div>
+  <div class="row"><span class="k">Pantheon</span><span class="do">Equip better statues when you have them.<span class="why">Slow free stats. Nightmare shop: statues, wings, and Ariel crystals before cosmetics.</span></span></div>
+  <div class="row"><span class="k">Cubes</span><span class="do">Lock keepsakes before you dismantle.<span class="why">Auto Extract is on. Reroll duty bonuses until the item you want sits in slot 1 or 2 — the odds fall off from left to right. Source: Codex daily/weekly.</span></span></div>
+</article>`
+    }
+  },
+  chanter: {
+    label: "Chanter",
+    weapon: "Staff",
+    skills: {
+    kicker: "Skills · open when you get a point",
+    now: "Melee staff hybrid. Weave auto-attacks or you run dry on mana.",
+    html: `
+<article class="cleric-block">
+  <p class="kicker">Global · 4 stigma slots · free skill reset</p>
+  <h2>Rules</h2>
+  <div class="row"><span class="k">Points</span><span class="do">A skill maxes at 10. Same system as the Cleric.<span class="why">13 points to reach 8, 21 to reach 10. Resets are free.</span></span></div>
+  <div class="row"><span class="k">Gate</span><span class="do">+1 skill level every 3 character levels.<span class="why">Onslaught is learned at level 1, so it can reach 8 at character level 19. Bonus levels from gear and the board count toward it.</span></span></div>
+  <div class="row"><span class="k">8 / 12 / 20</span><span class="do">Three specialty slots. Five options.<span class="why">Options unlock at skill levels 8, 12 and 16; you can equip three, and the slots open at 8, 12 and 20. Level 20 still needs Daevanion, gear or Arcana.</span></span></div>
+  <div class="row"><span class="k">Budget</span><span class="do">About 230–250 points at 45. About 150 at 37.<span class="why">Reported figures rather than confirmed ones. At 21 points a skill that is roughly eleven skills at 10, so you cannot level everything.</span></span></div>
+  <div class="row"><span class="k">Mana</span><span class="do">The defining constraint. Weaving is how you fix it.<span class="why">Heavy early mana problems are the class's listed weakness. Onslaught restores MP on every hit, and weaving auto-attacks between skills is what keeps you casting. Skip the weaving and you stall.</span></span></div>
+
+  <h2>Spend</h2>
+  <div class="row"><span class="k">1–18</span><span class="do">Rushing Smash and Impactful Crush to 8 first.<span class="why">You use your dash and your ranged attack constantly, so they earn their points earliest. Then Onslaught (left click) and Incandescent Blow (right click) — those two are your sustained damage and your mana engine.</span></span></div>
+  <div class="row"><span class="k">19</span><span class="do">First specialties, and take the MP ones.<span class="why">Onslaught: +20% MP restored. Incandescent Blow: −20% MP consumed. Rushing Smash gets its charge option. Early Chanter points are a mana problem before they are a damage problem.</span></span></div>
+  <div class="row"><span class="k">21–25</span><span class="do">Earth's Promise at 21. Dark Crush at 22 with its Critical Hit specialty.<span class="why">Dark Crush is your priority target skill — a 20 m ranged hit that your other skills open up. Its 12 option adds the Piercing Strike chain and 16 removes the cooldown.</span></span></div>
+  <div class="row"><span class="k">26–38</span><span class="do">Recuperation, Tremor Crush, Spinning Strike and Defiance to 8 as each unlocks.<span class="why">Then Attack Preparation, which can reach 10 at 37, and Spinning Strike to 10 at 38. Spinning Strike is a ranged skill that makes Dark Crush available again — it is part of the core loop, not filler.</span></span></div>
+  <div class="row"><span class="k">39–45</span><span class="do">Wind's Promise and the other passives.<span class="why">Wind's Promise adds Critical Damage Boost and a chance of extra damage. Passives can go past 10 later through gear and Arcana.</span></span></div>
+  <div class="row"><span class="k">Weak passives</span><span class="do">Crossguard and Raging Spell.<span class="why">Described as of little use in PvE. Not where your points go.</span></span></div>
+
+  <h2>Specialty picks</h2>
+  <div class="row"><span class="k">Onslaught</span><span class="do">+20% MP restored → and at 12, each hit cuts 1s off Spinning Strike.<span class="why">That level-12 option is the engine of the class: every Onslaught hit accelerates your next Spinning Strike, which reopens Dark Crush. One Korean creator uses HP absorb instead because he hit a bug with the cooldown cut.</span></span></div>
+  <div class="row"><span class="k">Incandescent</span><span class="do">−20% MP consumed. Later, fewer-targets damage.<span class="why">Mana first while leveling, then the damage version for bosses once you are not starving.</span></span></div>
+  <div class="row"><span class="k">Dark Crush</span><span class="do">Critical Hit from level 8.<span class="why">Then the Piercing Strike chain at 12 and no-cooldown at 16. This is the skill the whole kit funnels into.</span></span></div>
+  <div class="row"><span class="k">Spinning Strike</span><span class="do">−5s cooldown, then Crit at 16.<span class="why">One source calls the cooldown cut mandatory after Korea's September change. At 16 it ignores Block and Evasion and lands as a critical.</span></span></div>
+  <div class="row"><span class="k">Wave Blow</span><span class="do">Change it to AoE for grinding.<span class="why">Hits up to four enemies and raises your Critical Damage Boost 10% for 30s, stacking twice.</span></span></div>
+  <div class="row"><span class="k">Recuperation</span><span class="do">+1 consecutive use so you heal twice.<span class="why">Its heal also removes a debuff and adds a heal over time.</span></span></div>
+  <div class="row"><span class="k">Fracturing</span><span class="do">The charge option while leveling.<span class="why">Changes it to a charge skill for up to 200% more damage. Later, Heat Wave Blow plus the reset at 12.</span></span></div>
+
+  <h2>Stigmas · 4 slots</h2>
+  <div class="row"><span class="k">First</span><span class="do">Undefeated Mantra, ahead of everything else.<span class="why">Every source agrees. It raises PvE damage boost and tolerance for you and the party, and adds +100 Accuracy at stigma level 10. Take it as high as it goes.</span></span></div>
+  <div class="row"><span class="k">Sprint Mantra</span><span class="do">Move speed plus 15% chance to restore HP on attack.<span class="why">+10.5% move speed for you and nearby party. Cheap, always useful.</span></span></div>
+  <div class="row"><span class="k">Fracturing Blow</span><span class="do">Rush that lowers the target's Defense 30% for 5s.<span class="why">One source keeps it at 1 purely for the stagger damage; another takes it to 5 for the shorter cooldown. Either is defensible.</span></span></div>
+  <div class="row"><span class="k">Group</span><span class="do">Power of the Storm.<span class="why">+20% Combat Speed and −20% cooldowns on you, +20% and −10% for the party within 40 m. Named as one of the best buffs in the game and a fixed pick for group Chanters.</span></span></div>
+  <div class="row"><span class="k">Situational</span><span class="do">Marchutan's Wrath and Healing Touch.<span class="why">Marchutan's makes Dark Crush available — though one creator says it now does little damage. Healing Touch is for when you are the only healer and the party is struggling.</span></span></div>
+  <div class="row"><span class="k">Cost</span><span class="do">75 shards to take one stigma to 20.<span class="why">1 per level to 5, 2 per level to 10, 4 to 15, 8 to 20. A freshly levelled Chanter carries about six stigmas with four of them at 5.</span></span></div>
+
+  <h2>Macro</h2>
+  <div class="row"><span class="k">Chain</span><span class="do">Onslaught → Dark Crush → Spinning Strike. 10 ms.<span class="why">Onslaught restores MP on every hit, Dark Crush fires while it is available, and Spinning Strike makes Dark Crush available again for the next pass. That is one closed loop.</span></span></div>
+  <div class="row"><span class="k">Weave</span><span class="do">Hold left click and the macro key together.<span class="why">Not optional on a Chanter. Weaving auto-attacks is your mana, and with Onslaught's level-12 specialty every hit also takes a second off Spinning Strike. The game cancels animations better that way than if you put auto-attacks inside the macro.</span></span></div>
+  <div class="row"><span class="k">Leave out</span><span class="do">Defensive cooldowns.<span class="why">Keep guard and panic buttons manual so you fire them when the hit lands, not on a timer.</span></span></div>
+  <div class="row"><span class="k">Mode</span><span class="do">Aion 1 mode (tab target) auto-weaves auto-attacks for you.<span class="why">Action Combat mode does not — you have to put the auto-attack commands in the macro yourself. Worth knowing before you pick a control scheme.</span></span></div>
+
+  <h2>Not on global</h2>
+  <div class="row"><span class="k">KR/TW only</span><span class="do">Eight skills exist in Korea and Taiwan but not the global client.<span class="why">Hub's global list is 26 active and 10 passive. Resonance Crush, Crushing Blow, Bursting Blow, Storm Chain, Surging Strike, Piercing Strike, Bolt Crush and Crushing Strike are not in it. Any guide building a rotation around those is describing a later version. Dark Crush's Piercing Strike chain specialty is affected too.</span></span></div>
+</article>`
+    },
+    stats: {
+    kicker: "What to stack",
+    now: "Weapon is a staff. Attack and Critical Hit. Mana is the early wall.",
+    html: `
+<article class="cleric-block">
+  <h2>Chase</h2>
+  <div class="row"><span class="k">Attack</span><span class="do">Melee damage first, heals second.<span class="why">You are a bruiser, not a pure healer. Your damage is comparable to a Cleric or Templar's while you also buff.</span></span></div>
+  <div class="row"><span class="k">Crit</span><span class="do">Critical Hit, then Critical Damage Boost.<span class="why">Dark Crush's level-8 specialty is a critical hit, and Wave Blow raises your Critical Damage Boost 10% for 30s stacking twice. Attack and Critical Hit is the pair the community PvE build runs.</span></span></div>
+  <div class="row"><span class="k">Speed</span><span class="do">Combat Speed.<span class="why">You are weaving melee between skills, so animation time is damage. Power of the Storm hands you +20% for 10s on demand.</span></span></div>
+  <div class="row"><span class="k">Accuracy</span><span class="do">Mandatory, not optional.<span class="why">Bosses frequently parry front attacks and you fight in melee. Undefeated Mantra adds +100 Accuracy at stigma level 10, which is a large part of why it is the first stigma.</span></span></div>
+  <div class="row"><span class="k">Alive</span><span class="do">HP, Defense, Block.<span class="why">Guardian Blessing and Focused Defense cover you, and Undefeated Mantra's tolerance makes the whole party tankier — one source says it lets the group face-tank some mechanics.</span></span></div>
+  <div class="row"><span class="k">Evasion</span><span class="do">Worth having for PvE.<span class="why">It is how you dodge attacks in open-world and dungeon content.</span></span></div>
+  <div class="row"><span class="k">Mana</span><span class="do">Treat MP as a stat, not an afterthought.<span class="why">It is the class's listed weakness and the reason your early specialty picks are MP options. Weaving is the real fix, but MP lines are not wasted.</span></span></div>
+
+  <h2>Manastones</h2>
+  <p>Game8's listed priorities for the Chanter, in their order:</p>
+  <div class="row"><span class="k">First</span><span class="do">Critical Damage Tolerance ×4 · Weapon Damage Tolerance ×4.<span class="why">Survivability lines first.</span></span></div>
+  <div class="row"><span class="k">Then</span><span class="do">Attack/Critical Hit Resist ×4 · Regeneration Penetration ×4.<span class="why">Middle of their list.</span></span></div>
+  <div class="row"><span class="k">Filler</span><span class="do">Accuracy/Critical Hit Resist ×2 · Block Penetration/Accuracy ×6.<span class="why">Last on their list, and the counts suggest more slots than the earlier entries.</span></span></div>
+  <div class="row"><span class="k">PvP set</span><span class="do">PvP Critical Hit/Resist ×8.<span class="why">Swap in for PvP rather than stacking both.</span></span></div>
+
+  <h2>Gear and cards</h2>
+  <div class="row"><span class="k">Weapon</span><span class="do">Staff.<span class="why">Not a mace. The Cleric and Chanter do not share weapons.</span></span></div>
+  <div class="row"><span class="k">PvE build</span><span class="do">Attack and Critical Hit, Destruction / Life / Death Pantheon.<span class="why">Hub's community buff/DPS hybrid build — party buffs and mantras layered over damage.</span></span></div>
+  <div class="row"><span class="k">PvP build</span><span class="do">PvP Damage Boost, HP and self-heal, guard stigmas, Destruction / Justice / Life Pantheon.<span class="why">Hub's community PvP bruiser. Both Hub builds are labelled orientative test builds from the playtest client, so treat the stat directions as the useful part, not the exact numbers.</span></span></div>
+  <div class="row"><span class="k">Arcana</span><span class="do">Illusion for cooldown reduction and party support.<span class="why">Hunt cards giving 10–15% cooldown reduction. Wisdom instead raises your smite (double damage) chance — take that if you are over-geared and want to solo more or push personal damage.</span></span></div>
+  <div class="row"><span class="k">Leveling</span><span class="do">Weapon, then accessories and guard, to +5 only.<span class="why">Same rule as any class — you replace pieces four or five times. Cap gear order is on At 45.</span></span></div>
+</article>`
+    },
+    daevanion: {
+    kicker: "Daevanion · the board",
+    now: "Same boards as the Cleric. You differ on priorities — buff uptime first.",
+    html: `
+<article class="cleric-block">
+  <div class="row"><span class="k">Caveat</span><span class="do">The board list below is the full 8-board Korea/Taiwan client.<span class="why">Global's test client showed a partial set. Treat this as direction for what to prioritise, not as a map of what you will have on day one. Same situation as the Cleric's board page.</span></span></div>
+  <div class="row"><span class="k">Core</span><span class="do">Nezekan, then Zikel, then Yustiel.<span class="why">Nezekan gives Attack and Combat Speed — both directly feed your damage and your buff uptime. Zikel's damage boost is worth finishing early if you solo. Yustiel's cooldown reduction is the crucial one for group Chanters, because your value is how often your mantras are up.</span></span></div>
+  <div class="row"><span class="k">Survival</span><span class="do">Marchutan for Defense and HP.<span class="why">Listed as vital for survivability in group PvE and PvP.</span></span></div>
+  <div class="row"><span class="k">Later</span><span class="do">Vaizel for Critical Damage Boost, Triniel for Multi-hit.<span class="why">Both are damage upgrades to add after the core route, not before. Azphel is your PvP board — focus its damage mitigation nodes.</span></span></div>
+  <div class="row"><span class="k">Solo</span><span class="do">Ariel for grinding efficiency.<span class="why">Worth taking if you spend your time farming rather than raiding.</span></span></div>
+  <div class="row"><span class="k">Past 10</span><span class="do">Same sources as any class.<span class="why">Up to +4 on a skill from the board, +1 from each ring for up to two skills, +1 each from your weapon and guard, and +1 per Arcana card.</span></span></div>
+  <div class="row"><span class="k">To 20</span><span class="do">Onslaught, Dark Crush and Spinning Strike.<span class="why">The three skills the whole kit runs through. One Korean endgame list also puts Recuperation and Incandescent Blow up there, and notes that Incandescent Blow can be left lower.</span></span></div>
+  <div class="row"><span class="k">Feathers</span><span class="do">Pick up traces and turn them in at the Monolith.<span class="why">Skill points, amulet scrolls and titles. Same system as the Cleric — minimap icons, and it feeds your skill levels.</span></span></div>
+  <div class="row"><span class="k">Flavour</span><span class="do">Iconic weapons per board line up with the KR/TW route.<span class="why">If you see a guide naming boards by weapon rather than name, it is the same eight.</span></span></div>
+</article>`
+    }
+  }
+};
+
 const PAGES = {
   prep: {
     kicker: "Start here · then phase 1",
@@ -67,118 +285,6 @@ const PAGES = {
   <div class="row"><span class="k">Safety</span><span class="do">Read the DPS meter’s own claim, then decide.<span class="why">Abyss Logs says it passively reads game packets off the network interface and never touches the client or server, so it is not bannable. That is the developer’s claim, not an NCSoft statement — they describe themselves as an independent project with no NCSoft affiliation. It is a different mechanism from the overlay, which is OCR plus memory reading. Your account, your call.</span></span></div>
 </article>`
   },
-  cleric: {
-    kicker: "Skills · open when you get a point",
-    now: "Community build leads. Two-slot macro: Earth Punishment then Judgment Thunder.",
-    html: `
-<article class="cleric-block">
-  <h2>Rules</h2>
-  <div class="row"><span class="k">Two builds</span><span class="do">Community build leads. RosaPony is the alternate.<span class="why">They are aimed at different jobs. The community one is a group/raid healer build — it talks about Sanctuary progression, being the only support in the group, and rez in raids. RosaPony is a damage-leaning PvE Cleric: he puts the buffs and the two damage skills in his macro and takes Judgment Thunder first. Its author is reportedly at 1M+ combat power; RosaPony’s progression is unknown.</span></span></div>
-  <div class="row"><span class="k">Why they clash</span><span class="do">Different roles, not just different numbers.<span class="why">Most of the conflicts below are that split. Healing for a group: follow the community build. Mostly solo and want to contribute damage: several RosaPony picks have a real reason behind them.</span></span></div>
-  <div class="row"><span class="k">Points</span><span class="do">A skill maxes at 10.<span class="why">13 points to reach 8. 21 points to reach 10. Resets are free, so a bad spend is not permanent.</span></span></div>
-  <div class="row"><span class="k">Gate</span><span class="do">+1 skill level every 3 character levels.<span class="why">Earth’s Retribution hits 8 at 19 and 10 at 25. Earth’s Grace, Survival Willpower, and Radiant Benediction skip that gate.</span></span></div>
-  <div class="row"><span class="k">8 / 12 / 20</span><span class="do">Three specialty slots. Not five.<span class="why">Each skill has five specialty options. They unlock at skill levels 8, 12, and 16. You can only equip three. The slots open at 8, 12, and 20. Level 16 is the strong option, not a third slot. Skill level 20 still needs Arcana and gear.</span></span></div>
-  <div class="row"><span class="k">Budget</span><span class="do">~234 points at 45.<span class="why">~258 after you turn in feathers. About twelve skills at 10 out of 22. Damage first. Heals stay lean.</span></span></div>
-  <div class="row"><span class="k">Above 20</span><span class="do">20 is not the ceiling.<span class="why">A community screenshot shows skills sitting at 25, and one at 23. Sources: mastery points to 10, Daevanion board up to +4, Arcana cards, two rings, weapon, and guard.</span></span></div>
-
-  <h2>Spend</h2>
-  <div class="row"><span class="k">1–18</span><span class="do">Both clicks, always capped.<span class="why">Left: Earth’s Retribution (also gives MP). Right: Judgment Thunder. Then Empyrean Lord’s Grace. Bolt is your stagger. Scattershot only for story and seal bosses.</span></span></div>
-  <div class="row"><span class="k">19</span><span class="do">First specialty on both clicks.<span class="why">Earth’s Retribution: +20% MP. Judgment Thunder: +12% damage, fewer targets.</span></span></div>
-  <div class="row"><span class="k">21</span><span class="do">Earth’s Grace to 10 the moment you learn it.</span></div>
-  <div class="row"><span class="k">22</span><span class="do">1 point in Summon Resurrection.<span class="why">Parties expect the rez. Then Earth Punishment and Noble Aura toward 5.</span></span></div>
-  <div class="row"><span class="k">25</span><span class="do">Both clicks can hit 10.<span class="why">Survival Willpower and Radiant Benediction can go straight to 10.</span></span></div>
-  <div class="row"><span class="k">26–38</span><span class="do">New damage skills as they unlock.<span class="why">Bolt 8 at 32, 10 at 38. Chain of Torment is worth its points too.</span></span></div>
-  <div class="row"><span class="k">Heals</span><span class="do">Max Healing Light. Raise Healing Enhancement.<span class="why">Heals cannot crit, so Enhancement is how heals get bigger.</span></span></div>
-  <div class="row"><span class="k">Radiant Recovery</span><span class="do">Take it to 20, per the community build.<span class="why">Older advice to park it at 1 came from a leveling-phase build tuned to the first weeks of Krao and Draupnir farming, where you do not need an aggressive healer. That reason stops holding once you are healing real content.</span></span></div>
-  <div class="row"><span class="k">39–45</span><span class="do">Leftover points into passives.<span class="why">Earth’s Grace is about twice Empyrean Lord’s Grace per level for your damage.</span></span></div>
-  <div class="row"><span class="k">Skip</span><span class="do">0 points in Lightning Strike Scattershot.<span class="why">Community build agrees: N/A, no points. Weak in the boss loop until 16.</span></span></div>
-  <div class="row"><span class="k">Level 20 order</span><span class="do">Condemnation → Radiant Recovery → Healing Light → Divine Aura → Judgment Thunder → Bolt.<span class="why">Community build, and now the page default. RosaPony’s order was Judgment Thunder → Divine Aura → Condemnation → Earth’s Retribution → Chain of Torment → Healing Light. Kept only as the alternate.</span></span></div>
-  <div class="row"><span class="k">Bolt</span><span class="do">Fire it on cooldown, fully charged.<span class="why">Community note. Do not clip the charge.</span></span></div>
-
-  <h2>Specialty picks</h2>
-  <div class="row"><span class="k">Retribution</span><span class="do">+20% MP restored</span></div>
-  <div class="row"><span class="k">Thunder</span><span class="do">+12% damage, fewer targets</span></div>
-  <div class="row"><span class="k">Aura</span><span class="do">+50% attack speed on bosses<span class="why">Take the AoE version if you are farming trash.</span></span></div>
-  <div class="row"><span class="k">Chain</span><span class="do">+3 seconds on the DoT</span></div>
-  <div class="row"><span class="k">Condemn</span><span class="do">+12% damage, fewer targets</span></div>
-  <div class="row"><span class="k">Bolt</span><span class="do">+30% skill speed</span></div>
-  <div class="row"><span class="k">Light</span><span class="do">+2 consecutive heals</span></div>
-  <div class="row"><span class="k">Defiance</span><span class="do">Restore 10% HP</span></div>
-
-  <h2>Stigmas · 4 slots</h2>
-  <div class="row"><span class="k">Solo</span><span class="do">Light of Protection / Earth Punishment / Amplification / Noble Aura.<span class="why">Two separate sources land on these four. Earth Punishment is the strongest PvE stigma. ~34% cooldown reduction lines its 30s timer up with the buff.</span></span></div>
-  <div class="row"><span class="k">Group</span><span class="do">Drop Light of Protection when a Chanter is with you.<span class="why">Community build puts Voice of Doom in that slot. It also calls Benevolence mandatory, and Salvation a panic button for early Sanctuary.</span></span></div>
-  <div class="row"><span class="k">Rebuild</span><span class="do">5 → Earth Punishment. 10 → Amplification. 15 → Benevolence. 20 → Light of Protection, then Amplification, then Benevolence, then Noble Aura.<span class="why">Community upgrade tiers, roughly cheapest-first. Summon Resurrection can go toward 25 while you are learning Sanctuary.</span></span></div>
-  <div class="row"><span class="k">Rez</span><span class="do">1 point in Summon Resurrection from 22.<span class="why">Mandatory in raids. One source argues you can skip it in dungeons because most players carry their own resurrection stones there — but parties still expect the Cleric to have it.</span></span></div>
-  <div class="row"><span class="k">Contested</span><span class="do">Power Burst, Root, Assault Mark.<span class="why">The community build calls all three useless. RosaPony and RedCloud both run Power Burst in regular PvE for its stagger damage, so “useless” is that build’s opinion, not a consensus. Root is RosaPony-only. Assault Mark has no defender. Treat Power Burst as an optional stagger slot rather than a dead one.</span></span></div>
-  <div class="row"><span class="k">Korea</span><span class="do">Ignore 5th and 6th slot builds.<span class="why">Global starts at four.</span></span></div>
-
-  <h2>How the macro works</h2>
-  <div class="row"><span class="k">Stack</span><span class="do">Put the skills you spam on one key.<span class="why">That key cycles them when you press it. Holding that key does nothing. The macro is what lets you hold.</span></span></div>
-  <div class="row"><span class="k">Set it</span><span class="do">Escape → Key settings → General → Gameplay → Macro.<span class="why">Nothing is bound by default. Then the Macro button at the top right → Add. You select the hotkey line, not a skill icon.</span></span></div>
-  <div class="row"><span class="k">Hold</span><span class="do">Hold left click and the macro key together.<span class="why">Left click is Earth’s Retribution. It also cancels other skills. A black shadow means the cancel worked. Do not put left click inside the macro. That cancels less.</span></span></div>
-  <div class="row"><span class="k">Leave out</span><span class="do">Dodge, movement, and timed buffs.<span class="why">Season 1 has less cooldown reduction. A buff spent on trash is gone for the boss. Add a skill only after you already spam it without thinking. The community build is looser here: it says you may add Amplification and Divine Aura if you accept losing the say on when they fire. Never macro the heals or support buttons.</span></span></div>
-  <div class="row"><span class="k">Order</span><span class="do">Highest priority skill at the bottom of the stack.<span class="why">That one fires first.</span></span></div>
-  <div class="row"><span class="k">Bind</span><span class="do">Side button, or right click.<span class="why">If the macro key is right click, Judgment Thunder moves onto the stack. Left click never moves. Do not use mouse software to hold the buttons for you. That is outside the game. This page only uses the in-game macro.</span></span></div>
-  <div class="row"><span class="k">Primary</span><span class="do">Two slots: Earth Punishment, then Judgment Thunder. 10 ms each.<span class="why">Community build, and it agrees with the rule above — the buffs stay manual. The screenshot lists Earth Punishment in slot 1. Grobs puts the top-priority skill last, so try both; it is a two-click change. Only go to 40–50 ms if your ping is 80+.</span></span></div>
-  <p>Leveling: stack the two clicks’ spam skills and hold left click plus the macro key.</p>
-  <ol class="macro">
-    <li>Earth Punishment</li>
-    <li>Judgment Thunder</li>
-  </ol>
-  <div class="row"><span class="k">Alternate</span><span class="do">RosaPony chains five: Noble Aura → Prayer of Amplification → Earth Punishment → Chain of Torment → Judgment Thunder.<span class="why">Fuller dungeon loop, but it macros two buffs, which both Grobs and the community build say not to do. Kept as an option, not the default.</span></span></div>
-  <div class="row"><span class="k">Weave</span><span class="do">Retribution → Mark → Retribution → Divine Aura → hold macro.<span class="why">Heals, Mark, Aura, Bolt, dodge, and long cooldowns stay off the macro. Target mode on.</span></span></div>
-  <div class="row"><span class="k">Planner</span><span class="do"><a href="https://questlog.gg/aion-2/en/skill-builder/FQXZUw3OF054?build-id=2233" target="_blank" rel="noopener">PvE</a> · <a href="https://questlog.gg/aion-2/en/skill-builder/FQXZUw3OF054?build-id=1650" target="_blank" rel="noopener">PvP</a><span class="why">The community character build we used is deleted now, so these two stand in. Both are tagged Global, not KR/TW.</span></span></div>
-
-  <h2>After 45</h2>
-  <div class="row"><span class="k">To 20</span><span class="do">Condemnation, Radiant Recovery, Healing Light, Divine Aura, Judgment Thunder, Bolt.<span class="why">Community build. RosaPony’s list — Judgment Thunder, Divine Aura, Condemnation, Earth’s Retribution, Chain of Torment, Healing Light — is the alternate. Extra levels come from the board (up to +4), two rings, weapon, guard, and Arcana. Defiance stops at 16.</span></span></div>
-  <div class="row"><span class="k">Passives</span><span class="do">Lord’s Grace → Earth’s Grace → Healing Enhancement → Immortal Veil → Warm Benediction → Radiant Benediction → Prayer of Concentration → Survival Willpower → Lords’ Benediction → Heal Block.</span></div>
-</article>`
-  },
-  stats: {
-    kicker: "What to stack",
-    now: "Attack makes heals bigger. CDR around 34%. Crit cap is 50%.",
-    html: `
-<article class="cleric-block">
-  <h2>Chase</h2>
-  <div class="row"><span class="k">Attack</span><span class="do">Biggest heals and your damage.<span class="why">Damage multipliers do not apply to heals. Heal Boost times Incoming Heal does (20% + 20% is ×1.2 twice).</span></span></div>
-  <div class="row"><span class="k">Speed</span><span class="do">Combat Speed. Strongest feel stat.<span class="why">Shortens every cast. On a mace, extra % that misses the next frame does nothing. Useful steps: 3.5 / 7.1 / 11.1 / 15.4 / 20 / 25 / 30.4.</span></span></div>
-  <div class="row"><span class="k">CDR</span><span class="do">Stop around 34%.<span class="why">That lines Earth Punishment’s 30s cooldown up with the buff. The cap is 60%. You do not want the cap.</span></span></div>
-  <div class="row"><span class="k">Alive</span><span class="do">HP, Defense, Block.<span class="why">Default manastone lines. You are a shield class: you can block and then parry, so the combined chance can pass 50%. A hit from behind skips both.</span></span></div>
-  <div class="row"><span class="k">Heals</span><span class="do">Healing Enhancement.<span class="why">Heals cannot crit. Crit cap on global is 50% (Korea is 80%). Crit does not help your heals.</span></span></div>
-  <div class="row"><span class="k">Skip</span><span class="do">Accuracy, Evasion, Crit Damage, Multi-hit, Max MP, Crit Resist.<span class="why">Not the early chase.</span></span></div>
-
-  <h2>Slots</h2>
-  <div class="row"><span class="k">Necklace</span><span class="do">Combat Speed.<span class="why">Global soulbind also rolls Might + Precision on every accessory. Korea’s old “passive skill” accessories are not the launch chase.</span></span></div>
-  <div class="row"><span class="k">Earrings</span><span class="do">Move Speed.</span></div>
-  <div class="row"><span class="k">Rings</span><span class="do">Keep them to push two skills toward 20.<span class="why">+1 skill level each.</span></span></div>
-  <div class="row"><span class="k">Leveling</span><span class="do">Weapon, then accessories and guard, to +5 only.<span class="why">Extract the old piece. Cap gear order is on At 45.</span></span></div>
-
-  <h2>If a tooltip lies</h2>
-  <div class="row"><span class="k">Boost</span><span class="do">Your boost minus their tolerance.<span class="why">30% damage boost vs 20% tolerance = 10%.</span></span></div>
-  <div class="row"><span class="k">Defense</span><span class="do">A flat cut, not a percent.<span class="why">Good vs small hits. Weak vs big ones.</span></span></div>
-  <div class="row"><span class="k">Block</span><span class="do">PvE bosses: about 50% less damage.<span class="why">PvP: parry ~30% less, block ~40% less. You need about 500 more of the defensive stat than their accuracy to approach the 50% cap.</span></span></div>
-  <div class="row"><span class="k">God stats</span><span class="do">Outer ring: value ÷ 5 = %.<span class="why">Might and Dex (inner): value ÷ 10. A “conditional” line like PvE Attack is not multiplied by those percents. Raw attack is.</span></span></div>
-  <div class="row"><span class="k">Adds</span><span class="do">Damage Boost + PvE + boss + species add, then multiply once.<span class="why">Back, front, and element boosts are separate multipliers. Usually better per point.</span></span></div>
-</article>`
-  },
-  systems: {
-    kicker: "Daevanion · the board",
-    now: "Orange damage nodes first. Ariel before Azphel, if Ariel is there.",
-    html: `
-<article class="cleric-block">
-  <div class="row"><span class="k">Titles</span><span class="do">Show one name. Equip three effects.<span class="why">Achievements become stats. Most people only change the name. Smite comes from early feathers — equip it around 17–21. Prefer damage or move speed.</span></span></div>
-  <div class="row"><span class="k">Fill</span><span class="do">Orange damage corners first.<span class="why">Then skill nodes: Judgment Thunder → Earth’s Retribution → Condemnation → Divine Aura → Chain of Torment. Only heal to rush: Healing Light to 16. Passives only if they sit on that path.</span></span></div>
-  <div class="row"><span class="k">Unlock</span><span class="do">About 12 / 20 / 30 / 40 / two at 45.<span class="why">Six Season 1 boards. Fill Ariel (PvE) before Azphel (PvP) if Ariel is on the live client. A test at level 37 did not show Ariel. That does not mean it is gone at 45.</span></span></div>
-  <div class="row"><span class="k">Ignore</span><span class="do">Korea’s 8-board healer route.<span class="why">Yustiel then Marchutan is a later season there. Do not copy those crystal counts.</span></span></div>
-  <img class="map" src="maps/daev-boards.webp" alt="Daevanion boards Nezekan Zikel Vaizel Triniel" width="1920" height="1080">
-  <p class="map-cap">Boards while leveling. Click to enlarge.</p>
-  <div class="row"><span class="k">Feathers</span><span class="do">Pick up traces. Turn them in at the Monolith.<span class="why">Skill points, amulet scrolls, titles. Minimap icons. Global moved some alt skill points into seal dungeons. Still turn feathers in.</span></span></div>
-  <div class="row"><span class="k">Pets</span><span class="do">Every pet to 3. Then stop.<span class="why">Global cap is 3. Korea goes to 5. Killing mobs on the route already feeds Genus. Do not grind pets on day one.</span></span></div>
-  <div class="row"><span class="k">Pantheon</span><span class="do">Equip better statues when you have them.<span class="why">Slow free stats. Nightmare shop: statues, wings, and Ariel crystals before cosmetics.</span></span></div>
-  <div class="row"><span class="k">Cubes</span><span class="do">Lock keepsakes before you dismantle.<span class="why">Auto Extract is on. Reroll duty bonuses until the item you want sits in slot 1 or 2 — the odds fall off from left to right. Source: Codex daily/weekly.</span></span></div>
-</article>`
-  },
   versus: {
     kicker: "Cleric vs Chanter",
     now: "Cleric for progression. Chanter for farm and damage. One support slot? Cleric.",
@@ -199,9 +305,11 @@ const PAGES = {
   <div class="row"><span class="k">Mobility</span><span class="do">Cleric is very immobile early.<span class="why">Codex calls it a Cleric weakness. The Chanter is melee with a dash and a ranged attack, so it repositions better.</span></span></div>
 
   <h2>Do not stack them blindly</h2>
-  <div class="row"><span class="k">Mantra</span><span class="do">Undefeated Mantra does not stack with the Cleric’s matching buff.<span class="why">Only the higher level applies. Two supports covering the same buff means one of them is wasting it. Codex flags this on both class pages.</span></span></div>
-  <div class="row"><span class="k">LoP</span><span class="do">With a Chanter in the party, the Cleric drops Light of Protection.<span class="why">The Chanter’s mantras cover that slot, and the Cleric gains a free stigma slot for another heal, shield or the rez.</span></span></div>
-  <div class="row"><span class="k">Slots</span><span class="do">A Chanter loses 2 of its 4 stigma slots to mantras.<span class="why">A Cleric loses 1 to its buff. That compression is why the Chanter’s kit feels tighter, and why players describe the two as complementary rather than competing.</span></span></div>
+  <p>Three Cleric and Chanter skills cancel each other out. Game8's skill tooltips spell these out — this is the clearest independent confirmation I found that the two classes are designed to interlock rather than duplicate.</p>
+  <div class="row"><span class="k">Mantra</span><span class="do">Undefeated Mantra cancels the Cleric's Light of Protection.<span class="why">Both give the same damage boost and tolerance. Only the highest level applies, and if they are equal, Undefeated Mantra wins. So bringing both is usually a wasted Cleric slot — which is exactly why the Cleric drops LoP when a Chanter is present.</span></span></div>
+  <div class="row"><span class="k">Storm</span><span class="do">Power of the Storm is blocked by the Cleric's Earth's Blessing.<span class="why">If Earth's Blessing is already active you cannot receive Power of the Storm. The Chanter's headline group buff and a Cleric buff occupy the same space.</span></span></div>
+  <div class="row"><span class="k">Promise</span><span class="do">Earth's Promise is cancelled by the Cleric's Chain of Torment.<span class="why">Its damage-tolerance reduction does not apply when Chain of Torment is used. A Cleric running Chain of Torment removes a Chanter debuff.</span></span></div>
+  <div class="row"><span class="k">Slots</span><span class="do">A Chanter loses 2 of its 4 stigma slots to mantras.<span class="why">A Cleric loses 1 to its buff. That compression is why the Chanter's kit feels tighter, and why players describe the two as complementary rather than competing.</span></span></div>
 
   <h2>What players actually say</h2>
   <div class="row"><span class="k">One slot</span><span class="do">Take the Cleric.<span class="why">Asked directly whether to bring Cleric or Chanter as a group’s only support, the KR/TW players in r/Aion2 were near-unanimous: “the support is definitive… it does not have the revive skill the Cleric has.” Another: “in every sanctuary 2× Cleric is borderline mandatory until you are overgeared or speedrunning.”</span></span></div>
@@ -342,7 +450,8 @@ const PAGES = {
   <div class="row"><span class="k">Overlay</span><span class="do"><a href="https://github.com/AnkuAion2/Aion2-MSQ-Overlay" target="_blank" rel="noopener">Anqua</a></span></div>
   <h2>Used on this page</h2>
   <div class="row"><span class="k">Skills</span><span class="do"><a href="https://mmo-codex.com/articles/aion-2-cleric-guide/" target="_blank" rel="noopener">Codex Cleric</a> — distrust the KR board section</span></div>
-  <div class="row"><span class="k">Chanter</span><span class="do"><a href="https://mmo-codex.com/articles/aion-2-chanter-guide/" target="_blank" rel="noopener">Codex Chanter</a> · <a href="https://aion2hub.com/classes/chanter" target="_blank" rel="noopener">Hub Chanter</a><span class="why">Used for the vs Chanter tab. Also <a href="https://www.reddit.com/r/Aion2/comments/1wronmf/chanter_or_cleric/" target="_blank" rel="noopener">r/Aion2: Chanter or Cleric</a> for KR/TW player sentiment.</span></span></div>
+  <div class="row"><span class="k">Chanter</span><span class="do"><a href="https://mmo-codex.com/articles/aion-2-chanter-guide/" target="_blank" rel="noopener">Codex Chanter</a> · <a href="https://aion2hub.com/classes/chanter" target="_blank" rel="noopener">Hub Chanter</a> · <a href="https://game8.co/games/Aion-2/archives/612963" target="_blank" rel="noopener">Game8 Chanter</a><span class="why">Chanter and Compare tabs. Game8 is the independent one — it supplied the skill tooltips, the manastone priorities and the three cross-class conflicts. Also <a href="https://www.reddit.com/r/Aion2/comments/1wronmf/chanter_or_cleric/" target="_blank" rel="noopener">r/Aion2: Chanter or Cleric</a> for KR/TW player sentiment.</span></span></div>
+  <div class="row"><span class="k">Chanter caveat</span><span class="do">The Chanter build order leans on sources Codex aggregates.<span class="why">Codex cites aLuckyRO for the level-45 point allocation, the leveling specialty picks, the starter stigma set and the DPS macro. Those parts are single-creator and cannot be independently corroborated the way the Cleric's duty, Odyle and weekly facts were. Hagoo and Logon (Korean) cover the endgame targets, and Game8 and Hub cover mechanics and skills. Treat the specific point allocation as a starting point, not a verified number.</span></span></div>
   <div class="row"><span class="k">Checklists</span><span class="do"><a href="https://mmo-codex.com/articles/aion-2-new-player-checklist/" target="_blank" rel="noopener">Codex new-player</a> · <a href="https://mmo-codex.com/articles/aion-2-daily-weekly-checklist/" target="_blank" rel="noopener">Codex daily/weekly</a> · <a href="https://mmo-codex.com/articles/aion-2-krao-cave-guide/" target="_blank" rel="noopener">Codex Krao / Draupnir</a></span></div>
   <div class="row"><span class="k">Series</span><span class="do"><a href="https://youtu.be/gUNOKxTKnYc" target="_blank" rel="noopener">1 Basics</a> · <a href="https://youtu.be/dYaLTeV5QX8" target="_blank" rel="noopener">2 Content</a> · <a href="https://youtu.be/fUeYz6b7eJ0" target="_blank" rel="noopener">3 Arcana</a> · <a href="https://youtu.be/Qo3EXzcSXeo" target="_blank" rel="noopener">4 Daevanion</a> · <a href="https://youtu.be/54voCuvNXmU" target="_blank" rel="noopener">5 Skills</a> · <a href="https://youtu.be/KMGmwHtH1hM" target="_blank" rel="noopener">Stats</a> · <a href="https://youtu.be/3Yn91qaBD5s" target="_blank" rel="noopener">7 Gear</a> · <a href="https://youtu.be/HMod6Z4GrE0" target="_blank" rel="noopener">8 Macros</a> · <a href="https://youtu.be/hAl6c_LwE3M" target="_blank" rel="noopener">10 Daily/weekly</a><span class="why">Grobs. Episode 10 is the source for the Daily and weekly and First week sections on At 45. Episodes 6 and 9 were not in the numbered intros I could hear. The mouse-software toggle from episode 8 is not on this page.</span></span></div>
   <div class="row"><span class="k">Community</span><span class="do">Cleric build pasted from a community Discord.<span class="why">No link and no author, but its author is reportedly at 1M+ combat power, so it now leads on Skills. RosaPony is kept as the alternate. Anything the community build does not cover still comes from the older sources.</span></span></div>
@@ -361,3 +470,11 @@ const PAGES = {
 </article>`
   }
 };
+
+const CLASS_TABS = ["skills", "stats", "daevanion"];
+
+function pageFor(view, classKey) {
+  const key = CLASSES[classKey] ? classKey : "cleric";
+  if (CLASS_TABS.indexOf(view) !== -1) return CLASSES[key][view];
+  return PAGES[view];
+}
