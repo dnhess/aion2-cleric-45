@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Aion 2 · Cleric 1–45 Route</title>
+<title>Aion 2 · 1–45 Route &amp; Class Guides</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
@@ -413,8 +413,8 @@
       <h3>VOD</h3>
       <div class="links" id="vod-links"></div>
       <p class="hint">
-        Keys: <kbd>1</kbd>–<kbd>5</kbd> route · <kbd>P</kbd> start · <kbd>V</kbd> compare · <kbd>C</kbd> skills · <kbd>D</kbd> Daevanion · <kbd>S</kbd> stats · <kbd>A</kbd> at 45<br>
-        <kbd>J</kbd>/<kbd>K</kbd> items · <kbd>Space</kbd> check · <kbd>[</kbd>/<kbd>]</kbd> phase. Skills, Stats and Daevanion follow the class you pick up top.
+        Keys: <kbd>1</kbd>–<kbd>5</kbd> route · <kbd>P</kbd> start · <kbd>V</kbd> compare · <kbd>C</kbd> skills · <kbd>B</kbd> build · <kbd>D</kbd> Daevanion · <kbd>S</kbd> stats · <kbd>A</kbd> at 45<br>
+        <kbd>J</kbd>/<kbd>K</kbd> items · <kbd>Space</kbd> check · <kbd>[</kbd>/<kbd>]</kbd> phase. Class tabs follow the class you pick up top.
       </p>
     </aside>
   </div>
@@ -651,11 +651,11 @@ function renderNav() {
   }).join("") + `<div class="nav-extra">
     ${[
       ["While you level", [["prep","Start"],["versus","Compare"],["skills","Skills"],["daevanion","Daevanion"]]],
-      ["At cap", [["stats","Stats"],["after","At 45"]]],
+      ["At cap", [["build","PvE build"],["stats","Stats"],["after","At 45"]]],
       ["Reference", [["shop","Cash shop"],["watch","KR traps"],["links","Sources"]]]
     ].map(([label, items]) =>
       `<div class="nav-label">${label}</div>` +
-      items.map(([id, name]) =>
+      items.filter(([id]) => PAGES[id] || isClassTab(id, state.classKey)).map(([id, name]) =>
         `<button data-view="${id}" class="${state.view === id ? "active" : ""}">${name}</button>`
       ).join("")
     ).join("")}
@@ -685,7 +685,7 @@ function renderMain() {
   if (pg) {
     main.innerHTML = pg.html;
     document.getElementById("kicker").textContent =
-      (CLASS_TABS.indexOf(state.view) !== -1 ? CLASSES[state.classKey].label + " · " : "") + pg.kicker;
+      (isClassTab(state.view, state.classKey) ? CLASSES[state.classKey].label + " · " : "") + pg.kicker;
     document.getElementById("now").textContent = pg.now;
     document.querySelectorAll(".map").forEach(img => {
       img.addEventListener("click", () => img.classList.toggle("zoom"));
@@ -753,6 +753,10 @@ function toggle(id) {
 }
 
 function render() {
+  if (!PAGES[state.view] && !isClassTab(state.view, state.classKey) &&
+      !PHASES.some(p => p.id === state.view)) {
+    state.view = "skills";
+  }
   renderClassSwitch();
   renderNav();
   renderMain();
@@ -789,6 +793,7 @@ document.addEventListener("keydown", (e) => {
   if (e.key === "c" || e.key === "C") { state.view = "skills"; render(); }
   if (e.key === "d" || e.key === "D") { state.view = "daevanion"; render(); }
   if (e.key === "s" || e.key === "S") { state.view = "stats"; render(); }
+  if (e.key === "b" || e.key === "B") { state.view = "build"; render(); }
   if (e.key === "p" || e.key === "P") { state.view = "prep"; render(); }
   if (e.key === "a" || e.key === "A") { state.view = "after"; render(); }
   if (e.key === "v" || e.key === "V") { state.view = "versus"; render(); }

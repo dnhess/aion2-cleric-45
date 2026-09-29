@@ -4,6 +4,7 @@ const CLASSES = {
   cleric: {
     label: "Cleric",
     weapon: "Mace and shield",
+    tabs: ["skills", "stats", "daevanion"],
     skills: {
     kicker: "Skills · open when you get a point",
     now: "Community build leads. Two-slot macro: Earth Punishment then Judgment Thunder.",
@@ -12,7 +13,7 @@ const CLASSES = {
   <h2>Rules</h2>
   <div class="row"><span class="k">Two builds</span><span class="do">Community build leads. RosaPony is the alternate.<span class="why">They are aimed at different jobs. The community one is a group/raid healer build — it talks about Sanctuary progression, being the only support in the group, and rez in raids. RosaPony is a damage-leaning PvE Cleric: he puts the buffs and the two damage skills in his macro and takes Judgment Thunder first. Its author is reportedly at 1M+ combat power; RosaPony’s progression is unknown.</span></span></div>
   <div class="row"><span class="k">Why they clash</span><span class="do">Different roles, not just different numbers.<span class="why">Most of the conflicts below are that split. Healing for a group: follow the community build. Mostly solo and want to contribute damage: several RosaPony picks have a real reason behind them.</span></span></div>
-  <div class="row"><span class="k">Points</span><span class="do">A skill maxes at 10.<span class="why">13 points to reach 8. 21 points to reach 10. Resets are free, so a bad spend is not permanent.</span></span></div>
+  <div class="row"><span class="k">Points</span><span class="do">Skill points take a skill to 10. Levels 12, 16 and 20 are bonuses.<span class="why">13 points to reach 8, 21 to reach 10. Past that: Daevanion board +4, rings +2, weapon and guard +1 each, Arcana the rest. Resets are free, so a bad spend is not permanent.</span></span></div>
   <div class="row"><span class="k">Gate</span><span class="do">+1 skill level every 3 character levels.<span class="why">Earth’s Retribution hits 8 at 19 and 10 at 25. Earth’s Grace, Survival Willpower, and Radiant Benediction skip that gate.</span></span></div>
   <div class="row"><span class="k">8 / 12 / 20</span><span class="do">Three specialty slots. Not five.<span class="why">Each skill has five specialty options. They unlock at skill levels 8, 12, and 16. You can only equip three. The slots open at 8, 12, and 20. Level 16 is the strong option, not a third slot. Skill level 20 still needs Arcana and gear.</span></span></div>
   <div class="row"><span class="k">Budget</span><span class="do">~234 points at 45.<span class="why">~258 after you turn in feathers. About twelve skills at 10 out of 22. Damage first. Heals stay lean.</span></span></div>
@@ -120,6 +121,7 @@ const CLASSES = {
   chanter: {
     label: "Chanter",
     weapon: "Staff",
+    tabs: ["skills", "build", "stats", "daevanion"],
     skills: {
     kicker: "Skills · open when you get a point",
     now: "Melee staff hybrid. Weave auto-attacks or you run dry on mana.",
@@ -127,16 +129,16 @@ const CLASSES = {
 <article class="cleric-block">
   <p class="kicker">Global · 4 stigma slots · free skill reset</p>
   <h2>Rules</h2>
-  <div class="row"><span class="k">Points</span><span class="do">A skill maxes at 10. Same system as the Cleric.<span class="why">13 points to reach 8, 21 to reach 10. Resets are free.</span></span></div>
+  <div class="row"><span class="k">Points</span><span class="do">Skill points take a skill to 10. Levels 12, 16 and 20 are bonuses.<span class="why">13 points to reach 8, 21 to reach 10. Past that: Daevanion board +4, rings +2, weapon and guard +1 each, Arcana the rest. Resets are free.</span></span></div>
   <div class="row"><span class="k">Gate</span><span class="do">+1 skill level every 3 character levels.<span class="why">Onslaught is learned at level 1, so it can reach 8 at character level 19. Bonus levels from gear and the board count toward it.</span></span></div>
-  <div class="row"><span class="k">8 / 12 / 20</span><span class="do">Three specialty slots. Five options.<span class="why">Options unlock at skill levels 8, 12 and 16; you can equip three, and the slots open at 8, 12 and 20. Level 20 still needs Daevanion, gear or Arcana.</span></span></div>
+  <div class="row"><span class="k">Specialties</span><span class="do">Five options per skill. You run two, or three at Lv.20.<span class="why">Every Lv.20 skill in the 1M CP build carries three specialties and every Lv.12-16 skill carries two. The exact unlock thresholds are not confirmed in any source I have, so check in game.</span></span></div>
   <div class="row"><span class="k">Budget</span><span class="do">About 230–250 points at 45. About 150 at 37.<span class="why">Reported figures rather than confirmed ones. At 21 points a skill that is roughly eleven skills at 10, so you cannot level everything.</span></span></div>
   <div class="row"><span class="k">Mana</span><span class="do">The defining constraint. Weaving is how you fix it.<span class="why">Heavy early mana problems are the class's listed weakness. Onslaught restores MP on every hit, and weaving auto-attacks between skills is what keeps you casting. Skip the weaving and you stall.</span></span></div>
 
   <h2>Spend</h2>
   <div class="row"><span class="k">1–18</span><span class="do">Rushing Smash and Impactful Crush to 8 first.<span class="why">You use your dash and your ranged attack constantly, so they earn their points earliest. Then Onslaught (left click) and Incandescent Blow (right click) — those two are your sustained damage and your mana engine.</span></span></div>
   <div class="row"><span class="k">19</span><span class="do">First specialties, and take the MP ones.<span class="why">Onslaught: +20% MP restored. Incandescent Blow: −20% MP consumed. Rushing Smash gets its charge option. Early Chanter points are a mana problem before they are a damage problem.</span></span></div>
-  <div class="row"><span class="k">21–25</span><span class="do">Earth's Promise at 21. Dark Crush at 22 with its Critical Hit specialty.<span class="why">Dark Crush is your priority target skill — a 20 m ranged hit that your other skills open up. Its 12 option adds the Piercing Strike chain and 16 removes the cooldown.</span></span></div>
+  <div class="row"><span class="k">21–25</span><span class="do">Dark Crush at 22 with its Critical Hit specialty.<span class="why">Dark Crush is your priority target skill — a 20 m ranged hit that only lands on a target already Stunned, Knocked Down or Airborne, which is why the rest of the kit opens it up. One of its options removes the cooldown; another is the Piercing Strike chain, and Piercing Strike is KR/TW-only.</span></span></div>
   <div class="row"><span class="k">26–38</span><span class="do">Recuperation, Tremor Crush, Spinning Strike and Defiance to 8 as each unlocks.<span class="why">Then Attack Preparation, which can reach 10 at 37, and Spinning Strike to 10 at 38. Spinning Strike is a ranged skill that makes Dark Crush available again — it is part of the core loop, not filler.</span></span></div>
   <div class="row"><span class="k">39–45</span><span class="do">Wind's Promise and the other passives.<span class="why">Wind's Promise adds Critical Damage Boost and a chance of extra damage. Passives can go past 10 later through gear and Arcana.</span></span></div>
   <div class="row"><span class="k">Weak passives</span><span class="do">Crossguard and Raging Spell.<span class="why">Described as of little use in PvE. Not where your points go.</span></span></div>
@@ -153,19 +155,76 @@ const CLASSES = {
   <h2>Stigmas · 4 slots</h2>
   <div class="row"><span class="k">First</span><span class="do">Undefeated Mantra, ahead of everything else.<span class="why">Every source agrees. It raises PvE damage boost and tolerance for you and the party, and adds +100 Accuracy at stigma level 10. Take it as high as it goes.</span></span></div>
   <div class="row"><span class="k">Sprint Mantra</span><span class="do">Move speed plus 15% chance to restore HP on attack.<span class="why">+10.5% move speed for you and nearby party. Cheap, always useful.</span></span></div>
-  <div class="row"><span class="k">Fracturing Blow</span><span class="do">Rush that lowers the target's Defense 30% for 5s.<span class="why">One source keeps it at 1 purely for the stagger damage; another takes it to 5 for the shorter cooldown. Either is defensible.</span></span></div>
-  <div class="row"><span class="k">Group</span><span class="do">Power of the Storm.<span class="why">+20% Combat Speed and −20% cooldowns on you, +20% and −10% for the party within 40 m. Named as one of the best buffs in the game and a fixed pick for group Chanters.</span></span></div>
-  <div class="row"><span class="k">Situational</span><span class="do">Marchutan's Wrath and Healing Touch.<span class="why">Marchutan's makes Dark Crush available — though one creator says it now does little damage. Healing Touch is for when you are the only healer and the party is struggling.</span></span></div>
+  <div class="row"><span class="k">Fracturing Blow</span><span class="do">Rush that lowers the target's Defense 30% for 5s.<span class="why">One source keeps it at 1 purely for the stagger damage; another takes it to 5 for the shorter cooldown. The 1M CP build takes it over Power of the Storm when a Cleric is present — but notes that swap is not valid on global.</span></span></div>
+  <div class="row"><span class="k">Power of the Storm</span><span class="do">Group pick — and on global it beats the Cleric's equivalent.<span class="why">+20% Combat Speed and −20% cooldowns on you, +20% and −10% for the party within 40 m. Korean players rate the Cleric's Earth's Blessing higher and say the two overlap; the 1M CP build says that on global this one is the stronger of the two. Take it unless you are the only support and need the healing instead.</span></span></div>
+  <div class="row"><span class="k">Marchutan's Wrath</span><span class="do">Contested: mandatory, or mediocre.<span class="why">The 1M CP build calls it mandatory — it triggers Dark Crush on the target for 7s. A Korean creator says it now does little damage. Both describe the same effect; they disagree on whether it earns a slot.</span></span></div>
+  <div class="row"><span class="k">Healing Touch</span><span class="do">Only as the sole healer in higher-end content.<span class="why">Not a general pick. Two sources say the same thing.</span></span></div>
+  <div class="row"><span class="k">Ignore</span><span class="do">Obliterate · Assault Shock · Barrier Spell.<span class="why">Useless per the 1M CP build. Impending Authority and Ensnaring Mark are niche PvP with long cooldowns.</span></span></div>
+  <div class="row"><span class="k">Four to carry</span><span class="do">Undefeated Mantra · Sprint Mantra · Guardian Blessing · Power of the Storm.<span class="why">The 1M CP build's early global set, identical for solo and group PvE. Swap Guardian Blessing for Focused Defense on Nightmare fights. This closes the open question of what a fresh 45 should carry.</span></span></div>
   <div class="row"><span class="k">Cost</span><span class="do">75 shards to take one stigma to 20.<span class="why">1 per level to 5, 2 per level to 10, 4 to 15, 8 to 20. A freshly levelled Chanter carries about six stigmas with four of them at 5.</span></span></div>
 
   <h2>Macro</h2>
-  <div class="row"><span class="k">Chain</span><span class="do">Onslaught → Dark Crush → Spinning Strike. 10 ms.<span class="why">Onslaught restores MP on every hit, Dark Crush fires while it is available, and Spinning Strike makes Dark Crush available again for the next pass. That is one closed loop.</span></span></div>
+  <div class="row"><span class="k">Chain</span><span class="do">Two chains in circulation — try both.<span class="why">Codex's is Onslaught → Dark Crush → Spinning Strike at 10 ms: a closed loop where Onslaught restores MP and Spinning Strike reopens Dark Crush. The 1M CP build's real macro, from his screenshot, is just Wave Blow → Dark Crush at 10 ms and leans on weaving for the rest. See the PvE build tab.</span></span></div>
   <div class="row"><span class="k">Weave</span><span class="do">Hold left click and the macro key together.<span class="why">Not optional on a Chanter. Weaving auto-attacks is your mana, and with Onslaught's level-12 specialty every hit also takes a second off Spinning Strike. The game cancels animations better that way than if you put auto-attacks inside the macro.</span></span></div>
   <div class="row"><span class="k">Leave out</span><span class="do">Defensive cooldowns.<span class="why">Keep guard and panic buttons manual so you fire them when the hit lands, not on a timer.</span></span></div>
   <div class="row"><span class="k">Mode</span><span class="do">Aion 1 mode (tab target) auto-weaves auto-attacks for you.<span class="why">Action Combat mode does not — you have to put the auto-attack commands in the macro yourself. Worth knowing before you pick a control scheme.</span></span></div>
 
   <h2>Not on global</h2>
   <div class="row"><span class="k">KR/TW only</span><span class="do">Eight skills exist in Korea and Taiwan but not the global client.<span class="why">Hub's global list is 26 active and 10 passive. Resonance Crush, Crushing Blow, Bursting Blow, Storm Chain, Surging Strike, Piercing Strike, Bolt Crush and Crushing Strike are not in it. Any guide building a rotation around those is describing a later version. Dark Crush's Piercing Strike chain specialty is affected too.</span></span></div>
+</article>`
+    },
+    build: {
+    kicker: "Second opinion · shared screenshots",
+    now: "A 1M+ combat-power Chanter's PvE allocation. One player, not a published guide.",
+    html: `
+<article class="cleric-block">
+  <p class="kicker">Global · 4 stigma slots · read as a second opinion</p>
+  <div class="row"><span class="k">Read this as</span><span class="do">One player's build, not a source of record.<span class="why">Handed over as text plus two in-game screenshots. The screenshots are direct evidence; the numbers are his. He is at 1M+ combat power, which is the reason it is worth reading at all — but nothing here is independently corroborated.</span></span></div>
+
+  <h2>Skill levels and specialty order</h2>
+  <p>His notation: the skill's level, then which specialty tiers he takes, then the order to take them. <em>4 &gt; 5 &gt; 3</em> means take tier 4 first.</p>
+  <div class="row"><span class="k">Onslaught</span><span class="do">Lv.20 · tiers 3/4/5 (4 &gt; 5 &gt; 3)</span></div>
+  <div class="row"><span class="k">Dark Crush</span><span class="do">Lv.20 · tiers 3/4/5 (5 &gt; 4 &gt; 3)</span></div>
+  <div class="row"><span class="k">Recuperation</span><span class="do">Lv.20 · tiers 1/4/5 (4 &gt; 1 &gt; 5)</span></div>
+  <div class="row"><span class="k">Spinning Strike</span><span class="do">Lv.20 · tiers 1/2/3 (1 &gt; 3 &gt; 2)</span></div>
+  <div class="row"><span class="k">Incandescent Blow</span><span class="do">Lv.16 · tiers 3/5 (3 &gt; 5)</span></div>
+  <div class="row"><span class="k">Rushing Smash</span><span class="do">Lv.16 · tiers 4/5 (4 &gt; 5)</span></div>
+  <div class="row"><span class="k">Defiance</span><span class="do">Lv.16 · tiers 3/5 (5 &gt; 3)</span></div>
+  <div class="row"><span class="k">Impactful Crush</span><span class="do">Lv.12 · tiers 3/4 (3 &gt; 4)</span></div>
+  <div class="row"><span class="k">Heat Wave Blow</span><span class="do">Lv.12 · tiers 3/4 (4 &gt; 3)</span></div>
+  <div class="row"><span class="k">Tremor Crush</span><span class="do">Lv.12 · tiers 2/3 (2 &gt; 3)</span></div>
+  <div class="row"><span class="k">Wave Blow</span><span class="do">Lv.12 · tiers 1/4 (4 &gt; 1)</span></div>
+  <div class="row"><span class="k">Gust Rampage</span><span class="do">Not invested.</span></div>
+  <div class="row"><span class="k">Pattern</span><span class="do">Lv.20 skills carry three specialties. Lv.12 and Lv.16 skills carry two.<span class="why">True across all eleven of his rows, so treat it as a real rule about the system. The exact unlock levels are still unconfirmed by any source I have.</span></span></div>
+
+  <h2>Level 20 priority</h2>
+  <div class="row"><span class="k">Order</span><span class="do">Dark Crush &gt; Recuperation &gt; Spinning Strike &gt; Onslaught.</span></div>
+
+  <h2>Passives</h2>
+  <div class="row"><span class="k">Order</span><span class="do">Wind's Promise &gt; Impact Hit &gt; Attack Preparation &gt; Inspiring Spell &gt; Earth's Promise.<span class="why">Earth's Promise is a passive, not something you cast — it cuts the target's PvE damage tolerance every time you land an attack.</span></span></div>
+
+  <h2>Stigmas</h2>
+  <div class="row"><span class="k">Mandatory</span><span class="do">Undefeated Mantra · Sprint Mantra · Guardian Blessing · Marchutan's Wrath.</span></div>
+  <div class="row"><span class="k">Next</span><span class="do">Focused Defense — excellent for prog and higher-end content.</span></div>
+  <div class="row"><span class="k">If solo support</span><span class="do">Power of the Storm, and trade Guardian Blessing or Sprint Mantra for Healing Touch if you need the healing.</span></div>
+  <div class="row"><span class="k">Ignore</span><span class="do">Obliterate · Assault Shock · Barrier Spell — useless. Impending Authority · Ensnaring Mark — niche PvP, cooldown too long.</span></div>
+  <div class="row"><span class="k">Level 25 order</span><span class="do">Undefeated Mantra &gt; Guardian Blessing or Sprint Mantra.</span></div>
+
+  <h2>Early global sets · 4 slots</h2>
+  <div class="row"><span class="k">Solo PvE</span><span class="do">Undefeated Mantra · Sprint Mantra · Guardian Blessing · Power of the Storm.<span class="why">For Nightmare fights, swap Guardian Blessing for Focused Defense — he writes "Focused Block", which is almost certainly this skill.</span></span></div>
+  <div class="row"><span class="k">Group PvE</span><span class="do">Undefeated Mantra · Sprint Mantra · Guardian Blessing · Power of the Storm.<span class="why">Identical to solo. This answers what a fresh 45 should carry — the question the Skills tab left open.</span></span></div>
+
+  <h2>Upgrade order · global</h2>
+  <div class="row"><span class="k">To 20</span><span class="do">Undefeated Mantra &gt; Power of the Storm &gt; Sprint Mantra.</span></div>
+  <div class="row"><span class="k">To 15</span><span class="do">Undefeated Mantra &gt; Guardian Blessing.</span></div>
+  <div class="row"><span class="k">To 10</span><span class="do">Sprint Mantra &gt; Focused Defense.</span></div>
+  <div class="row"><span class="k">To 5</span><span class="do">Power of the Storm &gt; Focused Defense.</span></div>
+
+  <h2>Macro</h2>
+  <div class="row"><span class="k">His macro</span><span class="do">Wave Blow then Dark Crush, 10 ms each.<span class="why">Two steps only, straight from his in-game Macro window. It disagrees with the Codex chain on the Skills tab — both are credible, so run both and keep whichever your latency likes.</span></span></div>
+  <div class="row"><span class="k">Shred window</span><span class="do">Fire Fracturing Blow right before Marchutan's.<span class="why">Lines the Defense shred up with your burst.</span></span></div>
+  <div class="row"><span class="k">What to include</span><span class="do">Up to you whether gap-closers and non-mobile skills go in.<span class="why">His words. There is no single correct macro list.</span></span></div>
+  <div class="row"><span class="k">Weave</span><span class="do">Spam LMB with macro software alongside the in-game macro, or hold the macro and LMB keys together.<span class="why">Second source to say this — weaving is how the class works.</span></span></div>
 </article>`
     },
     stats: {
@@ -208,7 +267,7 @@ const CLASSES = {
   <div class="row"><span class="k">Later</span><span class="do">Vaizel for Critical Damage Boost, Triniel for Multi-hit.<span class="why">Both are damage upgrades to add after the core route, not before. Azphel is your PvP board — focus its damage mitigation nodes.</span></span></div>
   <div class="row"><span class="k">Solo</span><span class="do">Ariel for grinding efficiency.<span class="why">Worth taking if you spend your time farming rather than raiding.</span></span></div>
   <div class="row"><span class="k">Past 10</span><span class="do">Same sources as any class.<span class="why">Up to +4 on a skill from the board, +1 from each ring for up to two skills, +1 each from your weapon and guard, and +1 per Arcana card.</span></span></div>
-  <div class="row"><span class="k">To 20</span><span class="do">Onslaught, Dark Crush and Spinning Strike.<span class="why">The three skills the whole kit runs through. One Korean endgame list also puts Recuperation and Incandescent Blow up there, and notes that Incandescent Blow can be left lower.</span></span></div>
+  <div class="row"><span class="k">To 20</span><span class="do">Four skills finish at Lv.20: Dark Crush, Recuperation, Spinning Strike, Onslaught — in that priority order.<span class="why">From the 1M CP build. Everything else in his kit sits at 16 or 12. Onslaught, Dark Crush and Spinning Strike are the loop; Recuperation joins them because the class dies otherwise.</span></span></div>
   <div class="row"><span class="k">Feathers</span><span class="do">Pick up traces and turn them in at the Monolith.<span class="why">Skill points, amulet scrolls and titles. Same system as the Cleric — minimap icons, and it feeds your skill levels.</span></span></div>
   <div class="row"><span class="k">Flavour</span><span class="do">Iconic weapons per board line up with the KR/TW route.<span class="why">If you see a guide naming boards by weapon rather than name, it is the same eight.</span></span></div>
 </article>`
@@ -451,10 +510,12 @@ const PAGES = {
   <h2>Used on this page</h2>
   <div class="row"><span class="k">Skills</span><span class="do"><a href="https://mmo-codex.com/articles/aion-2-cleric-guide/" target="_blank" rel="noopener">Codex Cleric</a> — distrust the KR board section</span></div>
   <div class="row"><span class="k">Chanter</span><span class="do"><a href="https://mmo-codex.com/articles/aion-2-chanter-guide/" target="_blank" rel="noopener">Codex Chanter</a> · <a href="https://aion2hub.com/classes/chanter" target="_blank" rel="noopener">Hub Chanter</a> · <a href="https://game8.co/games/Aion-2/archives/612963" target="_blank" rel="noopener">Game8 Chanter</a><span class="why">Chanter and Compare tabs. Game8 is the independent one — it supplied the skill tooltips, the manastone priorities and the three cross-class conflicts. Also <a href="https://www.reddit.com/r/Aion2/comments/1wronmf/chanter_or_cleric/" target="_blank" rel="noopener">r/Aion2: Chanter or Cleric</a> for KR/TW player sentiment.</span></span></div>
-  <div class="row"><span class="k">Chanter caveat</span><span class="do">The Chanter build order leans on sources Codex aggregates.<span class="why">Codex cites aLuckyRO for the level-45 point allocation, the leveling specialty picks, the starter stigma set and the DPS macro. Those parts are single-creator and cannot be independently corroborated the way the Cleric's duty, Odyle and weekly facts were. Hagoo and Logon (Korean) cover the endgame targets, and Game8 and Hub cover mechanics and skills. Treat the specific point allocation as a starting point, not a verified number.</span></span></div>
+  <div class="row"><span class="k">Chanter caveat</span><span class="do">Part of the Chanter build order leans on sources Codex aggregates.<span class="why">Codex cites aLuckyRO for the level-45 point allocation, the leveling specialty picks, the starter stigma set and the DPS macro. Those parts are single-creator and cannot be independently corroborated the way the Cleric's duty, Odyle and weekly facts were. Hagoo and Logon (Korean) cover the endgame targets, and Game8 and Hub cover mechanics and skills. The 1M+ CP build below now covers the same ground from a different, independent player — where the two agree, treat it as settled.</span></span></div>
+  <div class="row"><span class="k">1M+ CP build</span><span class="do">The Chanter build from the same player who wrote the Cleric build above — a second opinion, not a source of record.<span class="why">Handed to Fallen Clocks as text plus two in-game screenshots (his skill hotbar and his in-game Macro window). The screenshots are direct evidence of what he actually runs; the numbers are his. He is at 1M+ combat power, which is why it is worth reading, but none of it is independently corroborated. It is the only source that states a concrete four-stigma set and a level-20 upgrade order, and it is where the Wave Blow → Dark Crush macro comes from. See the PvE build tab. On three points it overrides the Chanter rows above: Marchutan's Wrath is mandatory to him, on global Power of the Storm beats the Cleric's buff, and Fracturing Blow's swap for Power of the Storm is explicitly not valid on global.</span></span></div>
+  <div class="row"><span class="k">Skill levels</span><span class="do"><a href="https://www.reddit.com/r/Aion2/comments/1pjqgml/how_to_get_20_skills/" target="_blank" rel="noopener">r/Aion2: how to get +20 skills</a><span class="why">Used to correct the skill-level wording on both Skills tabs. Skill points take a skill to 10; Lv.12, 16 and 20 are bonuses — Daevanion board +4, rings +2, weapon and guard +1 each, then Arcana for the rest. Players in that thread confirm the breakdown and that 20 is reachable.</span></span></div>
   <div class="row"><span class="k">Checklists</span><span class="do"><a href="https://mmo-codex.com/articles/aion-2-new-player-checklist/" target="_blank" rel="noopener">Codex new-player</a> · <a href="https://mmo-codex.com/articles/aion-2-daily-weekly-checklist/" target="_blank" rel="noopener">Codex daily/weekly</a> · <a href="https://mmo-codex.com/articles/aion-2-krao-cave-guide/" target="_blank" rel="noopener">Codex Krao / Draupnir</a></span></div>
   <div class="row"><span class="k">Series</span><span class="do"><a href="https://youtu.be/gUNOKxTKnYc" target="_blank" rel="noopener">1 Basics</a> · <a href="https://youtu.be/dYaLTeV5QX8" target="_blank" rel="noopener">2 Content</a> · <a href="https://youtu.be/fUeYz6b7eJ0" target="_blank" rel="noopener">3 Arcana</a> · <a href="https://youtu.be/Qo3EXzcSXeo" target="_blank" rel="noopener">4 Daevanion</a> · <a href="https://youtu.be/54voCuvNXmU" target="_blank" rel="noopener">5 Skills</a> · <a href="https://youtu.be/KMGmwHtH1hM" target="_blank" rel="noopener">Stats</a> · <a href="https://youtu.be/3Yn91qaBD5s" target="_blank" rel="noopener">7 Gear</a> · <a href="https://youtu.be/HMod6Z4GrE0" target="_blank" rel="noopener">8 Macros</a> · <a href="https://youtu.be/hAl6c_LwE3M" target="_blank" rel="noopener">10 Daily/weekly</a><span class="why">Grobs. Episode 10 is the source for the Daily and weekly and First week sections on At 45. Episodes 6 and 9 were not in the numbered intros I could hear. The mouse-software toggle from episode 8 is not on this page.</span></span></div>
-  <div class="row"><span class="k">Community</span><span class="do">Cleric build pasted from a community Discord.<span class="why">No link and no author, but its author is reportedly at 1M+ combat power, so it now leads on Skills. RosaPony is kept as the alternate. Anything the community build does not cover still comes from the older sources.</span></span></div>
+  <div class="row"><span class="k">Community</span><span class="do">Cleric build pasted from a community Discord.<span class="why">No link and no author, but its author is reportedly at 1M+ combat power, so it now leads on Skills. RosaPony is kept as the alternate. Anything the community build does not cover still comes from the older sources. The same player later sent his Chanter build, which is on the Chanter PvE build tab.</span></span></div>
   <div class="row"><span class="k">At 45</span><span class="do"><a href="https://mmo-codex.com/articles/aion-2-after-level-45-gear-progression/" target="_blank" rel="noopener">Codex after 45</a> · <a href="https://aion2hub.com/database/items/533700064" target="_blank" rel="noopener">Clash Rune Chest</a></span></div>
   <div class="row"><span class="k">DPS</span><span class="do"><a href="https://abysslogs.com/" target="_blank" rel="noopener">Abyss Logs</a> — passive packet-read meter with shareable logs</span></div>
   <div class="row"><span class="k">Dropped</span><span class="do">aLuckyRO and FRESHY are no longer used.<span class="why">Both channels read as AI-generated content, so their videos and the Daevanion map they supplied have been removed. Their claims were re-checked against Codex, Hub and PlayNC: most held up and are now cited to those sources; the ones that did not are either removed or explicitly marked unverified on the page.</span></span></div>
@@ -471,10 +532,17 @@ const PAGES = {
   }
 };
 
-const CLASS_TABS = ["skills", "stats", "daevanion"];
+function classTabs(classKey) {
+  const key = CLASSES[classKey] ? classKey : "cleric";
+  return CLASSES[key].tabs || [];
+}
+
+function isClassTab(view, classKey) {
+  return classTabs(classKey).indexOf(view) !== -1;
+}
 
 function pageFor(view, classKey) {
   const key = CLASSES[classKey] ? classKey : "cleric";
-  if (CLASS_TABS.indexOf(view) !== -1) return CLASSES[key][view];
+  if (isClassTab(view, key)) return CLASSES[key][view];
   return PAGES[view];
 }
