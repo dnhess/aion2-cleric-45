@@ -372,14 +372,14 @@ function get(url) {
 
   console.log("=== belt/amulet: the enhancing exception ===");
   const pp2 = PAGES.prep.html, af2 = PAGES.after.html, sys2 = PAGES.systems.html, lp3 = PAGES.plan.html;
-  ck(/<span class="k">Belt, Amulet<\/span><span class="do">The exception — these two are worth enhancing/.test(pp2), "Start has the belt/amulet exception");
+  ck(/The exception — these two are worth enhancing first/.test(pp2), "Start has the belt/amulet exception");
   ck(/the one place Kinah is not wasted/.test(pp2), "Start explains why they are the exception");
   ck(/from the level-45 MSQ line, so this applies from the 40s onward, not while you are 1–40/.test(pp2), "Start gets the timing right");
   ck(/\+10 → Substance Morph to the next grade → \+10 again/.test(pp2), "Start has the ladder");
   ck(/Stop at gold/.test(pp2), "Start has the gold stop");
-  ck(/Madsin's rule is upgrade nothing but the belt and amulet/.test(pp2), "Start attributes the rule");
-  ck(/The one thing worth enhancing at this stage/.test(af2), "At 45 has the belt/amulet answer");
-  ck(/Belt, Amulet<\/span><span class="do">The one thing worth enhancing/.test(af2), "At 45 row is labelled");
+  ck(/Madsin's rule is to upgrade nothing but these two/.test(pp2), "Start attributes the rule");
+  ck(/Enhance these before anything else/.test(af2), "At 45 has the belt/amulet answer");
+  ck(/Belt, Amulet<\/span><span class="do">Enhance these before anything else/.test(af2), "At 45 row is labelled");
   ck(/Take each to \+10, Substance Morph it up a grade/.test(af2), "At 45 has the ladder");
   ck(/Kinah while leveling/.test(lp3), "Launch plan has Madsin's Kinah rule");
   ck(/the belt is the reading that fits/.test(lp3), "the ASR garble is disclosed, not silently corrected");
@@ -388,6 +388,20 @@ function get(url) {
   // the +5 rule must still stand for everything else
   ck(/Stop enhancing there while you level/.test(pp2) && /never the Kinah/.test(pp2), "+5 rule kept and sharpened");
   ck(/dissolving returns your stones but never the Kinah/i.test(pp2), "the stones-vs-Kinah reason is on the page");
+  // how to open the enhancement menu — the follow-up question
+  ck(/Menu → Enhance All/.test(pp2), "Start gives the menu path");
+  ck(/There is no hotkey on the inventory/.test(pp2), "Start rules out the inventory hotkey");
+  ck(/No default keybind is documented for it/.test(pp2), "does not invent a keybind");
+  ck(/Menu → Enhance All/.test(sys2), "Systems gives the menu path");
+  ck(/Enhance order/.test(pp2) && /Belt and amulet first\. Weapon next/.test(pp2), "Start has the enhance order");
+  ck(/never the Kinah, manastones or theostones/.test(pp2), "extract refund detail");
+  ck(/Revelation Amulet Enhance Scroll/.test(af2) && /Fierce Battle Amulet/.test(af2), "amulet naming discrepancy recorded both ways");
+  ck(/the belt is Noble Belt in both|The belt is Noble Belt in both/.test(af2), "notes the belt name agrees across sources");
+  ck(/Fextralife's priority is belt and amulet first/.test(af2), "At 45 cites Fextralife's priority");
+  ck(/What comes back/.test(sys2) && /Enhancement Stones, and only those/.test(sys2), "Systems states the refund rule");
+  ck(/What to enhance/.test(sys2), "Systems states what to enhance");
+  ck(/Three sources agree/.test(pp2), "belt/amulet now carries three-source backing");
+  ck(!/Source: Madsin and KanonXO\./.test(localPagesStr), "old two-source citation replaced");
 
   console.log("=== inline script integrity ===");
   const scr = localHtmlStr.match(/<script>\n([\s\S]*?)<\/script>\s*<\/body>/);
