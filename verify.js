@@ -383,7 +383,7 @@ function get(url) {
   ck(/Take each to \+10, Substance Morph it up a grade/.test(af2), "At 45 has the ladder");
   ck(/Kinah while leveling/.test(lp3), "Launch plan has Madsin's Kinah rule");
   ck(/the belt is the reading that fits/.test(lp3), "the ASR garble is disclosed, not silently corrected");
-  ck(/Get to that grade and stop/.test(sys2), "Systems states the gold stop");
+  ck(/Get to the top grade and stop/.test(sys2), "Systems states the stop condition");
   ck(/Belt gives defensive stats, amulet offensive/.test(sys2), "Systems says what each gives");
   // the +5 rule must still stand for everything else
   ck(/Stop enhancing there while you level/.test(pp2) && /never the Kinah/.test(pp2), "+5 rule kept and sharpened");
@@ -425,6 +425,15 @@ function get(url) {
   ck(/repeating its Conquest cube guarantees a Unique necklace/.test(pp2), "says where Odyle does belong");
   ck(/So the answer flips depending on which you are standing in/.test(pp2), "states the flip explicitly");
   ck(/Exploration Krao, Urugugu, Fire Temple and Draupnir — kill those bosses, skip those cubes/.test(pp2), "the four story dungeons are still named");
+  // how to morph the belt/amulet up a grade — the "green to yellow" question
+  ck(/Menu → Substance Morph, or <kbd>Alt<\/kbd>\+<kbd>H<\/kbd>/.test(pp2), "Start gives the substance morph path and hotkey");
+  ck(/comes out at \+0 of the new grade/.test(pp2), "states that morphing resets the enhancement");
+  ck(/Green to yellow<\/span><span class="do">Two steps per grade, repeated/.test(pp2), "answers the green-to-yellow question");
+  ck(/Keep going until the icon stops changing/.test(pp2), "gives a stop condition that does not rely on colour names");
+  ck(/No source maps colour to grade name for these two, so this page does not guess one/.test(pp2), "declines to invent the colour-to-grade mapping");
+  ck(/every rung is the same two steps/.test(pp2), "explains why the naming gap does not matter");
+  ck(/Menu → Substance Morph<\/strong> or <kbd>Alt<\/kbd>\+<kbd>H<\/kbd>/.test(sys2), "Systems gives the morph path too");
+  ck(/the \+10 is redone at every rung/.test(sys2), "Systems explains the reset");
 
   console.log("=== inline script integrity ===");
   const scr = localHtmlStr.match(/<script>\n([\s\S]*?)<\/script>\s*<\/body>/);
