@@ -48,7 +48,30 @@ Worth confirming in-game before trusting any of the above.
 
 ---
 
-## 29 Sep 2026 — Level plan tab from a Discord screenshot
+## 29 Sep 2026 — Level plan route credited to Stoopzz
+
+Fallen Clocks corrected the provenance: the level-gated side-quest list is **Stoopzz's**, not EARL's. **EARL was the Discord messenger; Stoopzz is the author.** I had read the screenshot's sender name off the image and attributed the content to him, which was wrong — the sender of a screenshot is not its author.
+
+**Spelling matters: Stoopzz, two z's.** He was given as "stoopz" and the correct handle is `stoopzz` — verified on Twitch and YouTube. Recording the spelling because it is the difference between finding him and not.
+
+**Who he is, verified rather than assumed:** full-time MMORPG content creator, roughly **217k Twitch followers**, ranked **#4 for Aion 2 on Twitch** and **#2 in English** (twitchmetrics). Heavy player of the game. Both his Twitch and YouTube links are now on the tab and on Sources.
+
+**This materially raises the weight of the route.** It was previously filed as "unattributed Discord screenshot, second opinion." It is now an independent route from a top-tier Aion 2 streamer that matches our arrow map on five anchors — a considerably stronger signal, and the tab's provenance row now says so instead of hedging.
+
+### A caveat worth having found
+
+**Stoopzz, Madsin and KanonXO are the same circle.** Stoopzz made the "Aion 2 Full Class Guide" with Madsin, and has publicly backed KanonXO's read on the game. Madsin is the Launch plan tab and KanonXO is the Systems tab — so **three of the sources on this page are not fully independent of each other.** They talk, and they may share conclusions. Their agreement is weaker corroboration than agreement between unrelated sources, and that is now written on Sources so it does not get over-read later.
+
+This is the kind of thing that is invisible if each source is checked only against the page rather than against each other.
+
+### Process
+
+**A screenshot's sender is not its author.** The image carried a Discord message header — name and timestamp — in the corner, and I read that as provenance. It was provenance of *transmission*, not authorship. When a screenshot arrives second-hand, the author has to come from Fallen Clocks or from what the content itself credits; never from the chat header. Recording this because it is the second time this round that a source's identity was the thing that needed checking rather than its content.
+
+182 checks pass against the deployed bytes.
+
+
+## 29 Sep 2026 — Level plan tab from a Discord screenshot (author later corrected to Stoopzz)
 
 Fallen Clocks sent a screenshot of a level-by-level side-quest list, shared in Discord by someone called **EARL** at 04:58. No link, no other attribution. It is now a class-agnostic **Level plan** tab (hotkey `N`) in the While you level nav group.
 
