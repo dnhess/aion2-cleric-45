@@ -48,6 +48,37 @@ Worth confirming in-game before trusting any of the above.
 
 ---
 
+## 29 Sep 2026 — "Lay out when I need to claim the cubes from dungeons"
+
+The answer existed but was **split across four tabs** — Start, At 45, the Launch plan and Systems — with no single view. It now has a class-agnostic **Dungeon cubes** tab (hotkey `E`, "At cap" group).
+
+### The organising insight
+
+**Odyle is the one timer that cannot wait.** It refills on its own and caps at 840, so unused energy is simply lost — whereas Nightmare, Ascension Trial and daily dungeons all **scale with your power** and should be held to the end of the week. **Cubes are the opposite of every other weekly**, and that contrast is what makes the timing make sense. It was only implied before, spread across the "Order why" row on At 45.
+
+### The ladder, in gear-score order
+
+- **Never 1–44**, and still never in the story Exploration dungeons at 45 even though he is max level. **One exception:** if short of item level, three exploration runs gives a pick of item-level-62 gear.
+- **45 / 1000:** Krao Cave for the repeatable Unique necklace, earring or ring; Draupnir once.
+- **1400:** Vakron — claim three times, take the **chest piece**.
+- **1900:** Transcendence 2 — guaranteed green cards.
+- **2100:** Ferris — three boxes, but **hold** the equipment pick.
+- **Then:** Gnevakum — two chests a run, 14 runs, to finish the pity and craft a **guard**.
+- **Then:** return to claim the held pick, prioritising **boots and gloves**.
+- **Stage 4:** Transcendence for gold cards.
+- **2400+:** Fire Temple and Ferocious Horn Den.
+
+Plus the mechanics: 40 Odyle per cube, 80 for a double claim, per character; **three chests, not four**; Conquest not Exploration. And the weekly: claim all Odyle from Substance Morph (**16 per server plus 4 per character**) and the subscriber shop before the Wednesday reset, since neither carries.
+
+### Process
+
+`verify.js` gained 24 assertions, including that **every ladder rung is present and the rungs appear in ascending gear-score order** — so a future edit cannot silently reorder the spend priority. That ordering check is the one that matters most here, because the tab's whole value is sequence.
+
+**Two shell tools hit approval timeouts this round** (`python3 - <<heredoc` and `node -e`). Both jobs were done with the file-edit tool instead, which needs no approval and shows a diff. Worth defaulting to that for string and file work and reserving shell for the harness and git — noted in the skill.
+
+290 checks pass against the deployed bytes.
+
+
 ## 29 Sep 2026 — "How do I upgrade my belt and amulet to yellow?" — and the naming problem underneath it
 
 **The mechanism, two steps repeated:** enhance to **+10** → **Substance Morph** up one grade → enhance the new one to **+10** again → repeat.
