@@ -570,6 +570,52 @@ const PAGES = {
   <div class="row"><span class="k">Open-world bosses</span><span class="do">Do them, but do not rush them.<span class="why">They are slow to kill early. Their boxes feed supply deliveries for AP, and that tab resets seasonally, so there is no weekly pressure.</span></span></div>
 </article>`
   },
+  levelplan: {
+    kicker: "Level by level · side quests",
+    now: "Read alongside phases 1–5. Same trip, different view.",
+    html: `
+<article class="cleric-block">
+  <p class="kicker">Global · from a Discord message · second opinion</p>
+  <div class="row"><span class="k">Read this as</span><span class="do">A level-gated side-quest plan, not a replacement for the arrows.<span class="why">It came as a Discord screenshot from someone called EARL, with no link and no further attribution. Its value is that it independently agrees with the map route on five separate anchors — see the bottom rows — which is more than a random list would. The map route tells you where to walk; this tells you what to pick up and when.</span></span></div>
+  <div class="row"><span class="k">The idea</span><span class="do">Pick side quests before you can finish them.<span class="why">The whole shape of this list. At 14 you accept the 2nd side quest but deliberately do not complete it, because MSQ takes you back past it at 17. Same again at 18: take the 3rd side quest plus two more in the main quest area, finish all three at 20. You are banking quests whose turn-in you will walk through anyway.</span></span></div>
+
+  <h2>The plan</h2>
+  <div class="row"><span class="k">1–12</span><span class="do">Main story.</span></div>
+  <div class="row"><span class="k">12</span><span class="do">Complete 1st side quest.</span></div>
+  <div class="row"><span class="k">12–14</span><span class="do">Main story.</span></div>
+  <div class="row"><span class="k">14</span><span class="do">Pick 2nd side quest but do not complete it yet.</span></div>
+  <div class="row"><span class="k">14–17</span><span class="do">Main story.</span></div>
+  <div class="row"><span class="k">17</span><span class="do">Complete 2nd side quest.</span></div>
+  <div class="row"><span class="k">18</span><span class="do">Pick 3rd side quest. Go to the main quest area, accept 2 side quests there.</span></div>
+  <div class="row"><span class="k">18–20</span><span class="do">Main story.</span></div>
+  <div class="row"><span class="k">20</span><span class="do">Complete the three you picked up: “Practice Makes Perfect”, “Creion Research Assistant”, “The great curse breaking caper”.</span></div>
+  <div class="row"><span class="k">20–22</span><span class="do">Main story.</span></div>
+  <div class="row"><span class="k">22</span><span class="do">Ascension quest.</span></div>
+  <div class="row"><span class="k">22–27</span><span class="do">Main story, plus the side quest near camp.</span></div>
+  <div class="row"><span class="k">27–31</span><span class="do">Main story. Complete the 2-part side quest in “Nornir Assembly” — “An invitation to the Past: Part I”.</span></div>
+  <div class="row"><span class="k">31</span><span class="do">Teleport to healing spring, complete the side quest there.</span></div>
+  <div class="row"><span class="k">31</span><span class="do">Teleport to abandoned site, complete the side quest there.</span></div>
+  <div class="row"><span class="k">32</span><span class="do">Do your Ascension quest.</span></div>
+  <div class="row"><span class="k">33</span><span class="do">Graverobber campsite — “Finders keepers”, “Traveling merchant” side quests.</span></div>
+  <div class="row"><span class="k">33–42</span><span class="do">Main story.</span></div>
+  <div class="row"><span class="k">42</span><span class="do">Kumrica’s cellar — “Herb Pouch Heist” side quest.</span></div>
+  <div class="row"><span class="k">42–45</span><span class="do">Main story.</span></div>
+
+  <h2>Where it agrees with the route</h2>
+  <p>Five anchors, checked against phases 1–5. This is what makes the list worth following.</p>
+  <div class="row"><span class="k">Ascension ×2</span><span class="do">22 and 32.<span class="why">The route already tells you an Ascension bar gates the MSQ and is filled with exploration content. Two Ascension quests at those levels fits, and it is the same system the Prep tab explains.</span></span></div>
+  <div class="row"><span class="k">Nornir</span><span class="do">The 2-part side quest at 27–31.<span class="why">The route’s first-rune detour says “Teleport to Nornir Assembly → left side → Hugo Mercs pt.2 chain”. Same location, same level band. The two sources name the chain differently — see below.</span></span></div>
+  <div class="row"><span class="k">Abandoned site</span><span class="do">Teleport there at 31.<span class="why">Exact match: the route says “Teleport to Abandoned Site → local side quest → Rune 1”. This list confirms the teleport step independently, which strengthens that part of the route rather than adding to it.</span></span></div>
+  <div class="row"><span class="k">Kumrica</span><span class="do">A side quest at 42.<span class="why">The route’s kisk list already has “kisk Kumrica’s Cellar”. Same place — this names the quest that sits there.</span></span></div>
+  <div class="row"><span class="k">33 onward</span><span class="do">Pure main story.<span class="why">The route says “From 33 on: 100% MSQ except the rune detour below”. This list says main story 33–42 and again 42–45. Agreement on the back half being story-only.</span></span></div>
+
+  <h2>Where it does not match</h2>
+  <div class="row"><span class="k">Nornir chain</span><span class="do">Different name for the same stop.<span class="why">The route calls it the “Hugo Mercs pt.2 chain”; this list calls it “An invitation to the Past: Part I”. Same location, same window, so almost certainly the same chain under two names — but if you are hunting for it by name, try both.</span></span></div>
+  <div class="row"><span class="k">33 side quests</span><span class="do">This list adds side quests at the Graverobber campsite. The route does not.<span class="why">The route’s only level-33 detour is the 2nd rune via Hugo Mercs pt.3 in Briskwind Shelter, after the 3rd Ascension. Whether the Graverobber campsite quests are that same stop, or an extra one, I cannot tell from either source. Treat them as optional greens on the path.</span></span></div>
+  <div class="row"><span class="k">Healing spring</span><span class="do">A teleport the route does not have.<span class="why">“Teleport to healing spring” at 31 is new here. Cheap to do, and it sits right before the Abandoned Site step, so add it to that sweep.</span></span></div>
+  <div class="row"><span class="k">Early greens</span><span class="do">Levels 12, 14, 17, 18 and 20 are not gated in the route.<span class="why">The route handles early greens by “only the ones this route lists”, without level markers. This gives you the specific ones and when to finish them.</span></span></div>
+</article>`
+  },
   systems: {
     kicker: "How the numbers work",
     now: "Enhancement, stat lines, stone grades, transfer. Reference, not a checklist.",
@@ -713,6 +759,7 @@ const PAGES = {
   <div class="row"><span class="k">Chanter</span><span class="do"><a href="https://mmo-codex.com/articles/aion-2-chanter-guide/" target="_blank" rel="noopener">Codex Chanter</a> · <a href="https://aion2hub.com/classes/chanter" target="_blank" rel="noopener">Hub Chanter</a> · <a href="https://game8.co/games/Aion-2/archives/612963" target="_blank" rel="noopener">Game8 Chanter</a><span class="why">Chanter and Compare tabs. Game8 is the independent one — it supplied the skill tooltips, the manastone priorities and the three cross-class conflicts. Also <a href="https://www.reddit.com/r/Aion2/comments/1wronmf/chanter_or_cleric/" target="_blank" rel="noopener">r/Aion2: Chanter or Cleric</a> for KR/TW player sentiment.</span></span></div>
   <div class="row"><span class="k">Chanter caveat</span><span class="do">Part of the Chanter build order leans on sources Codex aggregates.<span class="why">Codex cites aLuckyRO for the level-45 point allocation, the leveling specialty picks, the starter stigma set and the DPS macro. Those parts are single-creator and cannot be independently corroborated the way the Cleric's duty, Odyle and weekly facts were. Hagoo and Logon (Korean) cover the endgame targets, and Game8 and Hub cover mechanics and skills. The 1M+ CP build below now covers the same ground from a different, independent player — where the two agree, treat it as settled.</span></span></div>
   <div class="row"><span class="k">1M+ CP build</span><span class="do">The Chanter build from the same player who wrote the Cleric build above — a second opinion, not a source of record.<span class="why">Handed to Fallen Clocks as text plus two in-game screenshots (his skill hotbar and his in-game Macro window). The screenshots are direct evidence of what he actually runs; the numbers are his. He is at 1M+ combat power, which is why it is worth reading, but none of it is independently corroborated. It is the only source that states a concrete four-stigma set and a level-20 upgrade order, and it is where the Wave Blow → Dark Crush macro comes from. See the PvE build tab. On three points it overrides the Chanter rows above: Marchutan's Wrath is mandatory to him, on global Power of the Storm beats the Cleric's buff, and Fracturing Blow's swap for Power of the Storm is explicitly not valid on global.</span></span></div>
+  <div class="row"><span class="k">Level plan</span><span class="do">A level-gated side-quest list from a Discord message.<span class="why">Shared as a screenshot, from someone called EARL, no link. Powers the Level plan tab. Not a source of record on its own — but it agrees with the map route on five anchors independently (Ascension at 22 and 32, the Nornir Assembly 2-parter, the Abandoned Site teleport at 31, Kumrica’s Cellar at 42, and story-only from 33), which is stronger than any other unattributed list on this page. Where it disagreed with the route, both versions are recorded rather than one being overwritten.</span></span></div>
   <div class="row"><span class="k">Systems + formula</span><span class="do"><a href="https://docs.google.com/document/d/11u4wLCG1WfL-xSka2Aze0rI9vYRa7mq3N3Gp1bt0AWY/preview" target="_blank" rel="noopener">KanonXO — Aion 2 PvE progression doc</a><span class="why">The Systems tab, the Daevanion board structure, the ideal stat lines, the raid accuracy and crit caps, and the damage formula. ~10,400 words, last updated 20 Sep 2026, written for Korea with global flags he sets himself. This is the most detailed systems source on the page and the only one that publishes the damage formula. It also resolved the specialty-perk thresholds that no other source stated.</span></span></div>
   <div class="row"><span class="k">Theorycrafting</span><span class="do">Aion Research Lab ("AionLab"), Korean YouTube.<span class="why">Credited by KanonXO as the source of most of the damage formulas and stat-efficiency numbers. He also mentions Aion2Tool for the per-class wing usage data, and notmeter for the DPS parses.</span></span></div>
   <div class="row"><span class="k">Launch plan</span><span class="do"><a href="https://youtu.be/9r4nDbBxRxk" target="_blank" rel="noopener">Madsin — my progression plans for Global</a><span class="why">The Launch plan tab — its item-level ladder, crafting, currency and soul-bind sections all come from this. 55 minutes, 11 months on Taiwan/Korea, 1M+ combat power, from 200 ping. Transcript read in full. Where his numbers were checkable I checked them: the crafting split he describes is confirmed independently, his Shugo key figure is wrong and Fextralife's is on the page instead, and his two-skills-to-Lv.20 estimate is flagged against the build on the Chanter tab. He says plainly that this is his personal plan and not a requirement.</span></span></div>

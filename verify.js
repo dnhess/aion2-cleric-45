@@ -257,6 +257,33 @@ function get(url) {
   ck(/docs\.google\.com\/document\/d\/11u4wLCG1WfL/.test(PAGES.links.html), "KanonXO doc cited on Sources");
   ck(/Aion Research Lab/.test(PAGES.links.html), "AionLab credited");
 
+  console.log("=== level plan tab ===");
+  const lp2 = PAGES.levelplan;
+  ck(!!lp2 && !!lp2.kicker && !!lp2.now && lp2.html.length > 1500, "level plan tab is complete");
+  ck(!!pageFor("levelplan", "cleric") && !!pageFor("levelplan", "chanter"), "level plan resolves for both classes");
+  ck(/<h2>The plan<\/h2>/.test(lp2.html), "level plan has the list");
+  ck(/Pick side quests before you can finish them/.test(lp2.html), "the pick-early mechanic is called out");
+  ck(/discord message from someone called EARL|Discord message/i.test(lp2.html), "provenance recorded");
+  // every line of the source list must be present
+  const lines = ["1–12", "12–14", "14–17", "18–20", "20–22", "22–27", "27–31", "33–42", "42–45"];
+  ck(lines.every(l => lp2.html.includes(l)), "all level bands present");
+  const quests = ["Practice Makes Perfect", "Creion Research Assistant", "The great curse breaking caper",
+                  "Nornir Assembly", "An invitation to the Past: Part I", "Finders keepers",
+                  "Traveling merchant", "Herb Pouch Heist", "Kumrica"];
+  const missing = quests.filter(q => !lp2.html.includes(q));
+  ck(missing.length === 0, "every quest name preserved verbatim" + (missing.length ? " (missing: " + missing.join(", ") + ")" : ""));
+  ck(/<h2>Where it agrees with the route<\/h2>/.test(lp2.html), "agreement section present");
+  ck(/<h2>Where it does not match<\/h2>/.test(lp2.html), "disagreement section present");
+  ck(/Exact match: the route says/.test(lp2.html), "abandoned-site cross-check recorded");
+  ck(/kisk Kumrica’s Cellar/.test(lp2.html), "kumrica cross-check against the route");
+  ck(/Hugo Mercs pt\.2 chain/.test(lp2.html), "nornir naming conflict flagged");
+  ck(/Graverobber campsite quests are that same stop, or an extra one/.test(lp2.html), "level-33 ambiguity flagged rather than resolved");
+  ck(/Teleport to healing spring/.test(lp2.html), "new healing-spring step included");
+  ck(/\["levelplan","Level plan"\]/.test(localHtmlStr), "nav includes level plan");
+  ck(/e\.key === "n"[^}]*"levelplan"/.test(localHtmlStr), "hotkey N -> level plan");
+  ck(/<kbd>N<\/kbd> level plan/.test(localHtmlStr), "key hint shows N");
+  ck(/Level plan<\/span><span class="do">A level-gated side-quest list/.test(PAGES.links.html), "level plan source documented");
+
   console.log("=== live vs local ===");
   try {
     const lp = await get("https://dnhess.github.io/aion2-cleric-45/pages.js?cb=" + Date.now());

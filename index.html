@@ -413,7 +413,7 @@
       <h3>VOD</h3>
       <div class="links" id="vod-links"></div>
       <p class="hint">
-        Keys: <kbd>1</kbd>–<kbd>5</kbd> route · <kbd>P</kbd> start · <kbd>V</kbd> compare · <kbd>C</kbd> skills · <kbd>L</kbd> plan · <kbd>Y</kbd> systems · <kbd>B</kbd> build · <kbd>D</kbd> Daevanion · <kbd>S</kbd> stats · <kbd>A</kbd> at 45<br>
+        Keys: <kbd>1</kbd>–<kbd>5</kbd> route · <kbd>P</kbd> start · <kbd>N</kbd> level plan · <kbd>V</kbd> compare · <kbd>C</kbd> skills · <kbd>L</kbd> plan · <kbd>Y</kbd> systems · <kbd>B</kbd> build · <kbd>D</kbd> Daevanion · <kbd>S</kbd> stats · <kbd>A</kbd> at 45<br>
         <kbd>J</kbd>/<kbd>K</kbd> items · <kbd>Space</kbd> check · <kbd>[</kbd>/<kbd>]</kbd> phase. Class tabs follow the class you pick up top.
       </p>
     </aside>
@@ -650,7 +650,7 @@ function renderNav() {
     </button>`;
   }).join("") + `<div class="nav-extra">
     ${[
-      ["While you level", [["prep","Start"],["versus","Compare"],["skills","Skills"],["daevanion","Daevanion"]]],
+      ["While you level", [["prep","Start"],["levelplan","Level plan"],["versus","Compare"],["skills","Skills"],["daevanion","Daevanion"]]],
       ["At cap", [["plan","Launch plan"],["build","PvE build"],["stats","Stats"],["after","At 45"]]],
       ["Reference", [["systems","Systems"],["shop","Cash shop"],["watch","KR traps"],["links","Sources"]]]
     ].map(([label, items]) =>
@@ -796,6 +796,7 @@ document.addEventListener("keydown", (e) => {
   if (e.key === "b" || e.key === "B") { state.view = "build"; render(); }
   if (e.key === "l" || e.key === "L") { state.view = "plan"; render(); }
   if (e.key === "y" || e.key === "Y") { state.view = "systems"; render(); }
+  if (e.key === "n" || e.key === "N") { state.view = "levelplan"; render(); }
   if (e.key === "p" || e.key === "P") { state.view = "prep"; render(); }
   if (e.key === "a" || e.key === "A") { state.view = "after"; render(); }
   if (e.key === "v" || e.key === "V") { state.view = "versus"; render(); }
