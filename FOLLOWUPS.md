@@ -48,6 +48,38 @@ Worth confirming in-game before trusting any of the above.
 
 ---
 
+## 29 Sep 2026 — "Do I open the energy cube from the Krao I had to do during the quest?"
+
+**No — kill the boss and skip the cube.** But the question exposed a trap worth fixing: **two different dungeons share the name Krao.**
+
+### The answer
+
+The page already said *"Kill the boss. Do not loot the chest"* for Exploration dungeons. It was correct and it was not findable from his question, because he had no way to know there were two versions.
+
+**The rule, now stated generally:** every dungeon has two versions under one name.
+
+- **Exploration** — the easy tutorial version the MSQ walks you into. Its cube costs **40 Odyle** and holds low-level trash. **Skip it.**
+- **Conquest** — the max-level version. Spend Odyle only on the latest Conquest version you can enter, or on the exploration version once you are 45 and short of item level.
+
+**Applied to his exact case:** Exploration Krao is the story one he was sent into — skip its cube. **Krao Cave proper** is the level-45 Conquest version (gear score 1000, 1–4 players), and that is where Odyle belongs, because repeating its Conquest cube **guarantees a Unique necklace, earring or ring** over time. So the answer flips depending on which Krao he is standing in.
+
+Madsin agrees independently: *"you don't spend energy on the leveling dungeons. You only spend energy on the latest possible exploration version to open exactly three chest, not four, three to claim one of the piece of equipment."*
+
+### The pattern across three consecutive questions
+
+This is the **third question in a row where the page had the fact but not in a form findable from the question**:
+
+1. *"do I enchant my belt"* — belt was absent from a page with a whole "do not enhance" section.
+2. *"should I go past +5 on the belt"* — the +5 rule never stated its own scope.
+3. *"do I open the cube from the Krao during the quest"* — two dungeons with one name, and nothing said so.
+
+**The fix is the same shape every time: state the rule that distinguishes the cases, not just the individual case.** His questions are not gaps in coverage, they are gaps in *disambiguation* — the page knows both facts and never tells him which one he is looking at.
+
+Recording this because it is now predictable. When he asks about a specific instance, check whether the page has a general rule that separates it from the adjacent case.
+
+258 checks pass against the deployed bytes.
+
+
 ## 29 Sep 2026 — "Should I go past +5 on the belt?" — the +5 rule needed a scope
 
 Fallen Clocks asked whether to go past +5 on the belt. **The answer is yes — and his question exposed that two adjacent rows on the page appeared to contradict each other.**
