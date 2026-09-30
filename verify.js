@@ -370,6 +370,25 @@ function get(url) {
   ck(/if \(!rows\) return "";/.test(localHtmlStr), "a part with no visible rows is skipped entirely");
   ck(/Class tabs and the skill rows inside the route follow the class/.test(localHtmlStr), "right-rail hint mentions route skill rows");
 
+  console.log("=== belt/amulet: the enhancing exception ===");
+  const pp2 = PAGES.prep.html, af2 = PAGES.after.html, sys2 = PAGES.systems.html, lp3 = PAGES.plan.html;
+  ck(/<span class="k">Belt, Amulet<\/span><span class="do">The exception — these two are worth enhancing/.test(pp2), "Start has the belt/amulet exception");
+  ck(/the one place Kinah is not wasted/.test(pp2), "Start explains why they are the exception");
+  ck(/from the level-45 MSQ line, so this applies from the 40s onward, not while you are 1–40/.test(pp2), "Start gets the timing right");
+  ck(/\+10 → Substance Morph to the next grade → \+10 again/.test(pp2), "Start has the ladder");
+  ck(/Stop at gold/.test(pp2), "Start has the gold stop");
+  ck(/Madsin's rule is upgrade nothing but the belt and amulet/.test(pp2), "Start attributes the rule");
+  ck(/The one thing worth enhancing at this stage/.test(af2), "At 45 has the belt/amulet answer");
+  ck(/Belt, Amulet<\/span><span class="do">The one thing worth enhancing/.test(af2), "At 45 row is labelled");
+  ck(/Take each to \+10, Substance Morph it up a grade/.test(af2), "At 45 has the ladder");
+  ck(/Kinah while leveling/.test(lp3), "Launch plan has Madsin's Kinah rule");
+  ck(/the belt is the reading that fits/.test(lp3), "the ASR garble is disclosed, not silently corrected");
+  ck(/Get to that grade and stop/.test(sys2), "Systems states the gold stop");
+  ck(/Belt gives defensive stats, amulet offensive/.test(sys2), "Systems says what each gives");
+  // the +5 rule must still stand for everything else
+  ck(/Stop enhancing there while you level/.test(pp2) && /never the Kinah/.test(pp2), "+5 rule kept and sharpened");
+  ck(/dissolving returns your stones but never the Kinah/i.test(pp2), "the stones-vs-Kinah reason is on the page");
+
   console.log("=== inline script integrity ===");
   const scr = localHtmlStr.match(/<script>\n([\s\S]*?)<\/script>\s*<\/body>/);
   ck(!!scr, "inline script block located");
