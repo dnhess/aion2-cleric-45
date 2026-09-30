@@ -128,7 +128,7 @@ function get(url) {
   const chk2 = CLASSES.chanter.skills.html;
   ck(/Everything above that is bonus levels/.test(chk2), "Chanter level wording corrected");
   ck(/his Cleric at Lv\.25/.test(chk2), "Chanter cites the Lv.25 evidence");
-  ck(/that is the Korea\/Taiwan version/.test(chk2), "8/12/16 thresholds flagged as KR/TW");
+  ck(/Slots open at 8, 12 and 20/.test(chk2), "8/12/16 + 20 model stated on Chanter Skills (supersedes the old KR-only caveat)");
   ck(/skill-level gear|skill-level gear and Arcana/.test(CLASSES.chanter.build.html), "build tab notes his investment gap");
   ck(/macro window/i.test(PAGES.links.html) && /skycoach\.gg/.test(PAGES.links.html), "sources updated with macro + level sources");
 
@@ -171,10 +171,10 @@ function get(url) {
   const vv = PAGES.versus.html;
   ck(/Chanter levels one craft, Cleric levels two/.test(vv), "crafting split row on Compare");
   ck(/independently of Madsin/.test(vv), "crafting split attributed to independent sources");
-  ck(/Contested, and probably a non-issue now/.test(vv), "ping row revised");
+  ck(/Contested, and probably a non-issue now|neither says class decides it/.test(vv), "ping row revised");
   ck(/200 ping/.test(vv), "ping revision cites the 200-ping player");
   // Chanter build contested count
-  ck(/Contested: four here, two or three on global/.test(CLASSES.chanter.build.html), "skills-to-20 dispute flagged on the build tab");
+  ck(/Contested: four here, two to five in Korea, two on global/.test(CLASSES.chanter.build.html), "skills-to-20 dispute flagged on the build tab");
   // sources
   ck(/9r4nDbBxRxk/.test(PAGES.links.html), "Madsin video cited on Sources");
   ck(/aion2\.wiki\.fextralife\.com/.test(PAGES.links.html), "Fextralife cited on Sources");
@@ -182,6 +182,80 @@ function get(url) {
   // nav wiring
   ck(/\["plan","Launch plan"\]|\["plan", "Launch plan"\]/.test(localHtmlStr), "nav includes the plan tab");
   ck(/e\.key === "l"[^}]*"plan"/.test(localHtmlStr), "hotkey L -> plan");
+
+  console.log("=== KanonXO doc integration ===");
+  const sys = PAGES.systems;
+  ck(!!sys && !!sys.kicker && !!sys.now && sys.html.length > 4000, "systems tab is complete");
+  ck(!!pageFor("systems", "cleric") && !!pageFor("systems", "chanter"), "systems resolves for both classes");
+  const sysHas = (re, label) => ck(re.test(sys.html), label);
+  sysHas(/<h2>Enhancement and Amp<\/h2>/, "systems: enhancement/amp");
+  sysHas(/soft-resets to 60%/, "systems: enhance success reset");
+  sysHas(/\+\d+ Amp 5 transfers into an Orange piece/, "systems: yellow->orange transfer rule");
+  sysHas(/<h2>Potential<\/h2>/, "systems: potential");
+  sysHas(/Crafted 5% \(weapon\)/, "systems: potential values with Asia flag");
+  sysHas(/<h2>Stat lines<\/h2>/, "systems: stat lines");
+  sysHas(/Damage Boost ≈2% · Combat Speed ≈4%/, "systems: weapon/guard stat lines");
+  sysHas(/10% chance of a reroll instead of a reroll/, "systems: mixed-grade synch warning");
+  sysHas(/<h2>Stones<\/h2>/, "systems: stones");
+  sysHas(/Manastones go on weapons and armor\. Soulstones go on accessories/, "systems: mana vs soulstone");
+  sysHas(/worth under 1% of your damage/, "systems: theostone worthlessness");
+  sysHas(/<h2>Transfer<\/h2>/, "systems: transfer");
+  sysHas(/10 fragments = accessory stone/, "systems: transfer costs");
+  sysHas(/wait for the second/, "systems: skip first heroic set");
+  sysHas(/<h2>What each slot gives<\/h2>/, "systems: slot map");
+  sysHas(/BDO-style/, "systems: rune blowup");
+  sysHas(/<h2>Arcana<\/h2>/, "systems: arcana");
+  sysHas(/Transmute a card and choose every line/, "systems: arcana crafting");
+  sysHas(/Asia launched with 5 cards/, "systems: global arcana expectation");
+  sysHas(/<h2>Pet Genus<\/h2>/, "systems: genus");
+  sysHas(/<h2>Wings<\/h2>/, "systems: wings");
+  sysHas(/<h2>Stat values<\/h2>/, "systems: stat values");
+  sysHas(/Double Chance &gt; Front\/Back Attack Boost/, "systems: stat priority tldr");
+  sysHas(/<h2>The damage formula<\/h2>/, "systems: damage formula");
+  sysHas(/Pure Attack/, "systems: pure attack concept");
+  sysHas(/1,500 Accuracy and 1,600 Crit/, "systems: raid caps");
+  ck(/<kbd>Y<\/kbd> systems/.test(localHtmlStr), "key hint shows Y for systems");
+  ck(/\["systems","Systems"\]/.test(localHtmlStr), "nav includes systems");
+  ck(/e\.key === "y"[^}]*"systems"/.test(localHtmlStr), "hotkey Y -> systems");
+
+  console.log("=== specialty model resolved everywhere ===");
+  ck(/Five specialty options\. Slots open at 8, 12 and 20/.test(CLASSES.chanter.skills.html), "chanter skills has the resolved model");
+  ck(/Level 16 gives option 5\. Level 20 gives the third slot/.test(CLASSES.chanter.skills.html), "chanter skills states the slot levels");
+  ck(/Independently confirmed by KanonXO/.test(CLASSES.cleric.skills.html), "cleric skills row now cited");
+  ck(/Every one of his eleven rows matches the specialty rules exactly/.test(CLASSES.chanter.build.html), "build tab pattern row resolved");
+  ck(!/exact unlock levels are still unconfirmed/.test(localPagesStr), "no stale 'unconfirmed thresholds' claim left");
+  ck(!/treat the global thresholds as unconfirmed/.test(localPagesStr), "no stale KR-only threshold caveat left");
+
+  console.log("=== daevanion board correction ===");
+  const cd = CLASSES.cleric.daevanion.html, chd = CLASSES.chanter.daevanion.html;
+  ck(/Four white boards share one point pool/.test(cd) && /Four white boards share one point pool/.test(chd), "white/coloured split on both classes");
+  ck(/Four do nothing in PvE|Three do nothing in PvE|do nothing in PvE/.test(cd), "cleric dead-tile warning");
+  ck(/Three of them do nothing in PvE/.test(chd), "chanter dead-tile warning");
+  ck(/Multi-hit Resist on Triniel/.test(chd) && /Crit Damage Tolerance on Vaizel/.test(chd), "names the dead tiles");
+  ck(/This is where the page previously had it wrong/.test(chd), "corrects its own prior Yustiel claim");
+  ck(!/Yustiel’s cooldown reduction is the crucial one/.test(localPagesStr), "stale Yustiel cooldown claim gone");
+  ck(!/Marchutan for Defense and HP/.test(localPagesStr), "stale Marchutan defense claim gone");
+  ck(/Ariel<\/span><span class="do">Your PvE board/.test(chd), "chanter Ariel = PVE board");
+  ck(!/Ariel for grinding efficiency/.test(localPagesStr), "stale Ariel grinding claim gone");
+
+  console.log("=== stats, compare, at45 additions ===");
+  const cst = CLASSES.cleric.stats.html, chst = CLASSES.chanter.stats.html;
+  ck(/Double Chance &gt; Front\/Back Attack Boost/.test(cst) && /Double Chance &gt; Front\/Back Attack Boost/.test(chst), "stat priority on both Stats tabs");
+  ck(/Eroded 45%, Talisra 35%/.test(cst), "cleric wings data");
+  ck(/Eroded 45%, Talisra 23%/.test(chst), "chanter wings data");
+  ck(/you have Earth’s Grace/.test(cst), "cleric crit-damage nuance");
+  ck(/you have Wind’s Promise/.test(chst), "chanter crit-damage nuance");
+  ck(/Raid caps/.test(cst) && /bosses parry front attacks/.test(chst), "raid caps on both, melee note for chanter");
+  ck(/neither says class decides it/.test(PAGES.versus.html), "ping row revised to cite both sources");
+  ck(/Templar, Brawler and Assassin and found no major difference between classes/.test(PAGES.versus.html), "ping row records the no-class-difference finding");
+  ck(/Supports specifically/.test(PAGES.versus.html), "stigma gatekeeping row added");
+  ck(/Manastones, soulstones, potential and the extra Philosopher’s line do not/.test(PAGES.after.html), "what transfers row (on At 45)");
+  ck(!/Skip the first heroic set/.test(PAGES.prep.html), "relocated rows are NOT left on Start");
+  ck(/Amp ceiling/.test(PAGES.after.html), "amp ceiling row on At 45");
+  ck(/whether crafted beats dungeon is not confirmed/.test(PAGES.after.html), "crafted-vs-dungeon global caveat");
+  ck(/Skip the first heroic set/.test(PAGES.after.html), "first-heroic-set advice");
+  ck(/docs\.google\.com\/document\/d\/11u4wLCG1WfL/.test(PAGES.links.html), "KanonXO doc cited on Sources");
+  ck(/Aion Research Lab/.test(PAGES.links.html), "AionLab credited");
 
   console.log("=== live vs local ===");
   try {
