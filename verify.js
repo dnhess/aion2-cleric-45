@@ -372,10 +372,10 @@ function get(url) {
 
   console.log("=== belt/amulet: the enhancing exception ===");
   const pp2 = PAGES.prep.html, af2 = PAGES.after.html, sys2 = PAGES.systems.html, lp3 = PAGES.plan.html;
-  ck(/The exception — these two are worth enhancing first/.test(pp2), "Start has the belt/amulet exception");
+  ck(/Go past \+5\. These two are the exception to the rule above/.test(pp2), "Start has the belt/amulet exception");
   ck(/the one place Kinah is not wasted/.test(pp2), "Start explains why they are the exception");
-  ck(/from the level-45 MSQ line, so this applies from the 40s onward, not while you are 1–40/.test(pp2), "Start gets the timing right");
-  ck(/\+10 → Substance Morph to the next grade → \+10 again/.test(pp2), "Start has the ladder");
+  ck(/from the level-45 MSQ line, so this whole section applies from the 40s onward, not while you are 1–40/.test(pp2), "Start gets the timing right");
+  ck(/Take each to <strong>\+10<\/strong>, then Substance Morph it into the next grade/.test(pp2), "Start has the ladder");
   ck(/Stop at gold/.test(pp2), "Start has the gold stop");
   ck(/Madsin's rule is to upgrade nothing but these two/.test(pp2), "Start attributes the rule");
   ck(/Enhance these before anything else/.test(af2), "At 45 has the belt/amulet answer");
@@ -402,6 +402,18 @@ function get(url) {
   ck(/What to enhance/.test(sys2), "Systems states what to enhance");
   ck(/Three sources agree/.test(pp2), "belt/amulet now carries three-source backing");
   ck(!/Source: Madsin and KanonXO\./.test(localPagesStr), "old two-source citation replaced");
+  // the +5 rule must state its own scope, or it reads as contradicting the belt
+  ck(/Stop enhancing there while you level — weapon, armor, accessories and guard/.test(pp2), "+5 rule states which gear it covers");
+  ck(/it covers everything except the two pieces below/.test(pp2), "+5 rule points at its exception");
+  ck(/Go past \+5\. These two are the exception to the rule above/.test(pp2), "belt row answers the +5 question directly");
+  ck(/Their \+5 is 10/.test(pp2), "spells out that the belt's first stop is +10, not 5");
+  ck(/Enhance these before anything else — and past \+5/.test(af2), "At 45 connects the belt to the +5 rule");
+  const statsRows = (CLASSES.cleric.stats.html.match(/to \+5 only — not the belt or amulet/g) || []).length;
+  const statsRowsH = (CLASSES.chanter.stats.html.match(/to \+5 only — not the belt or amulet/g) || []).length;
+  ck(statsRows === 1 && statsRowsH === 1, "both Stats tabs scope the +5 rule");
+  ck(/they go to \+10 and get morphed up a grade/.test(CLASSES.cleric.stats.html), "Cleric Stats explains the belt exception");
+  ck(/\+10, morph up a grade, \+10 again/.test(CLASSES.chanter.stats.html), "Chanter Stats explains the belt exception");
+  ck(!/to \+5 only\.<span class="why">/.test(localPagesStr), "no unscoped '+5 only' row remains");
 
   console.log("=== inline script integrity ===");
   const scr = localHtmlStr.match(/<script>\n([\s\S]*?)<\/script>\s*<\/body>/);
