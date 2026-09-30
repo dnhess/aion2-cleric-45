@@ -293,6 +293,93 @@ function get(url) {
   ck(/<kbd>N<\/kbd> level plan/.test(localHtmlStr), "key hint shows N");
   ck(/level-gated side-quest route/.test(PAGES.links.html), "level plan source documented");
 
+  console.log("=== class-aware route skill rows ===");
+  const phasesSrc = localHtmlStr.slice(localHtmlStr.indexOf("const PHASES = ["), localHtmlStr.indexOf("function vodUrl"));
+  const PHASESX = new Function(phasesSrc + "; return PHASES;")();
+  const helpersSrc = localHtmlStr.slice(localHtmlStr.indexOf("function itemId("), localHtmlStr.indexOf("function renderClassSwitch"));
+  ck(helpersSrc.includes("function itemVisible"), "itemVisible helper present in deployed html");
+  ck(helpersSrc.includes("function phaseIds"), "phaseIds helper present in deployed html");
+  function routeApi(classKey) {
+    const st = { classKey, checks: {} };
+    return new Function("state", "PHASES", helpersSrc +
+      "; return { itemVisible, phaseIds, allItems, phaseProgress }; ")(st, PHASESX);
+  }
+  const apiC = routeApi("cleric"), apiH = routeApi("chanter");
+
+  // every cls value must be a real class key
+  const clsUsed = new Set();
+  PHASESX.forEach(p => p.parts.forEach(pt => pt.items.forEach(it => { if (it.cls) clsUsed.add(it.cls); })));
+  const badCls = [...clsUsed].filter(c => !CLASSES[c]);
+  ck(badCls.length === 0, "every cls tag is a real class key" + (badCls.length ? " (bad: " + badCls.join(",") + ")" : ""));
+
+  // both classes get skill rows, in most phases
+  const skillPhasesC = PHASESX.filter(p => p.parts.some(pt => pt.items.some(it => it.tag === "skill" && apiC.itemVisible(it)))).map(p => p.n);
+  const skillPhasesH = PHASESX.filter(p => p.parts.some(pt => pt.items.some(it => it.tag === "skill" && apiH.itemVisible(it)))).map(p => p.n);
+  ck(skillPhasesC.length >= 4, `Cleric skill rows appear in ${skillPhasesC.length} phases (${skillPhasesC.join(",")})`);
+  ck(skillPhasesH.length >= 4, `Chanter skill rows appear in ${skillPhasesH.length} phases (${skillPhasesH.join(",")})`);
+
+  // visibility really filters
+  const visC = [];
+  PHASESX.forEach(p => p.parts.forEach(pt => pt.items.forEach(it => { if (apiC.itemVisible(it)) visC.push(it); })));
+  const visH = [];
+  PHASESX.forEach(p => p.parts.forEach(pt => pt.items.forEach(it => { if (apiH.itemVisible(it)) visH.push(it); })));
+  ck(visC.every(it => !it.cls || it.cls === "cleric"), "Cleric view shows no Chanter-tagged rows");
+  ck(visH.every(it => !it.cls || it.cls === "chanter"), "Chanter view shows no Cleric-tagged rows");
+  ck(visH.length !== visC.length || JSON.stringify(visH) !== JSON.stringify(visC), "the two classes see different route content");
+  ck(visH.filter(it => it.tag === "skill").length > visC.filter(it => it.tag === "skill").length, "Chanter gets more skill rows than Cleric (the requested depth)");
+
+  // no part may vanish entirely for either class
+  const emptyParts = [];
+  for (const cl of ["cleric", "chanter"]) {
+    const api = routeApi(cl);
+    PHASESX.forEach(p => p.parts.forEach((pt, pi) => {
+      if (!pt.items.some(it => api.itemVisible(it))) emptyParts.push(`${cl}:${p.id}:${pi}`);
+    }));
+  }
+  ck(emptyParts.length === 0, "no route part disappears for a class" + (emptyParts.length ? " (empty: " + emptyParts.join(",") + ")" : ""));
+
+  // checkbox stability: a non-class row keeps its id across a class switch
+  const firstMsq = "p1:0:0";
+  ck(apiC.phaseIds(PHASESX[0]).includes(firstMsq) && apiH.phaseIds(PHASESX[0]).includes(firstMsq),
+     "shared rows keep the same checkbox id in both classes");
+  ck(apiC.allItems().length === apiC.allItems().length, "allItems is stable within a class");
+  const sumC = PHASESX.reduce((a, p) => a + apiC.phaseProgress(p).total, 0);
+  ck(sumC === apiC.allItems().length, "Cleric per-phase totals sum to allItems");
+  const sumH = PHASESX.reduce((a, p) => a + apiH.phaseProgress(p).total, 0);
+  ck(sumH === apiH.allItems().length, "Chanter per-phase totals sum to allItems");
+  ck(apiC.allItems().length < apiH.allItems().length, "Chanter route has more checkable rows than Cleric");
+
+  // a ticked box counts for its own class and does not leak into the other
+  const stC = { classKey: "cleric", checks: {} }, stH = { classKey: "chanter", checks: {} };
+  stC.checks["p1:0:0"] = true; stH.checks["p1:0:0"] = true;
+  const pcC = new Function("state", "PHASES", helpersSrc + "; return phaseProgress;")(stC, PHASESX);
+  const pcH = new Function("state", "PHASES", helpersSrc + "; return phaseProgress;")(stH, PHASESX);
+  ck(pcC(PHASESX[0]).done === 1 && pcH(PHASESX[0]).done === 1, "a shared row ticks for both classes");
+  // phase 1 gives each class exactly one skill row, so equal totals there are correct.
+  // Assert where the classes genuinely differ, and that somewhere they do.
+  const diffTotals = PHASESX.filter(p => pcC(p).total !== pcH(p).total).map(p => p.n);
+  ck(diffTotals.length > 0, `some phases have different totals per class (${diffTotals.join(",")})`);
+  ck(pcH(PHASESX[1]).total === pcC(PHASESX[1]).total + 1, "phase 2 gives Chanter exactly one more row than Cleric");
+
+  // currentNext and the keydown cursor must both go through phaseIds
+  ck(/if \(!itemVisible\(it\)\) continue;/.test(localHtmlStr), "currentNext skips hidden rows");
+  ck(/const ids = phaseIds\(p\);\n  if \(state\.cursor >= ids\.length\)/.test(localHtmlStr), "renderMain uses phaseIds for the cursor");
+  ck(!/p\.parts\.forEach\(\(part, pi\) => part\.items\.forEach\(\(_, ii\) => ids\.push/.test(localHtmlStr), "no leftover inline id-building loops");
+  ck(/const ids = phaseIds\(p\);\n    if \(e\.key === "j"/.test(localHtmlStr), "keydown cursor uses phaseIds");
+  ck(/if \(!itemVisible\(it\)\) return "";/.test(localHtmlStr), "renderMain hides non-matching rows");
+  ck(/if \(!rows\) return "";/.test(localHtmlStr), "a part with no visible rows is skipped entirely");
+  ck(/Class tabs and the skill rows inside the route follow the class/.test(localHtmlStr), "right-rail hint mentions route skill rows");
+
+  console.log("=== inline script integrity ===");
+  const scr = localHtmlStr.match(/<script>\n([\s\S]*?)<\/script>\s*<\/body>/);
+  ck(!!scr, "inline script block located");
+  if (scr) {
+    try { new Function(scr[1]); ck(true, "index.html inline script parses"); }
+    catch (e) { ck(false, "index.html inline script parses (" + e.message + ")"); }
+    ck((scr[1].match(/phaseIds\(/g) || []).length >= 3, "phaseIds is used by all three id consumers");
+    ck(!/CLASS_TABS/.test(scr[1]), "no stale CLASS_TABS reference left in the shell");
+  }
+
   console.log("=== live vs local ===");
   try {
     const lp = await get("https://dnhess.github.io/aion2-cleric-45/pages.js?cb=" + Date.now());

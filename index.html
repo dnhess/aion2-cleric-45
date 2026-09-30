@@ -414,7 +414,8 @@
       <div class="links" id="vod-links"></div>
       <p class="hint">
         Keys: <kbd>1</kbd>–<kbd>5</kbd> route · <kbd>P</kbd> start · <kbd>N</kbd> level plan · <kbd>V</kbd> compare · <kbd>C</kbd> skills · <kbd>L</kbd> plan · <kbd>Y</kbd> systems · <kbd>B</kbd> build · <kbd>D</kbd> Daevanion · <kbd>S</kbd> stats · <kbd>A</kbd> at 45<br>
-        <kbd>J</kbd>/<kbd>K</kbd> items · <kbd>Space</kbd> check · <kbd>[</kbd>/<kbd>]</kbd> phase. Class tabs follow the class you pick up top.
+        <kbd>J</kbd>/<kbd>K</kbd> items · <kbd>Space</kbd> check · <kbd>[</kbd>/<kbd>]</kbd> phase.<br>
+        Class tabs and the skill rows inside the route follow the class you pick up top.
       </p>
     </aside>
   </div>
@@ -437,7 +438,9 @@ const PHASES = [
         h: "Tutorial → first zone",
         note: "No detours. Yellow only.",
         items: [
-          { tag: "msq", t: "Follow the core MSQ until you leave the tutorial and hit ~10." }
+          { tag: "msq", t: "Follow the core MSQ until you leave the tutorial and hit ~10." },
+          { tag: "skill", cls: "cleric", t: "Cleric: Earth’s Retribution (left click) and Judgment Thunder (right click) carry you to 19." },
+          { tag: "skill", cls: "chanter", t: "Chanter: Onslaught (left click) and Incandescent Blow (right click) are your damage pair." }
         ]
       }
     ]
@@ -465,7 +468,9 @@ const PHASES = [
         items: [
           { tag: "msq", t: "Keep MSQ moving." },
           { tag: "seal", t: "Hit the remaining seals on this map slice." },
-          { tag: "skill", t: "Cleric: dump points into Earth’s Retribution and Judgment Thunder. First specialties land at character 19 — stay capped until then." }
+          { tag: "skill", cls: "cleric", t: "Cleric: dump points into Earth’s Retribution and Judgment Thunder. First specialties land at character 19 — stay capped until then." },
+          { tag: "skill", cls: "chanter", t: "Chanter: Rushing Smash and Impactful Crush to 8 first — you use the dash and the ranged hit constantly. Then Onslaught and Incandescent Blow. First specialties land at character 19 — stay capped until then." },
+          { tag: "skill", cls: "chanter", t: "Weave left click between skills. Onslaught restores MP on every hit — skip the weave and you run dry." }
         ]
       }
     ]
@@ -489,7 +494,9 @@ const PHASES = [
         map: "maps/p3-2.webp",
         items: [
           { tag: "msq", t: "Focus MSQ through Silent Hill." },
-          { tag: "seal", t: "Do the 4 seal dungeons on the way." }
+          { tag: "seal", t: "Do the 4 seal dungeons on the way." },
+          { tag: "skill", cls: "cleric", t: "Cleric: at 19, first specialties on both clicks. Earth’s Retribution +20% MP. Judgment Thunder +12% damage on fewer targets." },
+          { tag: "skill", cls: "chanter", t: "Chanter: at 19 take the MP options — Onslaught +20% MP restored, Incandescent Blow −20% MP consumed. Rushing Smash gets its charge option." }
         ]
       },
       {
@@ -518,7 +525,10 @@ const PHASES = [
         items: [
           { tag: "msq", t: "MSQ + seals on the way into the new zone." },
           { tag: "skill", t: "After arrow 15: do Ascension, unlock Stigmas. Equip and start leveling them — one shard every level from here." },
-          { tag: "skill", t: "Cleric: Earth’s Grace to 10 the moment you learn it at 21. Both clicks can hit 10 at 25." }
+          { tag: "skill", cls: "cleric", t: "Cleric: Earth’s Grace to 10 the moment you learn it at 21. Both clicks can hit 10 at 25." },
+          { tag: "skill", cls: "chanter", t: "Chanter: Dark Crush at 22 — take its Critical Hit specialty. The Earth’s Promise passive lands at 21." },
+          { tag: "skill", cls: "chanter", t: "Chanter stigmas, in order: Undefeated Mantra first, then Guardian Blessing or Sprint Mantra. Power of the Storm fills the fourth slot." },
+          { tag: "skill", cls: "chanter", t: "Chanter: from 26, Recuperation, Tremor Crush, Spinning Strike and Defiance to 8 as each unlocks." }
         ]
       },
       {
@@ -561,6 +571,9 @@ const PHASES = [
         items: [
           { tag: "msq", t: "From 33 on: 100% MSQ except the rune detour below." },
           { tag: "side", t: "After 3rd Ascension (The One Who Dreams): Hugo Mercs pt.3 in Briskwind Shelter → 2nd rune." },
+          { tag: "skill", cls: "cleric", t: "Cleric: finish the main skills to 10 as the gate allows. Lv.20 needs the Daevanion board, gear or Arcana — detail on Skills." },
+          { tag: "skill", cls: "chanter", t: "Chanter: Attack Preparation can reach 10 at 37, Spinning Strike at 38. Wind’s Promise and the passives last — passives go past 10 later, via gear and Arcana." },
+          { tag: "skill", cls: "chanter", t: "Chanter: Onslaught, Dark Crush and Spinning Strike are the loop. Hold left click while the macro runs — the weave is your mana." },
           { tag: "msq", t: "Then full MSQ to 45." }
         ]
       },
@@ -608,20 +621,37 @@ function save() {
   }));
 }
 
-function allItems() {
-  const out = [];
-  PHASES.forEach(p => p.parts.forEach((part, pi) => part.items.forEach((_, ii) => out.push(p.id + ":" + pi + ":" + ii))));
-  return out;
-}
 function itemId(phaseId, pi, ii) { return phaseId + ":" + pi + ":" + ii; }
 
-function phaseProgress(p) {
-  let total = 0, done = 0;
-  p.parts.forEach((part, pi) => part.items.forEach((_, ii) => {
-    total++;
-    if (state.checks[itemId(p.id, pi, ii)]) done++;
+// A route item tagged with `cls` only shows for that class, so the skill rows in
+// the level flow follow the class switcher. Item ids keep their original indices,
+// so hiding a row never shifts another row's checkbox.
+function itemVisible(it) {
+  return !it.cls || it.cls === state.classKey;
+}
+
+// Single source of truth for which ids count in a phase. Progress, the next-up
+// line, the render and the keyboard cursor all go through this, so a class switch
+// can never leave them disagreeing.
+function phaseIds(p) {
+  const out = [];
+  p.parts.forEach((part, pi) => part.items.forEach((it, ii) => {
+    if (itemVisible(it)) out.push(itemId(p.id, pi, ii));
   }));
-  return { total, done };
+  return out;
+}
+
+function allItems() {
+  const out = [];
+  PHASES.forEach(p => { out.push(...phaseIds(p)); });
+  return out;
+}
+
+function phaseProgress(p) {
+  const ids = phaseIds(p);
+  let done = 0;
+  ids.forEach(id => { if (state.checks[id]) done++; });
+  return { total: ids.length, done };
 }
 
 function renderClassSwitch() {
@@ -669,9 +699,11 @@ function currentNext() {
   for (const p of PHASES) {
     for (let pi = 0; pi < p.parts.length; pi++) {
       for (let ii = 0; ii < p.parts[pi].items.length; ii++) {
+        const it = p.parts[pi].items[ii];
+        if (!itemVisible(it)) continue;
         const id = itemId(p.id, pi, ii);
         if (!state.checks[id]) {
-          return { phase: p, text: p.parts[pi].items[ii].t };
+          return { phase: p, text: it.t };
         }
       }
     }
@@ -693,12 +725,12 @@ function renderMain() {
     return;
   }
   const p = PHASES.find(x => x.id === state.view) || PHASES[0];
-  const ids = [];
-  p.parts.forEach((part, pi) => part.items.forEach((_, ii) => ids.push(itemId(p.id, pi, ii))));
+  const ids = phaseIds(p);
   if (state.cursor >= ids.length) state.cursor = 0;
 
   main.innerHTML = p.parts.map((part, pi) => {
     const rows = part.items.map((it, ii) => {
+      if (!itemVisible(it)) return "";
       const id = itemId(p.id, pi, ii);
       const done = !!state.checks[id];
       const cur = ids[state.cursor] === id ? " current" : "";
@@ -707,6 +739,7 @@ function renderMain() {
         <span class="txt"><span class="tag ${it.tag}">${it.tag}</span>${it.t}</span>
       </div>`;
     }).join("");
+    if (!rows) return "";
     const map = part.map ? `<img class="map" src="${part.map}" alt="${part.h} route map" width="1280" height="960"><p class="map-cap">Failure Guild route map · click to enlarge</p>` : "";
     return `<section class="part">
       <h2>${part.h}</h2>
@@ -804,8 +837,7 @@ document.addEventListener("keydown", (e) => {
   if (e.key === "]") { gotoPhase(phaseIndex() + 1); }
   if (PHASES.some(p => p.id === state.view)) {
     const p = PHASES.find(x => x.id === state.view);
-    const ids = [];
-    p.parts.forEach((part, pi) => part.items.forEach((_, ii) => ids.push(itemId(p.id, pi, ii))));
+    const ids = phaseIds(p);
     if (e.key === "j" || e.key === "J") { state.cursor = Math.min(ids.length - 1, state.cursor + 1); render(); e.preventDefault(); }
     if (e.key === "k" || e.key === "K") { state.cursor = Math.max(0, state.cursor - 1); render(); e.preventDefault(); }
     if (e.key === " ") { toggle(ids[state.cursor]); e.preventDefault(); }
