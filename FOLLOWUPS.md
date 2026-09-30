@@ -48,6 +48,45 @@ Worth confirming in-game before trusting any of the above.
 
 ---
 
+## 29 Sep 2026 — How to open the enhancement menu, and a third source on the belt/amulet rule
+
+Fallen Clocks asked how to open the enchant menu. The page said "the button is in the enhancement window, bottom right" but **never said how to reach that window** — another gap, and a basic one, since the page tells him to enhance things.
+
+### The answer
+
+**Menu → Enhance All.** There is **no hotkey on the inventory**. The screen lists every piece you own — equipped and in your cube — plus your available enhancement materials. Pick the item, then press Enhance.
+
+**No default keybind is documented** for it by any source I found, so the page says to check Key settings rather than inventing a key. Fextralife and a second guide agree on the menu path.
+
+### Fextralife independently confirms the belt/amulet rule — and more strongly than my sources did
+
+Its gear-enhancing page lists an enhancement priority, and it is the same rule from a third independent source:
+
+1. **Must enhance first: Noble Belt and the amulet.**
+2. Then the **weapon**.
+3. **Everything else last, and sparsely.**
+
+Its reasoning: the belt and amulet *"should be your priority when enhancing because of the stats they influence and because **you won't change them for new ones at any point**."* That is a cleaner statement of why than either Madsin or KanonXO gave, and it independently corroborates yesterday's answer. **Three sources now agree on the same rule**, so the row says so.
+
+It also states the extract rule in the same shape as the page: **only Enhancement Stones are refunded; never Kinah, manastones or theostones.**
+
+### A naming discrepancy recorded rather than resolved
+
+Fextralife calls the amulet the **Revelation Amulet**, with a *Revelation Amulet Enhance Scroll*. KanonXO's doc calls it the **Fierce Battle Amulet**. Possibly a regional rename or a later item. Both names are on the page so he can hunt the vendor by either; **Noble Belt agrees in both sources.**
+
+Note also that Fextralife's ladder ends at *Unique* +10 (gold), while KanonXO wrote "Orange/Heroic being max". Madsin reaches gold and says settle there rather than pushing enhancement on it early. Those are compatible — the ladder ends at the top grade, and the advice is not to spend on enhancing that grade yet — so the page presents it that way instead of picking a winner.
+
+### Process
+
+**This run caught four of my own assertions checking wording I had just improved** ("The one thing worth enhancing at this stage" became "Enhance these before anything else", the attribution sentence changed). Rewritten to match.
+
+**One of them was worth investigating rather than just updating:** an assertion for "Stop at gold" failed, which could have meant I dropped Madsin's reasoning while rewriting. I checked before editing — the gold-stop rationale still exists on the Systems tab — then restored it on Start too, since Start is where he will look first. **A failing assertion is a question about the content, not just about the test.**
+
+I also mangled one assertion into invalid JavaScript while patching it (`ck(/.../ 2 || true, "")`), which the linter caught. Reverted and rewritten properly.
+
+239 checks pass against the deployed bytes.
+
+
 ## 29 Sep 2026 — Do I enhance the belt while leveling? Yes — and it was missing entirely
 
 Fallen Clocks asked: *"When leveling do I enchant my belt and other things."* The page had **no answer**. It said "stop enhancing at +5" and left the belt and amulet out completely. A genuine gap, not a restatement.
