@@ -413,7 +413,7 @@
       <h3>VOD</h3>
       <div class="links" id="vod-links"></div>
       <p class="hint">
-        Keys: <kbd>1</kbd>–<kbd>5</kbd> route · <kbd>P</kbd> start · <kbd>N</kbd> level plan · <kbd>V</kbd> compare · <kbd>C</kbd> skills · <kbd>L</kbd> plan · <kbd>Y</kbd> systems · <kbd>B</kbd> build · <kbd>D</kbd> Daevanion · <kbd>S</kbd> stats · <kbd>A</kbd> at 45<br>
+        Keys: <kbd>1</kbd>–<kbd>5</kbd> route · <kbd>P</kbd> start · <kbd>N</kbd> level plan · <kbd>E</kbd> cubes · <kbd>V</kbd> compare · <kbd>C</kbd> skills · <kbd>L</kbd> plan · <kbd>Y</kbd> systems · <kbd>B</kbd> build · <kbd>D</kbd> Daevanion · <kbd>S</kbd> stats · <kbd>A</kbd> at 45<br>
         <kbd>J</kbd>/<kbd>K</kbd> items · <kbd>Space</kbd> check · <kbd>[</kbd>/<kbd>]</kbd> phase.<br>
         Class tabs and the skill rows inside the route follow the class you pick up top.
       </p>
@@ -681,7 +681,7 @@ function renderNav() {
   }).join("") + `<div class="nav-extra">
     ${[
       ["While you level", [["prep","Start"],["levelplan","Level plan"],["versus","Compare"],["skills","Skills"],["daevanion","Daevanion"]]],
-      ["At cap", [["plan","Launch plan"],["build","PvE build"],["stats","Stats"],["after","At 45"]]],
+      ["At cap", [["cubes","Dungeon cubes"],["plan","Launch plan"],["build","PvE build"],["stats","Stats"],["after","At 45"]]],
       ["Reference", [["systems","Systems"],["shop","Cash shop"],["watch","KR traps"],["links","Sources"]]]
     ].map(([label, items]) =>
       `<div class="nav-label">${label}</div>` +
@@ -830,6 +830,7 @@ document.addEventListener("keydown", (e) => {
   if (e.key === "l" || e.key === "L") { state.view = "plan"; render(); }
   if (e.key === "y" || e.key === "Y") { state.view = "systems"; render(); }
   if (e.key === "n" || e.key === "N") { state.view = "levelplan"; render(); }
+  if (e.key === "e" || e.key === "E") { state.view = "cubes"; render(); }
   if (e.key === "p" || e.key === "P") { state.view = "prep"; render(); }
   if (e.key === "a" || e.key === "A") { state.view = "after"; render(); }
   if (e.key === "v" || e.key === "V") { state.view = "versus"; render(); }

@@ -522,6 +522,41 @@ const PAGES = {
   <div class="row"><span class="k">Alts note</span><span class="do">Alts short of Vakron can run Krao or Draupnir instead.<span class="why">Those do not need 1,400 item level, so alts still convert their Odyle into gear. Source: Grobs episode 10.</span></span></div>
 </article>`
   },
+  cubes: {
+    kicker: "When to claim dungeon cubes",
+    now: "Never while leveling. From 45, on the latest content you can enter, and spend down before cap.",
+    html: `
+<article class="cleric-block">
+  <p class="kicker">Global · Odyle spending order</p>
+  <div class="row"><span class="k">Short answer</span><span class="do">Claim nothing before 45. Then claim on the latest content you can enter, and keep your energy under the cap.<span class="why">Odyle is the one timer that cannot wait — it refills on its own and caps at 840, so energy sitting unused is energy wasted. Everything else that scales with your power (Nightmare, Ascension Trial, daily dungeons) should be held to the end of the week; cubes are the opposite.</span></span></div>
+
+  <h2>The rules</h2>
+  <div class="row"><span class="k">Cost</span><span class="do">40 Odyle per cube. 80 opens it twice with membership.<span class="why">So three claims is 120 energy. Per character, not shared.</span></span></div>
+  <div class="row"><span class="k">Cap</span><span class="do">Unlocks at 22, recharges 15 every 3 hours — 120 a day — and stores to 840.<span class="why">You start at 120/840. At 840 it stops accumulating, so the floor on your spending is one dungeon run a day just to stay below it.</span></span></div>
+  <div class="row"><span class="k">Three, not four</span><span class="do">In the exploration versions, claim three chests, not four.<span class="why">Three claims is what triggers the guaranteed equipment pick — 120 energy for one piece. A fourth is energy spent without advancing the pity. Source: Madsin.</span></span></div>
+  <div class="row"><span class="k">Which version</span><span class="do">Conquest, not Exploration.<span class="why">Every dungeon has both under one name. Exploration is the tutorial one from the MSQ and its cubes hold low-level trash. Conquest is the max-level one and it is where gear comes from.</span></span></div>
+
+  <h2>Never</h2>
+  <div class="row"><span class="k">1–44</span><span class="do">Claim nothing.<span class="why">Leveling dungeons, MSQ dungeons and seal dungeons all hold gear you replace within hours. This is the single most common way to waste a week's Odyle.</span></span></div>
+  <div class="row"><span class="k">Story dungeons at 45</span><span class="do">Still no, even though you are max level.<span class="why">The story sends you back into Exploration Krao, Urugugu, Fire Temple and Draupnir. Those are still the exploration versions — kill the boss, skip the cube.</span></span></div>
+  <div class="row"><span class="k">The one exception</span><span class="do">If you are short of item level, three runs of an exploration dungeon will do it.<span class="why">Three runs gives a pick of item-level-62 gear. That is a deliberate patch for a gear-score gap, not a farming loop.</span></span></div>
+
+  <h2>Then, in this order</h2>
+  <p>Claim on the highest entry you can actually enter. Lower rungs are for alts and for gaps.</p>
+  <div class="row"><span class="k">45 · 1000</span><span class="do">Krao Cave — and Draupnir once.<span class="why">Krao's Conquest cube is a repeatable Unique necklace, earring or ring; that trio is the standard way to break 1600. Draupnir's guaranteed cube is worth one clear and no more. Alts short of Vakron should be here instead — Krao and Draupnir do not need 1,400.</span></span></div>
+  <div class="row"><span class="k">1400 · Vakron</span><span class="do">Vakron's Sky Island — claim the end box three times.<span class="why">120 energy for a guaranteed pick from the dungeon's loot table. Take the <strong>chest piece</strong>. Urugugu Canyon, same expedition band, covers weapon and accessories. This is the first place your Odyle really belongs.</span></span></div>
+  <div class="row"><span class="k">1900 · Transcendence 2</span><span class="do">Transcendence stage 2 — guaranteed green Arcana cards.<span class="why">A green card is roughly 40 item level, so this is the cheapest guaranteed gain available. Also a chance at a chalice and about 50% for blue cards. Cards are what push you toward 2,100.</span></span></div>
+  <div class="row"><span class="k">2100 · Ferris</span><span class="do">Ferris's horn and the exploration soul — claim three boxes, hold the pick.<span class="why">Another 120 energy. This time do <em>not</em> take the equipment yet. You claim it later, based on what conquest dropped, so you fill the gap rather than duplicating a slot.</span></span></div>
+  <div class="row"><span class="k">Then · Gnevakum</span><span class="do">Nevakum Gulag — claim two chests a run, 14 runs.<span class="why">Twenty-eight runs total, or 14 claiming two chests each, completes the pity. The pity gives a ticket, and two tickets craft a <strong>guard</strong>. Guards are hard to come by and crafting one costs as much as a weapon, so this is the cheap route to it. Gives armor and the guard.</span></span></div>
+  <div class="row"><span class="k">Then · back</span><span class="do">Claim the equipment pick you held at 2,100.<span class="why">Now you know what conquest gave you, so take the slot you are missing. Prioritise <strong>boots and gloves</strong> — they carry the soulbinds worth having.</span></span></div>
+  <div class="row"><span class="k">Stage 4</span><span class="do">Transcendence stage 4 — gold cards.<span class="why">You do not need a full gear set to enter, only the item level. Then you are farming the proper Arcana for your class's skill and passive lines.</span></span></div>
+  <div class="row"><span class="k">2400+</span><span class="do">Fire Temple and Ferocious Horn Den.<span class="why">These open once your unique Arcana and blue cards land. That Fire Temple is not the story Exploration one — kill the boss, skip the chest.</span></span></div>
+
+  <h2>Every week</h2>
+  <div class="row"><span class="k">Before reset</span><span class="do">Claim all Odyle from Substance Morph and the subscriber shop.<span class="why">Both reset on Wednesday and do not carry over. Substance Morph gives 16 per server plus 4 per character, so 20 on your main and 4 on each alt. The subscriber shop sells the same again. Together that is roughly 20 double-claim dungeon runs you either use or lose.</span></span></div>
+  <div class="row"><span class="k">Don't bank it</span><span class="do">There is no benefit to hoarding Odyle.<span class="why">It caps at 840, so anything past that is generated and thrown away. Claim on the best content available to you that week rather than saving for a dungeon you cannot enter yet.</span></span></div>
+</article>`
+  },
   plan: {
     kicker: "A launch plan · one player, not a guide",
     now: "Item level is the real gate. Everything below feeds it.",

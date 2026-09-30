@@ -435,6 +435,36 @@ function get(url) {
   ck(/Menu → Substance Morph<\/strong> or <kbd>Alt<\/kbd>\+<kbd>H<\/kbd>/.test(sys2), "Systems gives the morph path too");
   ck(/the \+10 is redone at every rung/.test(sys2), "Systems explains the reset");
 
+  console.log("=== dungeon cubes tab ===");
+  const cb = PAGES.cubes;
+  ck(!!cb && !!cb.kicker && !!cb.now && cb.html.length > 2000, "cubes tab is complete");
+  ck(!!pageFor("cubes", "cleric") && !!pageFor("cubes", "chanter"), "cubes resolves for both classes (class-agnostic)");
+  ck(/<h2>The rules<\/h2>/.test(cb.html), "cubes has the rules section");
+  ck(/<h2>Never<\/h2>/.test(cb.html), "cubes has the never section");
+  ck(/<h2>Then, in this order<\/h2>/.test(cb.html), "cubes has the ordered ladder");
+  ck(/<h2>Every week<\/h2>/.test(cb.html), "cubes has the weekly section");
+  ck(/40 Odyle per cube\. 80 opens it twice with membership/.test(cb.html), "cost stated");
+  ck(/recharges 15 every 3 hours — 120 a day — and stores to 840/.test(cb.html), "cap and recharge stated");
+  ck(/claim three chests, not four/.test(cb.html), "the three-not-four rule is stated");
+  ck(/Conquest, not Exploration/.test(cb.html), "which version is stated");
+  ck(/Claim nothing before 45|1–44<\/span><span class="do">Claim nothing/.test(cb.html), "the 1-44 answer is stated");
+  ck(/Story dungeons at 45/.test(cb.html), "story dungeons at 45 covered");
+  ck(/the one timer that cannot wait/.test(cb.html), "explains why cubes differ from weeklies");
+  // the ladder must be in ascending gear-score order
+  const marks = ["45 · 1000", "1400 · Vakron", "1900 · Transcendence 2", "2100 · Ferris", "Then · Gnevakum", "Stage 4", "2400+"];
+  const idx = marks.map(m => cb.html.indexOf(m));
+  ck(idx.every(i => i > -1), "every ladder rung present" + (idx.some(i => i < 0) ? " (missing one)" : ""));
+  ck(idx.every((v, i) => i === 0 || v > idx[i - 1]), "ladder rungs are in ascending order");
+  ck(/Take the <strong>chest piece<\/strong>/.test(cb.html), "Vakron pick named");
+  ck(/do <em>not<\/em> take the equipment yet/.test(cb.html), "Ferris pick is held");
+  ck(/claim two chests a run, 14 runs/.test(cb.html), "Gnevakum pity stated");
+  ck(/two tickets craft a <strong>guard<\/strong>/.test(cb.html), "the guard payoff stated");
+  ck(/Prioritise <strong>boots and gloves<\/strong>/.test(cb.html), "held-pick priority named");
+  ck(/16 per server plus 4 per character/.test(cb.html), "weekly morph Odyle scope stated");
+  ck(/\["cubes","Dungeon cubes"\]/.test(localHtmlStr), "nav includes the cubes tab");
+  ck(/e\.key === "e"[^}]*"cubes"/.test(localHtmlStr), "hotkey E -> cubes");
+  ck(/<kbd>E<\/kbd> cubes/.test(localHtmlStr), "key hint shows E");
+
   console.log("=== inline script integrity ===");
   const scr = localHtmlStr.match(/<script>\n([\s\S]*?)<\/script>\s*<\/body>/);
   ck(!!scr, "inline script block located");
