@@ -48,6 +48,69 @@ Worth confirming in-game before trusting any of the above.
 
 ---
 
+## 29 Sep 2026 — KanonXO's progression doc: Systems tab, specialty model resolved, boards corrected
+
+Fallen Clocks found a large Google Doc and asked to link it and use it. It is **KanonXO's** Aion 2 PvE progression guide — ~10,400 words, last updated 20 Sep 2026, written for Korea with global flags he sets himself. Credentials: ~1k hours, cleared everything including the pinnacle raids, just under 900k combat power on a Brawler. Lower CP than the 1M+ players already on the page, but far more systems detail, and the only source that publishes the damage formula.
+
+Fetched via the public export endpoint (`/export?format=txt`) rather than scraping the preview. Save transcripts/docs to a file and read in chunks.
+
+### Resolved: the specialty-perk thresholds
+
+**This closes a question I had flagged open twice.** Options unlock at skill levels **8, 12 and 16**; slots open at **8, 12 and 20**. Five options total per skill, three equippable.
+
+- Lv.8 → options 1–3, and your first slot
+- Lv.12 → option 4, and a second slot
+- Lv.16 → option 5
+- Lv.20 → the third slot
+
+Which means a Lv.12 skill runs two options from 1–4, a Lv.16 skill runs two including option 5, and a Lv.20 skill runs three.
+
+**Two consequences worth recording.** First, this fully explains the 1M+ CP Chanter build's tier notation — I checked all eleven of his rows against the rule and every one is consistent, so his numbers are now decoded rather than copied. Second, **the Cleric Skills tab already had this right** ("slots open at 8, 12, and 20"), and I downgraded it on the Chanter tab last round for lack of a source. That was a real error: I removed a correct fact. It is reverted, and the Cleric row is now cited as independently confirmed.
+
+### Corrected: the Daevanion boards
+
+KanonXO's structure, which supersedes what was on the Chanter tab:
+
+- **Four white boards — Nezekan, Zikel, Vaizel, Triniel.** They **share a single point pool**, cannot be maxed, and are where skill levels come from. Prioritise key active skills to reach 12/16/20, then orange tiles.
+- **Four coloured boards — Ariel, Azphel, Marchutan, Yustiel.** Individual point pools, and **no skill levels at all**.
+
+Roles: **Ariel = PvE** (orange tiles are PvE Damage Boost/Tolerance), **Azphel = PvP** and worthless in PvE, **Marchutan = general stats, mid-game** (Weapon Damage Boost/Tolerance), **Yustiel = general stats, end-game** (Attack/Defense Increase).
+
+**The Chanter tab had four of these wrong**: Yustiel as cooldown reduction and "the crucial one for group Chanters", Marchutan as Defense/HP "vital for survivability", and Vaizel/Triniel as offensive Crit Damage Boost and Multi-hit. KanonXO lists Vaizel's Crit Damage **Tolerance** and Triniel's Multi-hit **Resist** — defensive stats that do nothing in PvE because bosses have no Crit, Multi-hit or Weapon Damage Boost. Those three tiles are now flagged as dead. The Cleric tab's Ariel-before-Azphel guidance was already right.
+
+Board count reconciles: six in Season 1 (four white + Ariel + Azphel) with Marchutan mid-game and Yustiel end-game, which matches the Cleric tab's long-standing note that a level-37 test did not show Ariel.
+
+### New: Systems tab
+
+A class-agnostic reference tab (hotkey `Y`) so this material has a home: enhancement and Amp, potential, the full ideal-stat-line table per gear piece with roll rarities, manastones versus soulstones, theostones, transfer, what each slot gives, Arcana, Pet Genus, wings, the stat-value hierarchy and the damage formula. Highlights worth naming:
+
+- **A maxed Yellow transfers into an Orange as +20 Amp 0** — the strongest argument for finishing a piece before moving on.
+- **Stat priority: Double Chance > Front/Back Attack Boost > Weapon Damage Boost ≈ Critical Damage Boost > Damage Boost.** Double Chance and Front/Back are their own multipliers and never dilute; Damage Boost additively stacks with four sources and is worth about half per point. No build guide on the page said this.
+- **Arcana can be crafted with chosen lines via Transmute**, and if you do a 4-line craft, do the Chalice first.
+- **Transfer costs** and the advice to skip the first Heroic set (Ancient Spirit) for the second (Faded Shadow).
+- **Raid accuracy and crit caps**: Ludra ~1,500/~1,600, Corroded ~2,350/~2,500, Muspel Hard ~2,800/~3,150 — not confirmed for global.
+- **Wings**: Eroded is best-in-slot for both priests (Cleric 45%, Chanter 45%), then Talisra. Front/Back Damage Boost is why even ranged classes run it.
+- **Crit Damage Boost is worth less to both priest classes** (~0.4–0.45% rather than 0.6%) because they have Crit Damage passives — Cleric's Earth's Grace, Chanter's Wind's Promise.
+
+### Changed: ping
+
+The Compare ping row now carries both sides. Madsin says a recent network patch made 200 ping a non-issue; KanonXO's testing measured a 150–200 ping difference at roughly 50–70% damage. **But KanonXO also tested Templar, Brawler and Assassin and found no major difference between classes** — which retires the "high ping favours the Cleric" argument on its merits, regardless of who is right about the magnitude.
+
+### Changed: support acceptance
+
+Added to Getting picked: supports are gatekept specifically by **stigma skill levels**, not just gear score. KanonXO names Undefeated Mantra and Light of Protection as the ones that matter because they lift the whole group. So a Chanter with a maxed Undefeated Mantra is more wanted than one with a better gear score and a level 5 mantra.
+
+### Caveat applied to existing content
+
+The At 45 "crafted PvE line is stronger than the dungeon one" claim is a **Korea/Taiwan rule**. KanonXO flags that on global crafted gear does not automatically get maxed potential stats and whether crafted beats dungeon is unconfirmed. The row now says so rather than stating it flat.
+
+### Process
+
+`verify.js` had three assertions encoding wording this round deliberately replaced (the old KR-only threshold caveat, the first ping row, the two-or-three skills count). **Rewrote the assertions rather than leaving them failing** — a test asserting superseded content is worse than no test, because it trains you to ignore failures. Also caught myself inserting the transfer rows into Start's "Do not" list instead of At 45, because the "Gold gear" anchor row lives there; added an assertion that the relocated rows are absent from Start.
+
+155 checks pass against the deployed bytes.
+
+
 ## 29 Sep 2026 — Madsin's launch plan, and a Shugo correction
 
 Fallen Clocks shared Madsin's 55-minute global progression plan ([AION2] My progression plans for Global, uploaded 28 Sep) without having watched it. Transcript fetched and read in full — 15,400 words. Madsin is a **new source**: 11 months on Taiwan/Korea, 1M+ combat power, playing from 200 ping. Not Grobs, not either dropped channel.
