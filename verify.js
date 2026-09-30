@@ -414,6 +414,17 @@ function get(url) {
   ck(/they go to \+10 and get morphed up a grade/.test(CLASSES.cleric.stats.html), "Cleric Stats explains the belt exception");
   ck(/\+10, morph up a grade, \+10 again/.test(CLASSES.chanter.stats.html), "Chanter Stats explains the belt exception");
   ck(!/to \+5 only\.<span class="why">/.test(localPagesStr), "no unscoped '+5 only' row remains");
+  // two versions of the same dungeon share a name — the Krao confusion
+  ck(/Every dungeon has two versions and both are called by the same name/.test(pp2), "the two-versions rule is stated generally");
+  ck(/<strong>Exploration<\/strong> is the easy tutorial one/.test(pp2), "Exploration defined");
+  ck(/<strong>Conquest<\/strong> is the max-level one/.test(pp2), "Conquest defined");
+  ck(/its cube costs 40 Odyle and holds low-level trash/.test(pp2), "the cost and the reason are on the row");
+  ck(/Krao<\/span><span class="do">Two different dungeons share the name/.test(pp2), "Krao has its own row");
+  ck(/Exploration Krao is the story one you were sent into during the MSQ — skip its cube/.test(pp2), "answers his exact question");
+  ck(/Krao Cave proper is the level-45 Conquest version/.test(pp2), "distinguishes the real Krao Cave");
+  ck(/repeating its Conquest cube guarantees a Unique necklace/.test(pp2), "says where Odyle does belong");
+  ck(/So the answer flips depending on which you are standing in/.test(pp2), "states the flip explicitly");
+  ck(/Exploration Krao, Urugugu, Fire Temple and Draupnir — kill those bosses, skip those cubes/.test(pp2), "the four story dungeons are still named");
 
   console.log("=== inline script integrity ===");
   const scr = localHtmlStr.match(/<script>\n([\s\S]*?)<\/script>\s*<\/body>/);
