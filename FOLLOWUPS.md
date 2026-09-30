@@ -48,6 +48,32 @@ Worth confirming in-game before trusting any of the above.
 
 ---
 
+## 29 Sep 2026 — Do I enhance the belt while leveling? Yes — and it was missing entirely
+
+Fallen Clocks asked: *"When leveling do I enchant my belt and other things."* The page had **no answer**. It said "stop enhancing at +5" and left the belt and amulet out completely. A genuine gap, not a restatement.
+
+### The answer
+
+**Everything is a no except the belt and amulet.**
+
+- **General rule:** don't enhance while leveling. You replace pieces 4–5 times, and dissolving returns the enhancement stones but **never the Kinah**. Madsin, asked directly how to spend Kinah while leveling, said *nowhere* — do not tap gear, and upgrade nothing that is not the belt or the amulet, because all of it is temporary.
+- **The exception:** the belt and amulet are the pieces you **keep**, so they are the one place Kinah is not wasted. Take each to **+10 → Substance Morph to the next grade → +10 again → repeat until Heroic/gold**. Then **stop** — enhancing gold early costs far too much for too little.
+- Belt scrolls come from Strongholds, amulet scrolls from turning in feathers, so neither competes with armor or weapon stones.
+- Belt gives defensive stats, amulet offensive.
+
+**Timing caveat stated on the page:** the belt and amulet come from the **level-45 MSQ line**, so this applies from the 40s onward, not during 1–40. Without that, a "while leveling" row would read as advice for a character who has no belt yet.
+
+Placed in four spots: Start's Do-not section (as the exception to the +5 rule), At 45 as "the one thing worth enhancing at this stage", the Launch plan as Madsin's Kinah rule, and Systems for the ladder plus stat split.
+
+### An ASR error of mine, disclosed rather than normalised
+
+Madsin's caption reads *"upgrade anything that isn't **the build** or the amulet"*. **"Belt" is the reading that fits** — the belt and amulet are exactly the two pieces on their own upgrade track, and the ones you keep, so they are the two that would be exempt from a "don't upgrade temporary gear" rule. "The build" does not parse as something you upgrade.
+
+The page **discloses the garble** rather than silently writing "belt", so the inference is visible and reversible. My own skill warns about garbled game terms in auto-captions; this one had been sitting in a transcript I read carefully and still missed the first time, because "build" is a plausible English word rather than obvious noise. **The tell is a word that scans fine but does not fit the game system** — those are harder than obvious garble like "crowave" for Crow Cave.
+
+226 checks pass against the deployed bytes.
+
+
 ## 29 Sep 2026 — Skill guidance inline in the level flow, per class
 
 Requested directly: *"in the leveling guide, it includes what skills to level up, so I don't have to switch back and forth between the skills tab and the level flow for Chanter."* The route (phases 1–5) now carries per-class skill rows.
