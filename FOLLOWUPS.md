@@ -48,6 +48,39 @@ Worth confirming in-game before trusting any of the above.
 
 ---
 
+## 29 Sep 2026 — Skill guidance inline in the level flow, per class
+
+Requested directly: *"in the leveling guide, it includes what skills to level up, so I don't have to switch back and forth between the skills tab and the level flow for Chanter."* The route (phases 1–5) now carries per-class skill rows.
+
+### The mechanism
+
+Route items gained an optional `cls` tag. A tagged row only counts and only renders for that class.
+
+**All five places that iterate items now go through one helper pair** — `itemVisible(it)` and `phaseIds(p)`: progress totals, per-phase counts, the next-up line, the render, and the `J`/`K` keyboard cursor. Previously each of the five built its own id list inline by hand. Filtering in some and not others would have made the progress bar disagree with the rows on screen, which is the kind of bug that is invisible until it is confusing.
+
+**Item ids keep their original indices**, so hiding a row never renumbers another row's checkbox. Shared rows tick identically in both classes and existing checkmarks survive a class switch, which matters because he is already partway through the route. A part whose rows are all class-specific for the *other* class is skipped entirely rather than rendering a bare heading.
+
+### Content
+
+Five phases, both classes:
+
+- **p1 (1–9):** name the two main clicks.
+- **p2 (10–16):** Cleric — points into Earth's Retribution and Judgment Thunder. Chanter — Rushing Smash and Impactful Crush to 8 first, then the click pair, plus the weave warning (Onslaught restores MP on every hit; skip the weave and you run dry).
+- **p3 (17–21):** at 19, first specialties for each class, taken from their own Skills tabs.
+- **p4 (22–32):** Cleric — Earth's Grace to 10 at 21. Chanter — Dark Crush at 22 with its Crit specialty, the Earth's Promise passive at 21, the stigma order (Undefeated Mantra → Guardian Blessing or Sprint Mantra → Power of the Storm), and the 26+ skills to 8.
+- **p5 (33–45):** finishing guidance, including Chanter's Attack Preparation at 37 and Spinning Strike to 10 at 38.
+
+**Correct counts (computed, not estimated): 9 Chanter-tagged rows, 5 Cleric-tagged, 1 class-agnostic, = 15 skill rows total.** Chanter therefore sees **10** and Cleric sees **6**. The commit message for this change says "11 skill rows to Cleric's 8" — those numbers were wrong; I estimated instead of counting. The code and the page are correct; only that commit message is inaccurate. Noted here because the commit message is permanent and cannot be amended without force-pushing a published repo.
+
+### Verification
+
+`verify.js` grew a whole section: every `cls` value must be a real class key (guards a typo like `chanters`), both classes must get skill rows in all five phases, neither class may see the other's rows, **no route part may disappear for either class**, shared rows keep identical checkbox ids, per-phase totals must sum to `allItems`, and some phases must legitimately differ per class (2, 4 and 5 do).
+
+**Also added an inline-script parse check.** The earlier one had been lost in a rewrite, and it matters now: `new Function(inlineScriptBody)` compiles the shell without executing it, so a syntax error introduced into the render pipeline gets caught. This round rewrote a good chunk of that script, and there was no check that it still parsed. That gap is closed.
+
+211 checks pass against the deployed bytes.
+
+
 ## 29 Sep 2026 — Level plan route credited to Stoopzz
 
 Fallen Clocks corrected the provenance: the level-gated side-quest list is **Stoopzz's**, not EARL's. **EARL was the Discord messenger; Stoopzz is the author.** I had read the screenshot's sender name off the image and attributed the content to him, which was wrong — the sender of a screenshot is not its author.
