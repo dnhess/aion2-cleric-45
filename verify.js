@@ -263,7 +263,16 @@ function get(url) {
   ck(!!pageFor("levelplan", "cleric") && !!pageFor("levelplan", "chanter"), "level plan resolves for both classes");
   ck(/<h2>The plan<\/h2>/.test(lp2.html), "level plan has the list");
   ck(/Pick side quests before you can finish them/.test(lp2.html), "the pick-early mechanic is called out");
-  ck(/discord message from someone called EARL|Discord message/i.test(lp2.html), "provenance recorded");
+  ck(/relayed by someone called EARL/.test(lp2.html), "EARL recorded as the messenger, not the author");
+  ck(/Who wrote it<\/span><span class="do">Stoopzz/.test(lp2.html), "credited to Stoopzz");
+  ck(/Stoopzz's route/.test(lp2.html), "kicker names the author");
+  ck(/twitch\.tv\/stoopzz/.test(lp2.html) && /youtube\.com\/stoopzz_TV/.test(lp2.html), "creator links present");
+  ck(/the author and the sender are different people/.test(lp2.html), "distinguishes author from Discord sender");
+  ck(/Why it holds up/.test(lp2.html), "five-anchor justification recorded");
+  ck(/Level plan<\/span><span class="do"><a href="https:\/\/www\.twitch\.tv\/stoopzz"/.test(PAGES.links.html), "Sources credits Stoopzz with a link");
+  ck(/Connections<\/span><span class="do">Stoopzz, Madsin and KanonXO are the same circle/.test(PAGES.links.html), "shared-circle caveat recorded on Sources");
+  ck(!/A level-gated side-quest list from a Discord message/.test(localPagesStr), "old unattributed Sources wording gone");
+  ck(!/from someone called EARL, with no link and no further attribution/.test(localPagesStr), "old unverified tab wording gone");
   // every line of the source list must be present
   const lines = ["1–12", "12–14", "14–17", "18–20", "20–22", "22–27", "27–31", "33–42", "42–45"];
   ck(lines.every(l => lp2.html.includes(l)), "all level bands present");
@@ -282,7 +291,7 @@ function get(url) {
   ck(/\["levelplan","Level plan"\]/.test(localHtmlStr), "nav includes level plan");
   ck(/e\.key === "n"[^}]*"levelplan"/.test(localHtmlStr), "hotkey N -> level plan");
   ck(/<kbd>N<\/kbd> level plan/.test(localHtmlStr), "key hint shows N");
-  ck(/Level plan<\/span><span class="do">A level-gated side-quest list/.test(PAGES.links.html), "level plan source documented");
+  ck(/level-gated side-quest route/.test(PAGES.links.html), "level plan source documented");
 
   console.log("=== live vs local ===");
   try {
