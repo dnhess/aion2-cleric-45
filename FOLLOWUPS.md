@@ -48,6 +48,37 @@ Worth confirming in-game before trusting any of the above.
 
 ---
 
+## 29 Sep 2026 — "Should I go past +5 on the belt?" — the +5 rule needed a scope
+
+Fallen Clocks asked whether to go past +5 on the belt. **The answer is yes — and his question exposed that two adjacent rows on the page appeared to contradict each other.**
+
+The +5 rule never stated **which gear it covered**, and the belt row sat immediately below it calling the belt the exception. Two rules side by side, one apparently negating the other, with no scope on either. The page was technically correct and practically ambiguous.
+
+### The answer
+
+**Yes, go past +5 on the belt.** The +5 stop is a rule about **gear you replace 4–5 times**. The belt and amulet are **never replaced**, so they are the one place Kinah is not wasted. The belt's ladder runs **in tens, not fives**:
+
+**+10 → Substance Morph to the next grade → +10 again → repeat to gold → stop.**
+
+So "stop at +5" never applied to the belt at all. **The belt's first stop is +10.**
+
+### What changed
+
+- **Start's +5 row now names its scope:** "weapon, armor, accessories and guard", and says it covers everything except the two pieces below.
+- **The belt row leads with the direct answer** ("Go past +5") rather than describing itself as an exception — he asked in +5 terms, so the answer should be in +5 terms.
+- **New Start row "Their +5 is 10"** states plainly that the belt ladder is in tens.
+- **At 45** says "before anything else — and past +5".
+- **Both Stats tabs' Leveling rows** now read "to +5 only — not the belt or amulet" with the +10/morph exception explained, because that row was quoting the number with no context at all.
+
+### The generalisable lesson
+
+**A rule that names a number should name the gear it applies to.** "Stop at +5" is not a rule without its scope — it is half a rule, and the half it omits is exactly what he needs when he is looking at the belt. He asked the question the page created. **When a rule has an exception, the rule must state its own boundary rather than relying on the exception sitting nearby.**
+
+Four of my own assertions were checking the previous wording of the belt row and were rewritten. New assertions now verify that the +5 rule states its scope, that **no unscoped "+5 only" row remains anywhere**, and that both Stats tabs carry the caveat — so a future edit cannot quietly re-introduce the ambiguity.
+
+248 checks pass against the deployed bytes.
+
+
 ## 29 Sep 2026 — How to open the enhancement menu, and a third source on the belt/amulet rule
 
 Fallen Clocks asked how to open the enchant menu. The page said "the button is in the enhancement window, bottom right" but **never said how to reach that window** — another gap, and a basic one, since the page tells him to enhance things.
