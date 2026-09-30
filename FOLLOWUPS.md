@@ -48,6 +48,35 @@ Worth confirming in-game before trusting any of the above.
 
 ---
 
+## 29 Sep 2026 — "How do I upgrade my belt and amulet to yellow?" — and the naming problem underneath it
+
+**The mechanism, two steps repeated:** enhance to **+10** → **Substance Morph** up one grade → enhance the new one to **+10** again → repeat.
+
+**The menu path, which the page never had:** **Menu → Substance Morph, or `Alt`+`H`.** It lists what you can morph into, with the ones you already have materials for at the top; required materials on the right, success chance in the middle. Belt and amulet morphs are **high chance or 100%**.
+
+**The thing that makes the ladder confusing, and that no source said plainly:** a morph **returns the piece at +0 of the new grade.** It does not carry your enhancement. That is why the +10 gets redone at every rung, and why the process looks longer than it is.
+
+### The naming problem, handled rather than papered over
+
+Three sources name these grades three different ways:
+
+- **Fextralife:** the belt/amulet chain is **Rare → Epic → Unique**.
+- **KanonXO's doc:** writes **Yellow/Unique** and **Orange/Heroic**.
+- **Players (and Fallen Clocks):** green, blue, yellow, gold.
+
+**No source maps colour to grade name for the belt and amulet**, so the page declines to guess one — and says so, rather than inventing a mapping that would look authoritative.
+
+It also explains why the gap does not matter: **every rung is the same two steps.** So the actionable answer for a green belt is "enhance to +10 and morph, repeat until the icon stops changing" — a **stop condition stated in a colour-free way**, since the icon is the ground truth and the names are not.
+
+This also prompted removing the word "gold" from Systems' stop condition in favour of "top grade" — the page should not lean on a colour name it cannot source. Console-grade naming is now consistent with the caveat.
+
+### Fourth question in a row of the same shape
+
+The page had the ladder and the reasoning; what it lacked was **the path to the action** (no menu route for morphing) and **the one mechanic that makes the ladder confusing** (the +0 reset). Same pattern as the last three: not missing facts, missing the disambiguating detail.
+
+266 checks pass against the deployed bytes.
+
+
 ## 29 Sep 2026 — "Do I open the energy cube from the Krao I had to do during the quest?"
 
 **No — kill the boss and skip the cube.** But the question exposed a trap worth fixing: **two different dungeons share the name Krao.**
