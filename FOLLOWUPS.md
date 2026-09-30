@@ -48,6 +48,44 @@ Worth confirming in-game before trusting any of the above.
 
 ---
 
+## 29 Sep 2026 — Level plan tab from a Discord screenshot
+
+Fallen Clocks sent a screenshot of a level-by-level side-quest list, shared in Discord by someone called **EARL** at 04:58. No link, no other attribution. It is now a class-agnostic **Level plan** tab (hotkey `N`) in the While you level nav group.
+
+### What the list actually is
+
+Not a second route — a *level-gated side-quest schedule*. 21 lines, 1–45. The structural insight, which the list never states and is easy to miss while transcribing it:
+
+**It deliberately accepts side quests before it can finish them.** At 14 you pick the 2nd side quest and explicitly do not complete it, because the MSQ walks you back past the turn-in at 17. Same at 18: take the 3rd side quest plus two more in the main quest area, then finish all three at 20 ("Practice Makes Perfect", "Creion Research Assistant", "The great curse breaking caper"). You are banking quests whose completion you will pass through anyway.
+
+That is why this is a separate tab rather than merged into the phases checklist — the map route tells you where to walk, this tells you what to accept and when to hand in. Merging two checklists would have broken both.
+
+### Cross-checked every line against phases 1–5
+
+**Five independent anchors agree**, which is what puts this above the other unattributed material on the page:
+
+- Ascension quests at **22 and 32** — fits the route's existing note that an Ascension bar gates the MSQ, and the Prep tab's explanation of the same system.
+- The 2-part side quest in **Nornir Assembly** at 27–31 — same location and level band as the route's first-rune detour.
+- **Teleport to Abandoned Site at 31** — exact match to the route's "Teleport to Abandoned Site → local side quest → Rune 1". Independent confirmation of a step that was previously single-sourced.
+- **Kumrica's Cellar at 42** — the route's kisk list already contains "kisk Kumrica's Cellar". This names the side quest sitting there.
+- **Story-only from 33** — the route says "From 33 on: 100% MSQ except the rune detour below"; this says main story 33–42 and 42–45.
+
+### Four mismatches recorded, not resolved
+
+- **Nornir chain name.** The route calls it the "Hugo Mercs pt.2 chain"; this calls it "An invitation to the Past: Part I". Same location, same window, so almost certainly the same chain under two names — but someone hunting by name should try both. Recorded that way.
+- **Level 33.** The route's only 33 detour is the 2nd rune via Hugo Mercs pt.3 in Briskwind Shelter after the 3rd Ascension. This list adds "Finders keepers" and "Traveling merchant" at the Graverobber campsite. Whether that is the same stop or an extra one cannot be determined from either source, so the tab says so rather than picking.
+- **Healing spring.** "Teleport to healing spring" at 31 is new — not on the route. Added, since it sits immediately before the Abandoned Site step.
+- **Early greens.** Levels 12, 14, 17, 18 and 20 are level-gated here; the route leaves early greens unnamed beyond "only the ones this route lists".
+
+Quest names preserved verbatim from the screenshot, including the inconsistent capitalisation in "The great curse breaking caper" and "Finders keepers".
+
+### Process
+
+**Recurring mistake worth naming:** I twice tried to add a tab's nav row, hotkey and key hint to `pages.js`. All three live in `index.html` — only the page objects are in `pages.js`. A tab addition always spans both files, so a single-file edit script will silently match nothing. Split the script per file and run it against each.
+
+173 checks pass against the deployed bytes.
+
+
 ## 29 Sep 2026 — KanonXO's progression doc: Systems tab, specialty model resolved, boards corrected
 
 Fallen Clocks found a large Google Doc and asked to link it and use it. It is **KanonXO's** Aion 2 PvE progression guide — ~10,400 words, last updated 20 Sep 2026, written for Korea with global flags he sets himself. Credentials: ~1k hours, cleared everything including the pinnacle raids, just under 900k combat power on a Brawler. Lower CP than the 1M+ players already on the page, but far more systems detail, and the only source that publishes the damage formula.
