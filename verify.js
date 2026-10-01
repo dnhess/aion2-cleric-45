@@ -464,6 +464,19 @@ function get(url) {
   ck(/\["cubes","Dungeon cubes"\]/.test(localHtmlStr), "nav includes the cubes tab");
   ck(/e\.key === "e"[^}]*"cubes"/.test(localHtmlStr), "hotkey E -> cubes");
   ck(/<kbd>E<\/kbd> cubes/.test(localHtmlStr), "key hint shows E");
+  // expedition vs conquest — the tier taxonomy
+  ck(/<h2>Expedition vs Conquest<\/h2>/.test(cb.html), "cubes defines expedition vs conquest");
+  ck(/Not alternatives — they are different levels of the same thing/.test(cb.html), "states they are not alternatives");
+  ck(/Six-player PvE instances, and the core of the endgame dungeon progression/.test(cb.html), "Expedition defined");
+  ck(/Every expedition runs in one of two tiers: Exploration or Conquest/.test(cb.html), "the two tiers stated");
+  ck(/Conquest comes as Normal, Advanced or Hard, depending on the dungeon/.test(cb.html), "Conquest sub-modes stated");
+  ck(/Hard mode is reportedly not in at global launch/.test(cb.html), "launch Hard-mode caveat flagged");
+  ck(/That is one source, so confirm in the instance menu/.test(cb.html), "single-source caveat disclosed");
+  ck(/Transcendence is a separate dungeon, not an expedition difficulty/.test(cb.html), "Transcendence distinguished from tiers");
+  ck(/Run the <strong>Conquest<\/strong> tier of <strong>Vakron Sky Island<\/strong>/.test(cb.html), "answers his 1400 question directly");
+  ck(/It is not "expeditions or conquest"/.test(cb.html), "names his framing and corrects it");
+  ck(/Exploration runs pay bound currency; Conquest runs pay unbound/.test(cb.html), "bound vs unbound currency noted");
+  ck(/aion2\.fandom\.com\/wiki\/Dungeons/.test(PAGES.links.html), "Fandom dungeons cited");
 
   console.log("=== inline script integrity ===");
   const scr = localHtmlStr.match(/<script>\n([\s\S]*?)<\/script>\s*<\/body>/);
