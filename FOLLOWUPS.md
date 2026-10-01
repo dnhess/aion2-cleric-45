@@ -48,6 +48,41 @@ Worth confirming in-game before trusting any of the above.
 
 ---
 
+## 1 Oct 2026 — "Have I messed up? I claimed the guaranteed chest piece early"
+
+**No.** And the fact he asked is the page's fault: it said "hold the pick" at Ferris **without ever explaining why**, which reads as scarcity.
+
+### The actual mechanic
+
+**Nothing is consumed globally.** Opening the end box three times gives one pick **from that dungeon's own loot table**, so taking it at one dungeon does not spend anything at another. The worst case is that he chose a slot conquest would later have filled anyway.
+
+**Why Ferris says hold, stated properly now:** holding lets you take **the piece you are missing** once you have seen what conquest dropped. It is about **choosing better, not saving a resource.** Claiming early costs **information, not energy**.
+
+Both rows are on the Cubes tab. This is the **sixth** question in the same pattern — the page had the instruction and not the reason, so the instruction read as a rule with a hidden cost.
+
+### Two corrections found while verifying
+
+**1. The page said "six-player PvE instances."** mmoexp says **five** on global against **four** in Korea; Fandom says six. **Recorded as disputed rather than picking a side** — I had taken Fandom's number straight and put it on the page yesterday without a second source.
+
+**2. The star ranking was missing entirely**, and it matters for his next steps:
+
+- **1-star:** Krao Cave, Draupnir
+- **2-star:** Urugugu Canyon, Vakron Sky Island
+- **3-star:** Fire Temple, Ferocious Horn Den
+
+**On global you cannot skip the one-star step** the way Korea could — Krao and Draupnir have to raise item level before the two-star dungeons open. That is a material difference from the KR route and the page did not say it.
+
+Also added where loot comes from: an **Odyle Energy Cube** at the end, with **each boss in Conquest holding its own chance at gear** — so a full three-boss clear has the best odds, and a one-boss run trades drop quality for speed.
+
+Sources: mmoexp's Season 1 PvE guide and ExpCarry's dungeons guide added to Sources. ExpCarry flags its own numbers as **test-client values, not verified retail**, which is now noted.
+
+### Process
+
+One of my own assertions was asserting the very wording I corrected ("Six-player PvE instances") — that is what surfaced the unverified claim, so the assertion was kept and updated rather than loosened. And I caught myself asserting a **mmoexp citation on Sources that I had not actually added**, in the same batch. Both were real failures, not test noise.
+
+320 checks pass against the deployed bytes.
+
+
 ## 1 Oct 2026 — "I hit 1400 gear score. Do I do expeditions or conquest?"
 
 **Answer: the Conquest tier of Vakron Sky Island.** They are not alternatives, and his framing exposed a definition the page had never written down.
