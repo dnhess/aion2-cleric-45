@@ -48,6 +48,39 @@ Worth confirming in-game before trusting any of the above.
 
 ---
 
+## 1 Oct 2026 — "I hit 1400 gear score. Do I do expeditions or conquest?"
+
+**Answer: the Conquest tier of Vakron Sky Island.** They are not alternatives, and his framing exposed a definition the page had never written down.
+
+### The terminology, now on the Cubes tab
+
+**Expedition is the dungeon.** Six-player PvE instances, the core of the endgame dungeon progression — and the same menu you unlock at 22 to start banking Odyle. So "expedition" is the activity, not a difficulty.
+
+**Each expedition runs in one of two tiers: Exploration or Conquest.**
+
+- **Exploration** — the easy mode, the version the MSQ walks you through while leveling.
+- **Conquest** — the real one, with **Normal / Advanced / Hard** variants depending on the dungeon.
+
+So the real question is "which expedition, and which tier of it" — at 1,400 that is **Vakron Sky Island on Conquest**: claim the end box three times, 120 Odyle, take the chest piece.
+
+**Also recorded:** Transcendence is a **separate dungeon, not an expedition difficulty** — staged rather than tiered, and where Arcana cards come from. The old ladder listed it inline with the dungeons, which made it read as though it were on the same axis.
+
+### Two facts worth having while standing in the instance menu
+
+- **Hard mode Conquest is reportedly not in at global launch.** Single source (mmoexp), so it is flagged as such on the page rather than stated flat.
+- **Exploration runs pay bound currency; Conquest runs pay unbound.** So running Conquest on an alt is a practical way to move resources to the main — **a second reason the alt plan pays**, beyond banking Odyle. That is a new fact, not a restatement.
+
+Sources: **Fandom's Dungeons page** states the tier structure plainly; **Game8's difficulty page** confirms Conquest is for stronger parties with toggles per dungeon. Both added to Sources.
+
+### Why this is my error, not his confusion
+
+The Cubes tab already said "Conquest, not Exploration" and the At 45 tab said "Expedition list. Costs Odyle" — so the page used **expedition** as an umbrella in one place and as a peer of conquest in another, and never defined either. **He asked a question the page's own inconsistent vocabulary created.**
+
+This is the same failure mode as the belt and the +5 rule, and it is now the **fifth** instance: not a missing fact, a missing definition. The check that would have caught it: *when two words on the page are used as both category and member, define the category before using either.*
+
+302 checks pass against the deployed bytes. (The launch-day global watch had already been patched and pushed by the cron job; this edit sits on top of it.)
+
+
 ## 29 Sep 2026 — "Lay out when I need to claim the cubes from dungeons"
 
 The answer existed but was **split across four tabs** — Start, At 45, the Launch plan and Systems — with no single view. It now has a class-agnostic **Dungeon cubes** tab (hotkey `E`, "At cap" group).
