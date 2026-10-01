@@ -467,7 +467,7 @@ function get(url) {
   // expedition vs conquest — the tier taxonomy
   ck(/<h2>Expedition vs Conquest<\/h2>/.test(cb.html), "cubes defines expedition vs conquest");
   ck(/Not alternatives — they are different levels of the same thing/.test(cb.html), "states they are not alternatives");
-  ck(/Six-player PvE instances, and the core of the endgame dungeon progression/.test(cb.html), "Expedition defined");
+  ck(/Group PvE instances, and the core of the endgame dungeon progression/.test(cb.html), "Expedition defined");
   ck(/Every expedition runs in one of two tiers: Exploration or Conquest/.test(cb.html), "the two tiers stated");
   ck(/Conquest comes as Normal, Advanced or Hard, depending on the dungeon/.test(cb.html), "Conquest sub-modes stated");
   ck(/Hard mode is reportedly not in at global launch/.test(cb.html), "launch Hard-mode caveat flagged");
@@ -477,6 +477,26 @@ function get(url) {
   ck(/It is not "expeditions or conquest"/.test(cb.html), "names his framing and corrects it");
   ck(/Exploration runs pay bound currency; Conquest runs pay unbound/.test(cb.html), "bound vs unbound currency noted");
   ck(/aion2\.fandom\.com\/wiki\/Dungeons/.test(PAGES.links.html), "Fandom dungeons cited");
+  // claiming a guaranteed pick early — the anxiety this section had to answer
+  ck(/Claiming a pick early<\/span><span class="do">Not a disaster/.test(cb.html), "reassurance row present");
+  ck(/The guarantee belongs to the dungeon, not to you/.test(cb.html), "explains the guarantee is per-dungeon");
+  ck(/one pick <em>from that dungeon's own loot table<\/em>/.test(cb.html), "ties the pick to that dungeon's table");
+  ck(/does not spend anything at another/.test(cb.html), "states nothing is consumed across dungeons");
+  ck(/Nothing is consumed globally and nothing is unrecoverable/.test(cb.html), "explicit no-harm statement");
+  ck(/Why hold it then<\/span><span class="do">Because holding lets you choose the slot you are missing/.test(cb.html), "explains why the hold exists");
+  ck(/It is about choosing better, not about saving a scarce resource/.test(cb.html), "reframes hold as choice not scarcity");
+  ck(/you just have less information than you would have had/.test(cb.html), "states the real cost of claiming early");
+  // new structural facts
+  ck(/Ranked by stars, and the rank is the difficulty band/.test(cb.html), "star bands stated");
+  ck(/1-star<\/strong> Krao Cave and Draupnir/.test(cb.html), "1-star dungeons named");
+  ck(/2-star<\/strong> Urugugu Canyon and Vakron Sky Island/.test(cb.html), "2-star dungeons named");
+  ck(/3-star<\/strong> Fire Temple and Ferocious Horn Den/.test(cb.html), "3-star dungeons named");
+  ck(/cannot skip the one-star step the way some did in Korea/.test(cb.html), "the no-skip rule stated");
+  ck(/An Odyle Energy Cube at the end/.test(cb.html), "reward cube source stated");
+  ck(/Each boss you killed in Conquest has its own chance at gear/.test(cb.html), "per-boss drop chance stated");
+  ck(/Party size is disputed/.test(cb.html), "party-size conflict flagged rather than picked");
+  ck(!/Six-player PvE instances/.test(localPagesStr), "unverified six-player claim removed");
+  ck(/mmoexp\.com\/News\/aion-2-global-season-1-pve/.test(PAGES.links.html), "mmoexp cited for the structure");
 
   console.log("=== inline script integrity ===");
   const scr = localHtmlStr.match(/<script>\n([\s\S]*?)<\/script>\s*<\/body>/);
