@@ -630,3 +630,22 @@ the server, schedule and pre-download facts are all global notices.
 
 Open items 1-5 above still stand (item 5's "newest post" line is superseded: newest is now 28 Sep). Item 6
 stands: Pages only updates on commit+push.
+## 1 Oct 2026 global-watch check — patched and pushed
+
+Source churn, normalized: the five Codex articles are byte-identical to the 29 Sep check. The Failure Guild doc moved 314 bytes again — image re-encode; a text export still shows only the unchanged level 1-45 route, phases 1-5. Both Questlog hashes moved with identical byte counts (Cloudflare churn), and the Skill Builder builds still resolve and still read Global. The PlayNC list moved for real: about twenty notices landed on 30 Sep, launch day.
+
+What changed on global, all from NC’s own notices, none of it KR/TW:
+
+- Servers were added as regions filled. NA West got Nezekan/Zikel (30 Sep 20:11), NA East got Vaizel/Triniel (17:51), and EU got Fregion/Ereshkigal (12:15), Yustiel/Marchutan (10:30) and Meslamtaeda/Beritra (19:09). The page said NA West has one pair off the 28 Sep notice, which is now false: NA West has two pairs and NA East has three.
+- Launch Rewards (30 Sep 14:00): the pre-registration and Steam wishlist rewards are extended to everyone who creates an account and logs in before maintenance on 1 Dec, 11:30 PM PT. Mail expires 8 Dec.
+- Early Access Queue Time Compensation (30 Sep 13:16): one Appearance Change Voucher for long queues.
+- Jump Into Advanced Access Now! (30 Sep 10:00): Founder’s Packs stop selling 5 Oct, 8:00 AM PDT — the last chance to buy into advanced access.
+- Launch FAQ: no progress carries over from TW/KR; Steam and PURPLE share servers; controller play works but is not officially supported; server locations are North America, South America, Europe and Japan.
+
+Patched pages.js: Server row rewritten for the launch-day additions; new Free rewards row on Start; new Cutoff row on the shop tab; Queue row now carries the compensation voucher; new Fresh start row on the Do not copy Korea tab; that tab’s checked date moved 29 Sep to 1 Oct; two new notice links on Sources.
+
+Name collision worth remembering: NC named EU servers after characters the Daevanion boards are also named after, so Marchutan, Yustiel, Triniel and Vaizel now mean two different things on this page. The Server row says so.
+
+Nothing KR/TW-only was added. Open items 1-6 stand, except that item 5’s newest-post line is superseded (newest is now 30 Sep).
+
+Method: web_extract worked this run (no Firecrawl 402). No browser on this host, so the site was verified with node verify.js against the deployed bytes; every content check passes and the live byte-identity check is re-run after the push.
