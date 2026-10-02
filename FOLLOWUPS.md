@@ -48,6 +48,41 @@ Worth confirming in-game before trusting any of the above.
 
 ---
 
+## 2 Oct 2026 — "What do I do after 1800 gear score"
+
+He is standing in the one band the page never described. The gear-score table went **1200–1600 → 1600–2200 → 2400+** with no steps in between, and the Transcendence ladder was **wrong for global**.
+
+### The correction
+
+**Global shifts Transcendence down one stage, and the page had it off by one:**
+
+- **Stage 1 entry is 1,600 on global**, not 1,900 — and global stage 1 pays what Korea pays at stage 2: **green and grey cards.** Because all five card slots are empty before this, it is the **single biggest jump in the ladder.**
+- **Stage 2 at 1,900** (Korea's stage 3) gives **blue** cards plus the blue bell, chalice parchment and mirror. The page said stage 2 gave **green** cards — that would have sent him to the wrong dungeon for the wrong reward.
+
+### The band he is actually in, 1,800–1,900
+
+- **Roll manastones on every piece.** Not perfect rolls — a few each, one blue and one green line, worth **~6–7 item level per piece.** Across a set that is the difference between 1,800 and 2,100. Do it even on gear he will replace, because it is what opens the tier-three dungeon.
+- **Craft weapon and accessories first, armour last** — most damage stats per material.
+- **Alts feed the craft:** wrathful minds from conquest runs, transferable through server storage when unbound. **~700 item level is enough for Krao Cave and Draupnir on global; 1,400 opens Urugugu and Vakron.**
+- **Nightmare** at the highest difficulty he can clear, take **pets**, route the **Daevanion crystals into the PvE board.**
+- **2,100 → Ferocious Horn Den** (tier three, best non-crafted gear in Season 1).
+- **Past 2,200, stop treating gear score as the objective** and switch to combat power — gear score mostly exists to open doors.
+
+### Two source-quality decisions
+
+**The mmoexp KR guide was rejected as a source for this**, despite ranking well: it is dated **February 2026** and references **level 55/57 gear and "level 50+"**, neither of which exists on global (cap 45). Its gates are therefore KR/TW. Its *structure* was useful for finding the right questions; its numbers are not on the page.
+
+**The row that said 2,200/2,700/2,800 was "disputed, single source" now records corroboration** — a second independent global guide published the same sequence. And the **2,100 vs 2,200** question (Ferocious Horn Den entry against the tier-three unlock) is recorded as **two numbers side by side** rather than averaged into a wrong one.
+
+### Process
+
+**My own assertions failed first and the page was correct** — I aimed 15 new checks at the Systems tab when the bands table is in the **At-45** tab and the ladder is in the **Cubes** tab. Worth remembering: check which tab a row actually lives in before writing an assertion against it, or the failure looks like a content bug. I also caught one assertion calling an undefined helper (`mmoexpNote()`) before it could throw.
+
+**Transcripts:** the fetch script needs `--with youtube-transcript-api` under `uv run` — a plain `uv pip install` reports success but the script still cannot import it. And **inline `python3 -c` with a regex hits the approval timeout** on this host; write the script to a file and run it by path.
+
+354 checks pass against the deployed bytes.
+
+
 ## 2 Oct 2026 — "What's the best way to get manastones after doing all quests"
 
 The page explained how manastones **work** — which slot, what grades, how rolling resolves, what survives a transfer — and never said **where to get them**. Seventh question in the same shape.
