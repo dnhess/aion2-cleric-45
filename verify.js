@@ -498,6 +498,22 @@ function get(url) {
   ck(!/Six-player PvE instances/.test(localPagesStr), "unverified six-player claim removed");
   ck(/mmoexp\.com\/News\/aion-2-global-season-1-pve/.test(PAGES.links.html), "mmoexp cited for the structure");
 
+  console.log("=== manastone acquisition ===");
+  ck(/<h2>Getting manastones after the quests run out<\/h2>/.test(sys.html), "acquisition section exists");
+  ck(/5 Lesser Manastone → 1 Intermediate at Alchemy 20/.test(sys.html), "Intermediate recipe stated");
+  ck(/30 Intermediate \+ Spiritstone Powder \+ ink → 1 Superior at Alchemy 85/.test(sys.html), "Superior recipe stated");
+  ck(/Content hands out the <em>Bound<\/em> stones/.test(sys.html), "bound vs tradable split stated");
+  ck(/cube rewards are bound to the character, direct boss drops are not/.test(sys.html), "cube vs boss drop binding stated");
+  ck(/Three runs a week, per character — and each one can pay stones/.test(sys.html), "Ascension Trial per-character point");
+  ck(/every alt is another three chances a week/.test(sys.html), "alt multiplier stated");
+  ck(/Repeated clears pay stones without looting anything/.test(sys.html), "achievement route stated");
+  ck(/leave the cube unopened — the clear counts toward the achievement/.test(sys.html), "explains skipping the cube");
+  ck(/Buy them with the Kinah your alts make/.test(sys.html), "market route stated");
+  ck(/Superior rolls Rare 50% \/ Epic 35% \/ Unique 15%/.test(sys.html), "Superior grade odds stated");
+  ck(/a yellow Damage Boost is a 0\.5% roll on it/.test(sys.html), "the rarity of a chased line is stated");
+  ck(/wikily\.gg\/aion-2\/manastones\//.test(PAGES.links.html), "wikily cited");
+  ck(/r\/Aion2\/comments\/1ph35ho/.test(PAGES.links.html), "the cube-vs-drop thread cited");
+
   console.log("=== inline script integrity ===");
   const scr = localHtmlStr.match(/<script>\n([\s\S]*?)<\/script>\s*<\/body>/);
   ck(!!scr, "inline script block located");
