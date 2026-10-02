@@ -48,6 +48,40 @@ Worth confirming in-game before trusting any of the above.
 
 ---
 
+## 2 Oct 2026 — "What's the best way to get manastones after doing all quests"
+
+The page explained how manastones **work** — which slot, what grades, how rolling resolves, what survives a transfer — and never said **where to get them**. Seventh question in the same shape.
+
+### The answer
+
+**The reliable tap is Alchemy.** Manastones are craftable, and the ladder is explicit:
+
+- **5× Lesser Manastone → 1× Intermediate** at Alchemy **20**
+- **30× Intermediate + Spiritstone Powder + ink → 1× Superior** at Alchemy **85**
+
+So Alchemy is worth levelling for stone supply alone, whatever class he plays. This is the first thing on the page that makes Alchemy worth anything to a Cleric or Chanter, since the class-specific crafts are Handicraft and Blacksmithing.
+
+**Bound vs tradable — the distinction that unlocks the question.** Content hands out the **(Bound)** stones: quests, expeditions, Sanctuary, achievements, Daeva Pass, chests, Ascension Trials. **Crafting** makes the **tradable** ones. Identical shape to dungeon loot, where cube rewards bind to the character and direct boss drops do not.
+
+**Ascension Trial is 3 runs a week per character.** Nightmare Altar and Sanctum of Loathing, four difficulties each, and each can pay stones. Per character, not per server — so every alt is another three chances a week. That is the strongest argument yet for his alt plan, and it is independent of the Odyle argument.
+
+**Achievement rewards pay stones on repeated clears with no cube opened.** There are achievements for exploration clears on Krao Cave, Urugugu, Fire Temple and Draupnir, plus "Filled with Manastone" I and II. **That is why players finish a Conquest run and walk off without looting** — the clear counts, the cube spends energy. Two replies in the thread gave this independently, one saying plainly "they are grinding achievements".
+
+**The market works, funded by alt Kinah.** Crafted stones are tradable, and Superiors get expensive precisely because that is where everyone's demand lands.
+
+**Grade odds, so he knows what he is buying:** Superior rolls Rare 50% / Epic 35% / Unique 15%. A yellow Damage Bonus on a Superior stone is a **0.5%** roll. Expect to spend a **stack**, not a stone.
+
+### Sources
+
+**wikily** has all 19 stones with per-item sources and the Alchemy recipes, and flags which are tradable. An **r/Aion2** thread supplied the bound-versus-tradable rule.
+
+### Caveat recorded rather than papered over
+
+wikily only has written source pages for the **(Bound)** variants; the unbound ones list Alchemy as their only source. That is consistent with content→bound and crafting→tradable, but "the unbound ones never drop" is an **inference from absence**, not a confirmed negative. The page states the split and does not claim drops never happen.
+
+334 checks pass against the deployed bytes.
+
+
 ## 1 Oct 2026 — "Have I messed up? I claimed the guaranteed chest piece early"
 
 **No.** And the fact he asked is the page's fault: it said "hold the pick" at Ferris **without ever explaining why**, which reads as scarcity.
