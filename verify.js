@@ -451,7 +451,7 @@ function get(url) {
   ck(/Story dungeons at 45/.test(cb.html), "story dungeons at 45 covered");
   ck(/the one timer that cannot wait/.test(cb.html), "explains why cubes differ from weeklies");
   // the ladder must be in ascending gear-score order
-  const marks = ["45 · 1000", "1400 · Vakron", "1900 · Transcendence 2", "2100 · Ferris", "Then · Gnevakum", "Stage 4", "2400+"];
+  const marks = ["45 · 1000", "1400 · Vakron", "1600 · Transcendence 1", "1900 · Transcendence 2", "2100 · Ferris", "Then · Gnevakum", "Stage 4", "2400+"];
   const idx = marks.map(m => cb.html.indexOf(m));
   ck(idx.every(i => i > -1), "every ladder rung present" + (idx.some(i => i < 0) ? " (missing one)" : ""));
   ck(idx.every((v, i) => i === 0 || v > idx[i - 1]), "ladder rungs are in ascending order");
@@ -513,6 +513,29 @@ function get(url) {
   ck(/a yellow Damage Boost is a 0\.5% roll on it/.test(sys.html), "the rarity of a chased line is stated");
   ck(/wikily\.gg\/aion-2\/manastones\//.test(PAGES.links.html), "wikily cited");
   ck(/r\/Aion2\/comments\/1ph35ho/.test(PAGES.links.html), "the cube-vs-drop thread cited");
+
+  console.log("=== global gear-score bands ===");
+  // these rows live in the At-45 tab (`af`), not Systems; the ladder row is in `cb`
+  ck(/Transcendence stage 1 \u2014 green and grey Arcana cards/.test(cb.html), "stage 1 = green cards");
+  ck(/On global stage 1 sits at 1,600 and pays what stage 2 pays in Korea/.test(cb.html), "the global one-stage shift is stated");
+  ck(/Transcendence stage 2 \u2014 blue Arcana cards/.test(cb.html), "stage 2 = blue cards");
+  ck(/Equivalent to stage 3 in Korea/.test(cb.html), "stage 2 equivalence named");
+  ck(/roll manastones on <em>every<\/em> piece/.test(af), "manastone band stated");
+  ck(/6\u20137 item level per piece/.test(af), "the manastone item-level value stated");
+  ck(/Weapon and accessories first\. Armour last\./.test(af), "craft order stated");
+  ck(/without replacing the piece/.test(af), "global craft-transfer change stated");
+  ck(/Conquest drops transfer to the main if they are unbound/.test(af), "alt feeding route stated");
+  ck(/roughly 700 item level is enough for Krao Cave and Draupnir/.test(af), "alt entry thresholds stated");
+  ck(/best non-crafted gear in Season 1/.test(af), "Ferocious Horn Den described");
+  ck(/Past 2,200 the advice is to switch focus to combat power/.test(af), "the shift-to-power advice stated");
+  ck(/Highest difficulty you can clear, and take pets/.test(af), "nightmare advice stated");
+  ck(/Daevanion crystals it pays should go into the PvE board/.test(af), "crystal routing stated");
+  ck(/Two independent global guides now agree on the top of the ladder/.test(af), "corroboration recorded");
+  ck(!/Higher thresholds are not settled/.test(localPagesStr), "the stale single-source caveat is gone");
+  ck(/Ferocious Horn Den entry is 2,100; tier three conquest is 2,200/.test(af), "the 2100/2200 split recorded side by side");
+  ck(/zaTPBotP5ZI/.test(PAGES.links.html), "12-steps guide cited");
+  ck(/hOyoQ_OXdWE/.test(PAGES.links.html), "2200 guide cited");
+  ck(/recorded off the global play test before launch/.test(PAGES.links.html), "playtest provenance disclosed");
 
   console.log("=== inline script integrity ===");
   const scr = localHtmlStr.match(/<script>\n([\s\S]*?)<\/script>\s*<\/body>/);
