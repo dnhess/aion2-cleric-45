@@ -537,6 +537,14 @@ function get(url) {
   ck(/hOyoQ_OXdWE/.test(PAGES.links.html), "2200 guide cited");
   ck(/recorded off the global play test before launch/.test(PAGES.links.html), "playtest provenance disclosed");
 
+  console.log("=== 3 Oct launch-window additions ===");
+  ck(/Advanced Access Known Issues/.test(af), "the 2 Oct known-issues notice cited");
+  ck(/Do not open the Duty tab before level 45/.test(af), "the pre-45 Duty-tab lockout warned");
+  ck(/Watch a War For Atreia stream before Sun Oct 4/.test(pp), "Twitch Drops campaign 1 deadline stated");
+  ck(/Korea and Taiwan are not eligible/.test(pp), "drops flagged global-only vs KR/TW");
+  ck(/do not re-link through the NC site/.test(pp), "the linking footgun warned");
+  ck(/Hithanya for Elyos and Nemon for Asmodian/.test(pp), "the 2 Oct EU server pair recorded");
+
   console.log("=== inline script integrity ===");
   const scr = localHtmlStr.match(/<script>\n([\s\S]*?)<\/script>\s*<\/body>/);
   ck(!!scr, "inline script block located");

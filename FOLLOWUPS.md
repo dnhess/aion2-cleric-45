@@ -786,3 +786,22 @@ Name collision worth remembering: NC named EU servers after characters the Daeva
 Nothing KR/TW-only was added. Open items 1-6 stand, except that item 5’s newest-post line is superseded (newest is now 30 Sep).
 
 Method: web_extract worked this run (no Firecrawl 402). No browser on this host, so the site was verified with node verify.js against the deployed bytes; every content check passes and the live byte-identity check is re-run after the push.
+
+## 3 Oct 2026 global-watch check — patched and pushed
+
+Source churn, normalized: the five Codex articles are byte-identical to the 2 Oct check. The Failure Guild doc moved 302 bytes again with no text change — stripped to text it is 22,835 bytes, sha256 9a70198fbb728d0faf727f5fd0dcd945b196a0dd0ccc598f8078cb1141d01335 (image re-encode is the standing cause, and this hash is the new baseline for future runs). Both Questlog hashes moved with identical byte counts (Cloudflare token churn): the Skill Builder still resolves and still reads Global, and the Character Builder link still 404s, which the page already says. The PlayNC notice list moved for real: two new posts on 2 Oct plus a known-issues post dated 3 Oct.
+
+What changed on global, all from NC’s own notices:
+
+- "Advanced Access Known Issues (Updated: 10/2)" — the load-bearing line: opening the Duty tab on the map before level 45 leaves Duties unavailable when you do reach 45, until the next day. The other entry is a cosmetic English title bug (Vanguard of Atreia displays as Shaper of Heavens). The companion tells you to run Duties at 45, so it was walking into this one.
+- "Twitch Drops: War For Atreia" (posted 2 Oct 15:00): three campaigns — Oct 2–4, Oct 7–9, Oct 12–14. Campaign 1 pays on watch time: 30 min Appearance Change Voucher, 1 h 10 Soul Codex, 2 h 10 Resurrection Spiritstone, 4 h 10 Mysterious Pet Chest. The Drops FAQ states rewards are Global-server only and Korea/Taiwan players are not eligible.
+- "Twitch Drops Account Linking Guide" (2 Oct 01:27): link the account you actually play on — Steam for Steam, NC/PURPLE for PURPLE — and do not re-link through the NC website, which can unlink the existing connection and leave you unable to reach your existing character.
+- "New Servers Opening (Europe)" (2 Oct 05:10): EU added Hithanya (Elyos) / Nemon (Asmodian), 03:00 PDT / 12:00 CEST.
+
+Patched pages.js: two new rows on the prep Clock (Twitch drops, Twitch link), the Server row now carries the 2 Oct EU pair, one new row beside Duties in the At-45 "Where it comes from" list for the pre-45 Duty-tab lockout, and the Do-not-copy-Korea checked date moved 1 Oct to 3 Oct. Six new verify.js checks in a "3 Oct launch-window additions" section.
+
+Nothing KR/TW-only was added. The drops are explicitly global-only (their own FAQ excludes Korea and Taiwan) and the Duty-tab lockout is a global client issue, so neither is a KR/TW system difference to avoid.
+
+Open items 4-6 stand; item 5’s newest-post line moves to 3 Oct.
+
+Method: web_extract worked for every PlayNC article this run, no renderer needed.
