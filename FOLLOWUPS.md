@@ -805,3 +805,18 @@ Nothing KR/TW-only was added. The drops are explicitly global-only (their own FA
 Open items 4-6 stand; item 5’s newest-post line moves to 3 Oct.
 
 Method: web_extract worked for every PlayNC article this run, no renderer needed.
+
+## 4 Oct 2026 global-watch check — patched and pushed
+
+Source churn, normalized: the five Codex articles are byte-identical to the 3 Oct check. The Failure Guild doc moved 931 bytes, and stripped to text it is byte-identical to yesterday’s strip (same text sha256 8c2c05bc…), so it is another image re-encode. Both Questlog hashes moved with identical byte counts (Cloudflare token churn): the Skill Builder still resolves and both Cleric builds still read Global, and the Character Builder link still 404s — which the page already says. The PlayNC list moved for real: one new post, 3 Oct 11:43.
+
+What changed on global, from NC’s own notice, none of it KR/TW:
+
+- “Founder’s Packs Cosmetics Soon Available On All Characters” (3 Oct 11:43): the pack title, the Deluxe/Ultimate armor and weapon skins, and the Ultimate pet and wings become usable on every character on the account, on any server. Excluded and still one-time: the 30-day membership, the Daeva’s Campaign Supply Chest and the Daeva’s Styling Chest. Implementation lands after Early Access ends, several days out, with a follow-up post on the mechanics.
+- Same notice, the upgrade route: on PURPLE you upgrade the pack you own to a higher tier; on Steam you buy the higher tier on the same account and ask Customer Support to refund the lower-priced pack. That route only matters until packs stop selling Mon Oct 5, 8:00 AM PDT.
+
+Patched pages.js: the $50/$100 why-line now points at the new route, two new shop rows (Cosmetics, Upgrade), the Do-not-copy-Korea checked date moved 3 Oct to 4 Oct, and one new notice link on Sources. Seven new verify.js checks in a “4 Oct launch-window additions” section. index.html untouched.
+
+Nothing KR/TW-only was added — account-wide pack cosmetics and the tier-upgrade route are global-client decisions, not a KR/TW system difference to avoid.
+
+Open items 4-6 stand; item 5’s newest-post line moves to 3 Oct.

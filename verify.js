@@ -545,6 +545,14 @@ function get(url) {
   ck(/do not re-link through the NC site/.test(pp), "the linking footgun warned");
   ck(/Hithanya for Elyos and Nemon for Asmodian/.test(pp), "the 2 Oct EU server pair recorded");
 
+  console.log("=== 4 Oct launch-window additions ===");
+  ck(/Pack outfits go account-wide after Early Access/.test(PAGES.shop.html), "account-wide cosmetics change stated");
+  ck(/every character on your account, on any server/.test(PAGES.shop.html), "all-characters and all-servers scope stated");
+  ck(/Styling Chest are excluded and stay one-time/.test(PAGES.shop.html), "the excluded one-time items named");
+  ck(/upgrade the pack you own to a higher tier/.test(PAGES.shop.html), "PURPLE upgrade route stated");
+  ck(/refund the lower-priced pack/.test(PAGES.shop.html), "Steam refund route stated");
+  ck(/Checked 4 Oct 2026/.test(PAGES.watch.html), "the Korea tab checked date moved to 4 Oct");
+  ck(/6ac1229d5657e135c2f5ef65/.test(PAGES.links.html), "the 3 Oct notice linked on Sources");
   console.log("=== inline script integrity ===");
   const scr = localHtmlStr.match(/<script>\n([\s\S]*?)<\/script>\s*<\/body>/);
   ck(!!scr, "inline script block located");
