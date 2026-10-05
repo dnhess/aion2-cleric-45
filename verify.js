@@ -540,7 +540,7 @@ function get(url) {
   console.log("=== 3 Oct launch-window additions ===");
   ck(/Advanced Access Known Issues/.test(af), "the 2 Oct known-issues notice cited");
   ck(/Do not open the Duty tab before level 45/.test(af), "the pre-45 Duty-tab lockout warned");
-  ck(/Watch a War For Atreia stream before Sun Oct 4/.test(pp), "Twitch Drops campaign 1 deadline stated");
+  ck(/Campaign 2, the launch one, runs now to Fri Oct 16/.test(pp), "Twitch Drops campaign 2 window stated");
   ck(/Korea and Taiwan are not eligible/.test(pp), "drops flagged global-only vs KR/TW");
   ck(/do not re-link through the NC site/.test(pp), "the linking footgun warned");
   ck(/Hithanya for Elyos and Nemon for Asmodian/.test(pp), "the 2 Oct EU server pair recorded");
@@ -553,6 +553,21 @@ function get(url) {
   ck(/refund the lower-priced pack/.test(PAGES.shop.html), "Steam refund route stated");
   ck(/Checked 4 Oct 2026/.test(PAGES.watch.html), "the Korea tab checked date moved to 4 Oct");
   ck(/6ac1229d5657e135c2f5ef65/.test(PAGES.links.html), "the 3 Oct notice linked on Sources");
+
+  console.log("=== 5 Oct launch-window additions ===");
+  ck(/TAKEFLIGHTAION2/.test(pp), "coupon code on the Prep clock");
+  ck(/Settings \u2192 Miscellaneous \u2192 Account \u2192 Enter Coupon/.test(pp), "coupon redemption path stated");
+  ck(/13 Oct, 11:00 PM PDT/.test(pp), "coupon expiry stated");
+  ck(/one redemption per account/.test(pp), "one-per-account limit stated");
+  ck(/5\u201316 Oct|5\u2013 16 Oct|launch half \(5\u201316 Oct\)/.test(pp), "launch-half drops window stated");
+  ck(/Adorable Young Elim/.test(pp), "launch drops reward named");
+  ck(/before 30 Oct, 11:59 PM PDT/.test(pp), "drop claim deadline stated");
+  ck(/The launch line-up is official: EU 9 pairs, NA East 5, NA West 3, LATAM 4, ASIA 3/.test(pp), "4 Oct launch server counts stated");
+  ck(/Transfers start 14 Oct/.test(pp), "14 Oct server transfer date stated");
+  ck(/Hithanya for Elyos and Nemon for Asmodian/.test(pp), "the 2 Oct EU server pair kept");
+  ck(/five-player party/.test(PAGES.links.html), "party size resolved to five from NC's own notice");
+  ck(/1845383656379223/.test(PAGES.links.html), "the coupon post linked on Sources");
+  ck(/6ac10581a279104f7d9d5f4c/.test(PAGES.links.html), "the 4 Oct launch line-up notice linked on Sources");
   console.log("=== inline script integrity ===");
   const scr = localHtmlStr.match(/<script>\n([\s\S]*?)<\/script>\s*<\/body>/);
   ck(!!scr, "inline script block located");
