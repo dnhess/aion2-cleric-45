@@ -820,3 +820,25 @@ Patched pages.js: the $50/$100 why-line now points at the new route, two new sho
 Nothing KR/TW-only was added — account-wide pack cosmetics and the tier-upgrade route are global-client decisions, not a KR/TW system difference to avoid.
 
 Open items 4-6 stand; item 5’s newest-post line moves to 3 Oct.
+
+## 5 Oct 2026 global-watch check — patched and pushed
+
+Source churn: the four Codex articles are byte-identical to the 4 Oct check. Questlog's two builder URLs moved to 16,491 bytes each and both extract to the same mrrosapony planner shell listing the Cleric PvE and Cleric PvP builds, both tagged Global; the character-builder page itself still answers that the character does not exist, which the Sources tab already records. The Failure Guild doc moved 86 bytes and was not re-read this run — nothing in it was reported as changed. The real change was the PlayNC notice board (+2,154 bytes): a launch-day thanks post plus the notices the page had not yet absorbed.
+
+What changed on global, in NC's own words, none of it KR/TW:
+
+- Coupon TAKEFLIGHTAION2 ("A Thank You Gift to all Daevas!", 30 Sep): Odyle Energy x4, Resurrection Spiritstone x5, Battle Enhance Scroll x10, redeemed at Settings > Miscellaneous > Account > Enter Coupon. All servers, one redemption per account, items bound. Ends 13 Oct 11:00 PM PDT, EU 14 Oct 08:00 CEST. The page had no coupon row at all.
+- Server transfer (Steam, 30 Sep): transfers open 14 Oct, free at first, same faction only, and Early Access characters will be restricted to Early Access servers. The page said only "transfers open later".
+- Launch server line-up ("New Server and Matchmaking Information", 4 Oct): the advanced-access servers stay open and are labelled as such, and a separate launch list opens with commercial launch — EU 9 pairs, NA East 5, NA West 3, LATAM 4, ASIA 3. That corrects the page's "NA East now runs three pairs", which was true of advanced access only. Watch the spellings: the two 4 Oct notices render the same three servers as Tahavatha/Tahabata, Ludra/Rudra and Kasaka/Kasika.
+- Twitch Drops ("Global Twitch Drops", 30 Sep): one event in two halves — advanced access 30 Sep-4 Oct (over) and global launch 5-16 Oct on any AION 2 channel, 1 h Odyle Energy x4 through 10 h Adorable Young Elim, claimed before 30 Oct 23:59 PDT. The page still carried only the campaign 1 deadline.
+- Maintenance (4 Oct) closes a page-level open question: some bosses were retuned for being "too low for the intended difficulty of a five-player party", so the Fandom-versus-mmoexp five/six disagreement leans to five. NC is a primary source here, not a third-party guide.
+
+Patched pages.js: a new Coupon row on the prep Clock, the Twitch drops row rewritten for the launch half, the Server row rebuilt on the 4 Oct notice (launch pairs plus the 14 Oct transfer rules), the Dungeon-tiers why-line updated with NC's five-player wording, and four new links on Sources. verify.js gained a "5 Oct launch-window additions" claim block; node verify.js is green and the deployed pages.js is byte-identical to local.
+
+Nothing KR/TW-only was added. The launch line-up, transfers, drops and the coupon are all global-service facts.
+
+The 5 Oct "Thank you Daevas!" post is image-only in Steam, on PlayNC and in the dbaion2 mirror, so it carries no fact to record, and no new code appeared with it.
+
+Open items 4-6 stand; item 5's newest-post line moves to 5 Oct.
+
+Method: web_extract worked for every PlayNC article; Steam's ISteamNews API supplied the announcement bodies, since the PlayNC board pages only render the images.
