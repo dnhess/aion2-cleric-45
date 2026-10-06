@@ -842,3 +842,24 @@ The 5 Oct "Thank you Daevas!" post is image-only in Steam, on PlayNC and in the 
 Open items 4-6 stand; item 5's newest-post line moves to 5 Oct.
 
 Method: web_extract worked for every PlayNC article; Steam's ISteamNews API supplied the announcement bodies, since the PlayNC board pages only render the images.
+
+## 6 Oct 2026 global-watch check — patched and pushed
+
+Source churn: the five Codex articles are byte-identical to the 5 Oct check. The Failure Guild doc moved 327 bytes and its stripped text carries no Ludra or launch content at all, so it is the standing image re-encode, not an edit. Both Questlog URLs moved from 16,491 to 16,600 bytes: the Skill Builder still resolves and still lists the two Cleric builds tagged Global, and the Character Builder link still 404s, which the Sources tab already records. The real change was the PlayNC notice board (36,811 to 40,838 bytes): eight posts the page had not absorbed.
+
+What changed on global, in NC’s own words, none of it KR/TW:
+
+- “AION 2 Will Launch On Time” (5 Oct 08:50): global launch went live as scheduled at 6:00 AM PDT / 15:00 CEST. The page’s launch row still read as a future date sourced from the Steam listing; it now reads live and cites NC.
+- “Update on Sanctuary Raid” (5 Oct 08:40): Sanctuary Raid: Ludra is “temporarily removed with the full launch build” while the encounter is reworked, and global gets new and adjusted mechanics and attack patterns. Ludra-specific Early Access gear is removed with it and will be granted back to whoever earned it, with the materials spent upgrading it reimbursed; a new First Clear event follows with the in-game Hall of Fame reset, and the new release date is promised by 16 Oct. This is the material one — the gear-score ladder pointed at 2,700-2,800 for Ludra and the systems tab said the bracelet comes from Ludra. Both now carry the caveat. Korea and Taiwan still run the old fight, so current Ludra guides describe their build, not global’s.
+- “Customization Voucher to All Players” (5 Oct 14:24): a free Customization Voucher (Bound) to every player, used at ESC › Closet. Cosmetic only.
+- “Graphics Card Giveaway” (5 Oct 15:00): one Nvidia GeForce RTX 5080 via a Gleam page, entries 5 Oct to 12 Oct 23:59 PDT (EU clock ends 13 Oct 08:59 CEST), United States/Canada/Europe excluding Belgium, Netherlands, Serbia, Slovakia, Italy and Portugal; an hour on Steam is +10 entries.
+- Milestones: “Thank you for 300,000 Active Players!”, “Thank you for 400,000 Active Players” and “Thank you Daevas!” appear on the board as recognition posts with no mechanic, so nothing was recorded from them.
+- “[Notice] Server Matchmaking Information (Asia)” (5 Oct 09:35): the Asia pairing list, which agrees with the launch line-up already on the page (Siel/Israphel, Kaisinel/Lumiel, Yustiel/Marchutan, Ariel/Azphel and so on). No change needed.
+
+Patched pages.js: the Prep Clock launch row rewritten as live and on time, a new “Ludra pulled” row on the Clock, a Voucher row and an RTX draw row after the Coupon row, the 2200→2800 gear row and the systems Accessories row given the Ludra caveat, the Do-not-copy-Korea checked date moved 4 Oct to 6 Oct, and four new links on Sources. verify.js gained a “6 Oct launch-window additions” block and its checked-date assertion moved to 6 Oct. index.html untouched. node verify.js is green apart from the pre-push live check, which is re-run after the push.
+
+Nothing KR/TW-only was added. The Ludra pull is a global-build decision, and the voucher and the draw are global-service facts.
+
+Open items 1-6 stand; item 5’s newest-post line moves to 5 Oct.
+
+Method: web_extract worked for every PlayNC article this run; no browser on the host, so the site was verified with node verify.js.

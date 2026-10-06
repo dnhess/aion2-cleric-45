@@ -551,7 +551,7 @@ function get(url) {
   ck(/Styling Chest are excluded and stay one-time/.test(PAGES.shop.html), "the excluded one-time items named");
   ck(/upgrade the pack you own to a higher tier/.test(PAGES.shop.html), "PURPLE upgrade route stated");
   ck(/refund the lower-priced pack/.test(PAGES.shop.html), "Steam refund route stated");
-  ck(/Checked 4 Oct 2026/.test(PAGES.watch.html), "the Korea tab checked date moved to 4 Oct");
+  ck(/Checked 6 Oct 2026/.test(PAGES.watch.html), "the Korea tab checked date moved to 6 Oct");
   ck(/6ac1229d5657e135c2f5ef65/.test(PAGES.links.html), "the 3 Oct notice linked on Sources");
 
   console.log("=== 5 Oct launch-window additions ===");
@@ -568,6 +568,21 @@ function get(url) {
   ck(/five-player party/.test(PAGES.links.html), "party size resolved to five from NC's own notice");
   ck(/1845383656379223/.test(PAGES.links.html), "the coupon post linked on Sources");
   ck(/6ac10581a279104f7d9d5f4c/.test(PAGES.links.html), "the 4 Oct launch line-up notice linked on Sources");
+  console.log("=== 6 Oct launch-window additions ===");
+  ck(/Live now \u2014 it opened Mon Oct 5/.test(pp), "launch recorded as live and on time");
+  ck(/15:00 CEST/.test(pp), "the 5 Oct on-time notice cited");
+  ck(/Ludra is out of the launch build/.test(pp), "Ludra removal from the launch build stated");
+  ck(/temporarily removed with the full launch build/.test(pp), "NC wording on the Ludra removal quoted");
+  ck(/share Ludra\u2019s new release date by 16 Oct/.test(pp), "the 16 Oct Ludra date commitment recorded");
+  ck(/Korea and Taiwan still run the old fight/.test(pp), "Ludra flagged as a KR/TW difference");
+  ck(/Customization Voucher \(Bound\)/.test(pp), "customization voucher gift stated");
+  ck(/Nvidia GeForce RTX 5080/.test(pp), "graphics card giveaway stated");
+  ck(/excluding Belgium, Netherlands, Serbia, Slovakia, Italy and Portugal/.test(pp), "giveaway eligibility limits stated");
+  ck(/Ludra itself is out of the global launch build/.test(af), "gear-score ladder notes Ludra is unavailable");
+  ck(/the bracelet waits for its return/.test(PAGES.systems.html), "accessory row notes the Ludra pull");
+  ck(/6ac39140d97eae18cc40e294/.test(PAGES.links.html), "the 5 Oct Ludra notice linked on Sources");
+  ck(/6ac39cf8fa34c1011d627a85/.test(PAGES.links.html), "the 5 Oct on-time notice linked on Sources");
+  ck(/6ac3eb6e9ed1202b9b8fb5b8/.test(PAGES.links.html), "the 5 Oct voucher notice linked on Sources");
   console.log("=== inline script integrity ===");
   const scr = localHtmlStr.match(/<script>\n([\s\S]*?)<\/script>\s*<\/body>/);
   ck(!!scr, "inline script block located");
