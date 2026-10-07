@@ -551,7 +551,7 @@ function get(url) {
   ck(/Styling Chest are excluded and stay one-time/.test(PAGES.shop.html), "the excluded one-time items named");
   ck(/upgrade the pack you own to a higher tier/.test(PAGES.shop.html), "PURPLE upgrade route stated");
   ck(/refund the lower-priced pack/.test(PAGES.shop.html), "Steam refund route stated");
-  ck(/Checked 6 Oct 2026/.test(PAGES.watch.html), "the Korea tab checked date moved to 6 Oct");
+  ck(/Checked 7 Oct 2026/.test(PAGES.watch.html), "the Korea tab checked date moved to 7 Oct");
   ck(/6ac1229d5657e135c2f5ef65/.test(PAGES.links.html), "the 3 Oct notice linked on Sources");
 
   console.log("=== 5 Oct launch-window additions ===");
@@ -583,6 +583,14 @@ function get(url) {
   ck(/6ac39140d97eae18cc40e294/.test(PAGES.links.html), "the 5 Oct Ludra notice linked on Sources");
   ck(/6ac39cf8fa34c1011d627a85/.test(PAGES.links.html), "the 5 Oct on-time notice linked on Sources");
   ck(/6ac3eb6e9ed1202b9b8fb5b8/.test(PAGES.links.html), "the 5 Oct voucher notice linked on Sources");
+  console.log("=== 7 Oct launch-window additions ===");
+  ck(/Weekly down/.test(pp), "the weekly maintenance window is on the Prep clock");
+  ck(/Tue 11:30 PM PDT · Wed 8:30 AM CEST, 3 h 30 m/.test(pp), "the weekly maintenance window stated");
+  ck(/3 h 30 m for NA and EU, 5 h 30 m on the ASIA servers/.test(pp), "the ASIA maintenance duration stated");
+  ck(/upgrades the Wednesday reset from a likely cadence to NC\u2019s own/.test(pp), "the reset day is now NC-sourced, not inferred");
+  ck(/NC\u2019s own weekly maintenance now lands on that boundary/.test(af), "the Weekly row cites NC notice");
+  ck(/confirmed rather than likely/.test(af), "the Reset row no longer hedges");
+  ck(/6ac6a4c0fa34c1011d627a96/.test(PAGES.links.html), "the 6 Oct maintenance notice linked on Sources");
   console.log("=== inline script integrity ===");
   const scr = localHtmlStr.match(/<script>\n([\s\S]*?)<\/script>\s*<\/body>/);
   ck(!!scr, "inline script block located");

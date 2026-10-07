@@ -863,3 +863,21 @@ Nothing KR/TW-only was added. The Ludra pull is a global-build decision, and the
 Open items 1-6 stand; item 5’s newest-post line moves to 5 Oct.
 
 Method: web_extract worked for every PlayNC article this run; no browser on the host, so the site was verified with node verify.js.
+
+## 7 Oct 2026 global-watch check — patched and pushed
+
+Source churn: the five Codex articles are byte-identical to the 6 Oct check. The Failure Guild doc moved 43 bytes (37,960,983 → 37,961,026) and its stripped text is the same guide with the same image placeholders, so it is the standing image re-encode, not an edit. Both Questlog URLs moved from 16,600 to 17,150 bytes: the Skill Builder still resolves and still lists the two Cleric builds tagged Global (mrrosapony PvE and PvP), and the Character Builder link still answers that the character does not exist, which the Sources tab already records. The real change was the PlayNC notice board: one new post.
+
+What changed on global, in NC’s own words, none of it KR/TW:
+
+- “[Notice] Maintenance | Oct. 6 (PDT) / Oct. 7 (CEST)” (7 Oct): NC’s first weekly maintenance since launch, and the notice itself calls it the weekly scheduled game server maintenance. When: October 6, 2026 at 23:30 PDT / October 7, 2026 at 8h30 CEST. Duration 3 h 30 m, and 5 h 30 m on the ASIA servers. Affected service: game servers — login is unavailable throughout. Update details promised later, and the Updates board still reads “No registered posts”, so there are no patch notes yet.
+- The board re-pinned “Information on Server Transfer” (30 Sep) beside the New Server and Matchmaking notice. Its text is unchanged from what the page already carries: transfers from 14 Oct, same faction only, Early Access characters restricted to Early Access servers, free at first.
+- “Launch Into AION 2 Now!” (5 Oct 09:00) is a launch-day congratulation post that only re-links earlier notices, so it carries no fact to record.
+
+Patched pages.js: a new “Weekly down” row on the Prep clock (Tue 11:30 PM PDT · Wed 8:30 AM CEST, 3 h 30 m against 5 h 30 m on ASIA), the At-45 “Weekly” row why-line citing NC’s notice for the Wednesday boundary, the At-45 “Reset” row upgraded from “likely cadence” to confirmed, the Korea tab check date moved 6 Oct to 7 Oct, and one new link on Sources. index.html untouched. verify.js gained a “7 Oct launch-window additions” claim block and its checked-date assertion moved to 7 Oct. node verify.js is green (400 checks) apart from the pre-push live check, which is re-run after the push.
+
+Nothing KR/TW-only was added. The weekly maintenance is a global-service fact; the only regional split in it is the longer ASIA window, which is not KR/TW.
+
+Open items 1-6 stand; item 5’s newest-post line moves to 7 Oct.
+
+Method: web_extract worked for the notice list, the maintenance notice, the transfer notice, the Launch Into post and the Updates board this run; no browser on the host, so the site was verified with node verify.js.
