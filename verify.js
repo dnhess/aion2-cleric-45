@@ -551,7 +551,7 @@ function get(url) {
   ck(/Styling Chest are excluded and stay one-time/.test(PAGES.shop.html), "the excluded one-time items named");
   ck(/upgrade the pack you own to a higher tier/.test(PAGES.shop.html), "PURPLE upgrade route stated");
   ck(/refund the lower-priced pack/.test(PAGES.shop.html), "Steam refund route stated");
-  ck(/Checked 7 Oct 2026/.test(PAGES.watch.html), "the Korea tab checked date moved to 7 Oct");
+  ck(/Checked 8 Oct 2026/.test(PAGES.watch.html), "the Korea tab checked date moved to 8 Oct");
   ck(/6ac1229d5657e135c2f5ef65/.test(PAGES.links.html), "the 3 Oct notice linked on Sources");
 
   console.log("=== 5 Oct launch-window additions ===");
@@ -591,6 +591,16 @@ function get(url) {
   ck(/NC\u2019s own weekly maintenance now lands on that boundary/.test(af), "the Weekly row cites NC notice");
   ck(/confirmed rather than likely/.test(af), "the Reset row no longer hedges");
   ck(/6ac6a4c0fa34c1011d627a96/.test(PAGES.links.html), "the 6 Oct maintenance notice linked on Sources");
+  console.log("=== 8 Oct launch-window additions ===");
+  ck(/The first weekly patch shipped with the 6 Oct maintenance/.test(pp), "the first weekly patch recorded on the Prep clock");
+  ck(/pack skins, titles and other items are usable on other characters and servers/.test(pp), "the pack cross-character change stated on the clock");
+  ck(/20-morph-per-server weekly cap on turning Sealed Wings into Enhance Stones/.test(pp), "the morph cap stated on the clock");
+  ck(/A weekly limit of 20 Morphs per server will be added to the Substance Morph formula/.test(PAGES.systems.html), "the patch-note wording for the morph cap quoted");
+  ck(/Founder\u2019s-Pack-dedicated Shop matches your pack tier/.test(PAGES.shop.html), "the free pack-dedicated shop recorded");
+  ck(/until NC issues a closure notice/.test(PAGES.shop.html), "the pack shop window recorded as open-ended");
+  ck(/Resurrection Spiritstone \(Season 1\) there at 25,000 Kinah/.test(af), "the Kinah resurrection spiritstone recorded");
+  ck(/6ac5e6e8d97eae18cc40e34e/.test(PAGES.links.html), "the first patch notes linked on Sources");
+  ck(/Checked 8 Oct 2026/.test(PAGES.watch.html), "the Korea tab checked date moved to 8 Oct");
   console.log("=== inline script integrity ===");
   const scr = localHtmlStr.match(/<script>\n([\s\S]*?)<\/script>\s*<\/body>/);
   ck(!!scr, "inline script block located");

@@ -881,3 +881,29 @@ Nothing KR/TW-only was added. The weekly maintenance is a global-service fact; t
 Open items 1-6 stand; item 5’s newest-post line moves to 7 Oct.
 
 Method: web_extract worked for the notice list, the maintenance notice, the transfer notice, the Launch Into post and the Updates board this run; no browser on the host, so the site was verified with node verify.js.
+
+## 8 Oct 2026 global-watch check — patched and pushed
+
+Source churn: the five Codex articles are byte-identical to the 7 Oct check. The Failure Guild doc moved 329 bytes (37,961,026 → 37,961,355) and its stripped text is the same guide with the same image placeholders, so it is the standing image re-encode, not an edit. Both Questlog URLs moved from 17,150 to 17,036 bytes: the Skill Builder still resolves and still lists the two Cleric builds tagged Global (mrrosapony PvE and PvP), and the Character Builder link still answers that the character does not exist, which the Sources tab already records. The PlayNC notice board moved 40,838 → 41,017 bytes with no new post — the change is the 6 Oct maintenance notice retitled with “(Completed)”. The real change is on the Updates board, which the monitor does not track: it no longer reads “No registered posts”. NC published “[Notice] Patch Notes | Oct. 6 (PDT) / Oct. 7 (CEST)”, timestamped 2026-10-07 02:30.
+
+One methodological note: the monitor’s hashes changed for every monitored URL this run, including the five byte-identical Codex pages, so the hash alone is not a content signal — the byte sizes are.
+
+What changed on global, in NC’s own words, none of it KR/TW:
+
+- Founder’s Pack items go cross-character: “Founder’s Pack purchasers will be able to use Skins, Titles, and other items on other characters and servers.” The patch adds a free Founder’s-Pack-dedicated Shop that hands a purchaser the tier items they do not yet own, open “for all characters on all servers until a closure notice is issued”, with duplicate skins excluded from the paid-skin purchase limit. This is the completion of the 3 Oct notice the Shop tab already carried; the free shop is the new fact.
+- “A weekly limit of 20 Morphs per server will be added to the Substance Morph formula for morphing Sealed Wings into Enhance Stones.” A new global ceiling on Enhance Stone supply, which the Systems tab already calls the bottleneck.
+- New Kina item on the Wind Breeze special tab: Resurrection Spiritstone (Season 1), 25,000 Kina, “Limited to 10 purchases per server per week”, on sale from the 6 Oct maintenance through before the 15 Dec maintenance.
+- Higher Raw Leather drop rates in Chaotic Lower Reshanta, Verteron and Altgard.
+- Fixes: map pins now cap at 30 and display correctly, the Asmodian weekly “Daeva of Glorious Deeds” mission can be completed, and duplicated Movement Controls options and broken chat emote commands are fixed.
+
+One caution: the maintenance notice footer still links a “Maintenance is over, welcome back” post (articleId 6ac61f286b722c561dc6aa7f) that returns NC’s 404 page and does not appear on the board, so nothing on the page is built on it. The completion flag used instead is the retitled notice.
+
+
+Patched pages.js: a new “Patch 1” row on the Prep clock, a new “Morph cap” row in the Systems Enhancement section quoting NC, a new “Pack shop” row on the Shop tab, the Cosmetics why-line now records that the change shipped with the 6 Oct maintenance, the At-45 Shop row now carries the Kinah resurrection spiritstone, the Korea tab checked date moved 7 Oct to 8 Oct, and two new links on Sources (the first patch notes and the Updates board). index.html untouched. verify.js gained a “8 Oct launch-window additions” block and its checked-date assertion moved to 8 Oct. node verify.js is green (409 checks) apart from the pre-push live check, which is re-run after the push.
+
+Nothing KR/TW-only was added. The Founder’s Pack is a global-only system, so the new pack rows are safe by construction; the morph cap, the Kinah item and the drop-rate change are global-service facts.
+
+Open items 1-6 stand; item 5’s newest-post line moves to 8 Oct.
+
+Method: web_extract worked for the notice list, the Updates board, the patch notes and the maintenance notice this run; no browser on the host, so the site was verified with node verify.js.
+
