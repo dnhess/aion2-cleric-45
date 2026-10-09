@@ -907,3 +907,22 @@ Open items 1-6 stand; item 5’s newest-post line moves to 8 Oct.
 
 Method: web_extract worked for the notice list, the Updates board, the patch notes and the maintenance notice this run; no browser on the host, so the site was verified with node verify.js.
 
+
+## 9 Oct 2026 global-watch check — patched and pushed
+
+Source churn: the five Codex articles are byte-identical to the 8 Oct check (same hashes, same sizes). Both Questlog URLs moved 17,036 → 17,150 bytes — the standing app-shell churn, not an edit: the Skill Builder still resolves and still lists the two Cleric builds tagged Global (mrrosapony PvE and PvP), and the Character Builder link still answers that the character does not exist, which the Sources tab already records. The Failure Guild doc moved 37,961,355 → 37,960,842 bytes with the same stripped text and the same image placeholders, so it is the standing image re-encode. The real change was the PlayNC notice board, 41,017 → 41,196 bytes, with a run of new posts all posted 8 Oct, after the 8 Oct morning check.
+
+What changed on global, in NC’s own words, none of it KR/TW:
+
+- “New Servers Opening (Europe)” (8 Oct 11:00): NC opened a tenth EU pair, Elyos Nathara / Asmodian Tassin, from 09:00 PDT / 18:00 CEST. It repeats that transfers come later and that all instanced content including dungeons is available cross-server. The page’s Server row said “EU 9 pairs”, so the count moved to 10.
+- “[Notice] Temporary Maintenance | Oct 8 PDT / Oct 9 CEST” (8 Oct 09:00): a second maintenance in week one, all services offline 1.5 hours from Oct 8 23:30 PDT / Oct 9 8:30 CEST for what NC calls server stabilization. Its one gameplay change: the Flight Power of the four quest wings is up 500 each, 2,000 in total — Daeva’s Lesser Wings 2,000 → 2,500, and the Intermediate, Superior and Ultimate wings 500 → 1,000 each.
+- “[Notice] EU servers affected by cloud service outage (Oct 8)” (8 Oct 06:30) and “October 8 EU Service Outage Compensation” (8 Oct 13:11): a cloud outage hit 21 named EU servers (Elyos Nezekan, Kaisinel, Ariel, Meslamtaeda, Nania, Luteros, Daminu, Bakarma, Kochi, Tiamat; Asmodian Zikel, Lumiel, Azphel, Beritra, Ulgorn, Odar, Kromede, Baba, Fafnir, Agnita, Atiel), resolved the same day, with 1 day of membership and 1 day of pet auto loot for actives plus a Special Daeva Supply chest (20 Life Crystal, 10 Resurrection Spiritstone, 20 Battle Enhance Scroll, 5 Content Usage Ticket Selection Chest, 5 Odyle Energy). Left off the page on purpose: it is EU-region and transient, and an NA player cannot receive it.
+- The Updates board still lists only the 6 Oct patch notes, so there is no second patch.
+
+Patched pages.js: the Server row count moved 9 → 10 pairs with the new EU pair named in its why-line, a new “Temp down” row on the Prep clock for the 8 Oct temporary maintenance and the wing Flight Power change, the Korea tab checked date moved 8 Oct → 9 Oct, and two new links on Sources (the temporary-maintenance notice and the new-EU-servers notice). index.html untouched. verify.js: the 4 Oct server-count assertion narrowed to the non-EU end, both checked-date assertions moved to 9 Oct, and a new “9 Oct launch-window additions” block added. node verify.js is green — 416 checks, the live Pages check included after the push.
+
+Nothing KR/TW-only was added. The new EU servers and the wing buff are global-service facts.
+
+Open items 1–6 stand; item 5’s newest-post line moves to 9 Oct.
+
+Method: web_extract worked for the notice list, all four 8 Oct notices and the Updates board this run; no browser on the host, so the site was verified with node verify.js.
