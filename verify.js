@@ -551,7 +551,7 @@ function get(url) {
   ck(/Styling Chest are excluded and stay one-time/.test(PAGES.shop.html), "the excluded one-time items named");
   ck(/upgrade the pack you own to a higher tier/.test(PAGES.shop.html), "PURPLE upgrade route stated");
   ck(/refund the lower-priced pack/.test(PAGES.shop.html), "Steam refund route stated");
-  ck(/Checked 8 Oct 2026/.test(PAGES.watch.html), "the Korea tab checked date moved to 8 Oct");
+  ck(/Checked 9 Oct 2026/.test(PAGES.watch.html), "the Korea tab checked date moved to 9 Oct");
   ck(/6ac1229d5657e135c2f5ef65/.test(PAGES.links.html), "the 3 Oct notice linked on Sources");
 
   console.log("=== 5 Oct launch-window additions ===");
@@ -562,7 +562,7 @@ function get(url) {
   ck(/5\u201316 Oct|5\u2013 16 Oct|launch half \(5\u201316 Oct\)/.test(pp), "launch-half drops window stated");
   ck(/Adorable Young Elim/.test(pp), "launch drops reward named");
   ck(/before 30 Oct, 11:59 PM PDT/.test(pp), "drop claim deadline stated");
-  ck(/The launch line-up is official: EU 9 pairs, NA East 5, NA West 3, LATAM 4, ASIA 3/.test(pp), "4 Oct launch server counts stated");
+  ck(/NA East 5, NA West 3, LATAM 4, ASIA 3/.test(pp), "the 4 Oct launch server counts are intact (EU count refreshed 9 Oct)");
   ck(/Transfers start 14 Oct/.test(pp), "14 Oct server transfer date stated");
   ck(/Hithanya for Elyos and Nemon for Asmodian/.test(pp), "the 2 Oct EU server pair kept");
   ck(/five-player party/.test(PAGES.links.html), "party size resolved to five from NC's own notice");
@@ -600,7 +600,14 @@ function get(url) {
   ck(/until NC issues a closure notice/.test(PAGES.shop.html), "the pack shop window recorded as open-ended");
   ck(/Resurrection Spiritstone \(Season 1\) there at 25,000 Kinah/.test(af), "the Kinah resurrection spiritstone recorded");
   ck(/6ac5e6e8d97eae18cc40e34e/.test(PAGES.links.html), "the first patch notes linked on Sources");
-  ck(/Checked 8 Oct 2026/.test(PAGES.watch.html), "the Korea tab checked date moved to 8 Oct");
+  ck(/Checked 9 Oct 2026/.test(PAGES.watch.html), "the Korea tab checked date moved to 9 Oct");
+  console.log("=== 9 Oct launch-window additions ===");
+  ck(/EU 10 pairs, NA East 5, NA West 3, LATAM 4, ASIA 3/.test(pp), "the EU pair count moved to 10 after the 8 Oct opening");
+  ck(/Elyos Nathara and Asmodian Tassin/.test(pp), "the new EU pair named on the clock");
+  ck(/A second maintenance landed on Oct 8/.test(pp), "the temporary maintenance recorded on the clock");
+  ck(/Flight Power of the four quest wings by 500 each/.test(pp), "the wing flight-power change stated");
+  ck(/6ac7475738eb0528f90021b1/.test(PAGES.links.html), "the 8 Oct temporary-maintenance notice linked on Sources");
+  ck(/6ac7aff0fa34c1011d627b88/.test(PAGES.links.html), "the 8 Oct new-EU-servers notice linked on Sources");
   console.log("=== inline script integrity ===");
   const scr = localHtmlStr.match(/<script>\n([\s\S]*?)<\/script>\s*<\/body>/);
   ck(!!scr, "inline script block located");
